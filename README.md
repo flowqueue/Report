@@ -368,3 +368,32 @@ Estas validan si FlowQueue funciona como negocio y aporta valor a las institucio
 | **6. Resultados (Outcomes)** | **Resultados esperados:** Reducción del tiempo de espera presencial, mejora en la experiencia del ciudadano, mayor organización del flujo de atención y mejor capacidad de supervisión institucional. <br> **KPIs:** Tiempo promedio de espera, cantidad de tickets generados, porcentaje de usuarios atendidos a tiempo, nivel de satisfacción del usuario, frecuencia de uso del sistema y número de sedes activas. |
 | **7. Experimentos** | Pruebas de usabilidad con usuarios potenciales, validación del flujo de generación de ticket virtual, simulación del monitoreo de cola en tiempo real, pruebas del dashboard administrativo, evaluación del módulo de métricas y encuestas para comprobar que el MVP cubre las necesidades esenciales de ciudadanos, personal administrativo y supervisores. |
 | **8. MVP (Producto Mínimo Viable)** | Registro e inicio de sesión, selección de entidad o sede, selección de trámite, generación de ticket virtual, visualización de posición en la cola, tiempo estimado de atención, notificaciones previas, dashboard administrativo para gestionar turnos y panel básico de métricas para supervisión. |
+
+### 1.3. Segmentos objetivo
+
+#### Segmento objetivo 1: Ciudadanos usuarios de servicios públicos
+Este segmento está conformado por personas que acuden a entidades públicas del Estado para realizar trámites, consultas, pagos o solicitudes. Incluye jóvenes, adultos y adultos mayores, generalmente entre los 18 y 65 años, residentes en zonas urbanas, que valoran la rapidez, el orden y la previsibilidad en la atención. Muchos de ellos utilizan teléfonos móviles y servicios digitales básicos, por lo que podrían adaptarse a una solución web que les permita gestionar su turno sin permanecer físicamente en una cola por largos periodos.
+
+**Sus principales necesidades son:**
+- reducir el tiempo de espera,
+- evitar aglomeraciones,
+- conocer con claridad cuándo serán atendidos,
+- y tener una experiencia más ordenada y menos estresante.
+
+#### Segmento objetivo 2: Personal administrativo de atención
+Este segmento incluye a los trabajadores responsables de organizar la atención al público dentro de las instituciones estatales. Suelen desempeñar funciones vinculadas con recepción, orientación, asignación de turnos y control del flujo de usuarios. Requieren herramientas que les permitan visualizar la cola en tiempo real, priorizar casos cuando corresponda y mantener un mayor control operativo.
+
+**Sus necesidades principales son:**
+- organizar de forma eficiente el flujo de usuarios,
+- reducir el desorden en la atención,
+- mejorar la distribución de turnos,
+- y contar con información útil para tomar decisiones operativas.
+
+#### Segmento objetivo 3: Responsables o administradores de sede
+Este segmento agrupa a supervisores o encargados de una sede o área de atención. Tienen interés en monitorear indicadores de tiempo de espera, volumen de usuarios y desempeño del servicio. Buscan soluciones que no solo ayuden a ordenar la atención, sino que también generen datos para evaluar mejoras en la operación.
+
+**Sus principales necesidades son:**
+- supervisar la atención de forma centralizada,
+- identificar horas pico,
+- optimizar recursos,
+- y mejorar la calidad del servicio brindado al ciudadano.
