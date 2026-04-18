@@ -250,7 +250,6 @@ En esta sección declaramos las suposiciones fundamentales sobre nuestro modelo 
 - **¿Qué valor ofrecemos?**  
   Predictibilidad y ahorro de tiempo para el ciudadano; eficiencia y control de datos para la institución.
 
-
 ### Business Outcomes
 
 Estos son los resultados medibles que FlowQueue espera lograr para las instituciones que adopten el sistema:
@@ -267,8 +266,6 @@ Estos son los resultados medibles que FlowQueue espera lograr para las instituci
 - **Toma de decisiones basada en datos:**  
   Generación de reportes semanales de afluencia por sede que permitan ajustar el personal según la demanda real.
 
-
-
 ### Users
 
 Identificamos los segmentos específicos que interactúan con la plataforma:
@@ -281,8 +278,6 @@ Identificamos los segmentos específicos que interactúan con la plataforma:
 
 - **Administradores de Sede:**  
   Encargados de monitorear el flujo general de una o varias oficinas y generar reportes de rendimiento.
-
-
 
 ### User Outcomes
 
@@ -299,8 +294,6 @@ Lo que los usuarios esperan lograr o sentir al usar FlowQueue:
 
 - **Transparencia:**  
   El usuario confía en que el sistema de turnos es justo y no existen saltos en el orden de llegada.
-
-
 
 ###  Features
 
