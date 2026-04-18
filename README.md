@@ -10,8 +10,8 @@
   <h2>Profesor - Jose Miguel Flores Ingaruca </h2>
   <h2>Informe de Trabajo Final</h2>
   <br>
-  <h2 >Startup - Los Bytes </h2>
-  <h2 >Producto - LabIoT</h2>
+  <h2 >Startup - flowqueue </h2>
+  <h2 >Producto - </h2>
   <br>
   <h2 >Integrantes</h2>
   <ul style="list-style: none; padding: 0;">
