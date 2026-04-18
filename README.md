@@ -231,7 +231,7 @@ No existe una solución que permita a los responsables de sede monitorear la ate
 
 ## 1.2.2.2. Lean UX Assumptions
 
-### 1.2.2.2.1. Assumptions Worksheet
+###  Assumptions Worksheet
 
 En esta sección declaramos las suposiciones fundamentales sobre nuestro modelo de negocio y el comportamiento de los usuarios.
 
@@ -250,9 +250,8 @@ En esta sección declaramos las suposiciones fundamentales sobre nuestro modelo 
 - **¿Qué valor ofrecemos?**  
   Predictibilidad y ahorro de tiempo para el ciudadano; eficiencia y control de datos para la institución.
 
----
 
-### 1.2.2.2.2. Business Outcomes
+### Business Outcomes
 
 Estos son los resultados medibles que FlowQueue espera lograr para las instituciones que adopten el sistema:
 
@@ -268,9 +267,9 @@ Estos son los resultados medibles que FlowQueue espera lograr para las instituci
 - **Toma de decisiones basada en datos:**  
   Generación de reportes semanales de afluencia por sede que permitan ajustar el personal según la demanda real.
 
----
 
-### 1.2.2.2.3. Users
+
+### Users
 
 Identificamos los segmentos específicos que interactúan con la plataforma:
 
@@ -283,9 +282,9 @@ Identificamos los segmentos específicos que interactúan con la plataforma:
 - **Administradores de Sede:**  
   Encargados de monitorear el flujo general de una o varias oficinas y generar reportes de rendimiento.
 
----
 
-### 1.2.2.2.4. User Outcomes
+
+### User Outcomes
 
 Lo que los usuarios esperan lograr o sentir al usar FlowQueue:
 
@@ -301,9 +300,9 @@ Lo que los usuarios esperan lograr o sentir al usar FlowQueue:
 - **Transparencia:**  
   El usuario confía en que el sistema de turnos es justo y no existen saltos en el orden de llegada.
 
----
 
-### 1.2.2.2.5. Features
+
+###  Features
 
 Funcionalidades clave que implementaremos para cumplir con los resultados anteriores:
 
@@ -324,3 +323,41 @@ Funcionalidades clave que implementaremos para cumplir con los resultados anteri
 
 - **Gestión Multi-Sede:**  
   Capacidad de administrar diferentes ubicaciones geográficas desde una única cuenta de administrador corporativo.
+
+  ## 1.2.2.3. Lean UX Hypothesis Statements
+
+Estas validan si FlowQueue funciona como negocio y aporta valor a las instituciones.
+
+### Hypothesis de negocio
+
+- **Hipótesis 1 – Reducción de tiempos:**  
+  Creemos que implementar un sistema de turnos virtuales en instituciones públicas reducirá el tiempo promedio de espera presencial de los usuarios. Sabremos que esto es cierto si el tiempo de permanencia en sede disminuye al menos en un 30% dentro de los primeros 3 meses.
+
+- **Hipótesis 2 – Satisfacción del cliente:**  
+  Creemos que brindar información en tiempo real sobre el estado de la cola aumentará la satisfacción del usuario. Sabremos que esto es cierto si el NPS aumenta en un 25% tras la implementación.
+
+- **Hipótesis 3 – Reducción de costos operativos:**  
+  Creemos que digitalizar la gestión de colas reducirá la necesidad de personal dedicado al control físico de filas. Sabremos que esto es cierto si los costos operativos asociados disminuyen en al menos un 15%.
+
+- **Hipótesis 4 – Toma de decisiones basada en datos:**  
+  Creemos que proporcionar reportes de analítica permitirá a las instituciones optimizar la asignación de personal. Sabremos que esto es cierto si los administradores utilizan los reportes semanalmente y logran ajustar horarios o recursos en al menos 1 decisión operativa por semana.
+
+- **Hipótesis 5 – Adopción del sistema:**  
+  Creemos que las instituciones con alta demanda adoptarán un sistema digital de colas si mejora su eficiencia operativa. Sabremos que esto es cierto si al menos el 60% de las sedes piloto continúan usando el sistema después de 2 meses.
+
+### Hypothesis de usuarios
+
+- **Hipótesis 1 – Uso antes de llegar:**  
+  Creemos que los ciudadanos preferirán obtener su turno antes de llegar a la sede usando su celular. Sabremos que esto es cierto si al menos el 70% de los tickets se generan de forma remota.
+
+- **Hipótesis 2 – Reducción de estrés:**  
+  Creemos que visualizar su posición en la cola reducirá la ansiedad del usuario. Sabremos que esto es cierto si el 80% de los usuarios reporta menor estrés en encuestas post-servicio.
+
+- **Hipótesis 3 – Confianza en el sistema:**  
+  Creemos que un sistema transparente de turnos aumentará la confianza del usuario en el proceso. Sabremos que esto es cierto si menos del 5% de los usuarios reporta quejas por desorden o injusticia en la fila.
+
+- **Hipótesis 4 – Uso de notificaciones:**  
+  Creemos que los usuarios dependen de notificaciones para acercarse a tiempo a su turno. Sabremos que esto es cierto si al menos el 65% de los usuarios llega justo antes de ser llamado, en lugar de esperar físicamente.
+
+- **Hipótesis 5 – Eficiencia del personal:**  
+  Creemos que los operadores podrán gestionar turnos más eficientemente con un dashboard digital. Sabremos que esto es cierto si el tiempo promedio de atención por usuario se reduce o se mantiene estable con mayor volumen.
