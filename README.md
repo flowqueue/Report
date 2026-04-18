@@ -8,7 +8,7 @@
   <h2>NRC- 0730</h2>
   <br>
   <h2>Profesor - Jose Miguel Flores Ingaruca </h2>
-  <h2>Informe de Trabajo Final</h2>
+  <h2>Informe de Trabajo TB1</h2>
   <br>
   <h2 >Startup - flowqueue </h2>
   <h2 >Producto - </h2>
