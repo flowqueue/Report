@@ -156,3 +156,15 @@ El sistema está diseñado con una arquitectura web moderna que integra un front
 A diferencia de soluciones tradicionales, FlowQueue no solo digitaliza el proceso de filas, sino que introduce herramientas de monitoreo, control y análisis que mejoran la eficiencia operativa de las instituciones y la experiencia del usuario.
 La plataforma ofrece diferentes niveles de acceso, incluyendo usuarios finales (clientes) y administradores (personal de atención), garantizando una gestión estructurada y escalable del servicio.
 
+
+#### 1.1.2. Perfiles de integrantes del equipo
+<table>
+  <tr>
+    <th colspan="2"> Alexander Auden Aliaga Ocampo </th>
+  </tr>
+  <tr>
+    <td> <img src="assets/assets/chapter-1/Alex.jpg" width=300px> </td>
+    <td> Soy estudiante de ingeniería de software en la UPC, con conocimientos básicos en los lenguajes de programación como c++, python , css, html, javascript también conocimientos básicos en base de datos viendo Mongo DB y creando diagramas relaciones como no relacionales. Además poseo habilidades de empatía y buena comunicación con el equipo esto me permite ser productivo en el ámbito de grupos y en general. </td>
+  </tr>
+</table>
+
