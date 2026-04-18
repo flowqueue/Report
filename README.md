@@ -337,7 +337,7 @@ Estas validan si FlowQueue funciona como negocio y aporta valor a las institucio
 - **Hipótesis 5 – Adopción del sistema:**  
   Creemos que las instituciones con alta demanda adoptarán un sistema digital de colas si mejora su eficiencia operativa. Sabremos que esto es cierto si al menos el 60% de las sedes piloto continúan usando el sistema después de 2 meses.
 
-### Hypothesis de usuarios
+ Hypothesis de usuarios
 
 - **Hipótesis 1 – Uso antes de llegar:**  
   Creemos que los ciudadanos preferirán obtener su turno antes de llegar a la sede usando su celular. Sabremos que esto es cierto si al menos el 70% de los tickets se generan de forma remota.
