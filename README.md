@@ -183,7 +183,7 @@ Frente a este contexto, la propuesta del equipo consiste en desarrollar una solu
 Como delimitación inicial del proyecto, la solución se enfocará en instituciones públicas con alta demanda de atención presencial, y se implementará como una plataforma web accesible desde distintos dispositivos. Además, el alcance estará orientado a resolver el problema de organización y seguimiento de turnos, no a reemplazar el trámite en sí ni los procesos internos propios de cada entidad.
 
 #### 1.2.2. Lean UX Process
-## 1.2.2.1. Lean UX Problem Statements
+##### 1.2.2.1. Lean UX Problem Statements
 
 ### Segmento — Ciudadanos usuarios de servicios públicos en Lima
 
@@ -228,9 +228,9 @@ No existe una solución que permita a los responsables de sede monitorear la ate
 **Pregunta clave:**  
 ¿Cómo diseñar una plataforma web que permita a los supervisores o responsables de sede monitorear el flujo de atención, identificar oportunidades de mejora y optimizar la distribución de recursos de manera eficiente?
 
-## 1.2.2.2. Lean UX Assumptions
+##### 1.2.2.2. Lean UX Assumptions
 
-###  Assumptions Worksheet
+######  Assumptions Worksheet
 
 En esta sección declaramos las suposiciones fundamentales sobre nuestro modelo de negocio y el comportamiento de los usuarios.
 
@@ -249,7 +249,7 @@ En esta sección declaramos las suposiciones fundamentales sobre nuestro modelo 
 - **¿Qué valor ofrecemos?**  
   Predictibilidad y ahorro de tiempo para el ciudadano; eficiencia y control de datos para la institución.
 
-### Business Outcomes
+###### Business Outcomes
 
 Estos son los resultados medibles que FlowQueue espera lograr para las instituciones que adopten el sistema:
 
@@ -265,7 +265,7 @@ Estos son los resultados medibles que FlowQueue espera lograr para las instituci
 - **Toma de decisiones basada en datos:**  
   Generación de reportes semanales de afluencia por sede que permitan ajustar el personal según la demanda real.
 
-### Users
+###### Users
 
 Identificamos los segmentos específicos que interactúan con la plataforma:
 
@@ -278,7 +278,7 @@ Identificamos los segmentos específicos que interactúan con la plataforma:
 - **Administradores de Sede:**  
   Encargados de monitorear el flujo general de una o varias oficinas y generar reportes de rendimiento.
 
-### User Outcomes
+###### User Outcomes
 
 Lo que los usuarios esperan lograr o sentir al usar FlowQueue:
 
@@ -294,7 +294,7 @@ Lo que los usuarios esperan lograr o sentir al usar FlowQueue:
 - **Transparencia:**  
   El usuario confía en que el sistema de turnos es justo y no existen saltos en el orden de llegada.
 
-###  Features
+###### Features
 
 Funcionalidades clave que implementaremos para cumplir con los resultados anteriores:
 
@@ -316,11 +316,11 @@ Funcionalidades clave que implementaremos para cumplir con los resultados anteri
 - **Gestión Multi-Sede:**  
   Capacidad de administrar diferentes ubicaciones geográficas desde una única cuenta de administrador corporativo.
 
-## 1.2.2.3. Lean UX Hypothesis Statements
+##### 1.2.2.3. Lean UX Hypothesis Statements
 
 Estas validan si FlowQueue funciona como negocio y aporta valor a las instituciones.
 
-### Hypothesis de negocio
+###### Hypothesis de negocio
 
 - **Hipótesis 1 – Reducción de tiempos:**  
   Creemos que implementar un sistema de turnos virtuales en instituciones públicas reducirá el tiempo promedio de espera presencial de los usuarios. Sabremos que esto es cierto si el tiempo de permanencia en sede disminuye al menos en un 30% dentro de los primeros 3 meses.
