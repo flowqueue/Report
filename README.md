@@ -138,7 +138,6 @@ establecen objetivos, planifican tareas y cumplen objetivos.
 
 
 
-
   ## Capítulo 1: Introducción
 ### 1.1. Startup Profile
 Como peruanos y como equipo hemos creado FlowQueue, tiene como objetivo principal abordar la ineficiencia en la gestión de atención al público en instituciones del Perú, caracterizada por largas filas, tiempos de espera impredecibles y falta de transparencia en el orden de atención.
@@ -317,7 +316,7 @@ Funcionalidades clave que implementaremos para cumplir con los resultados anteri
 - **Gestión Multi-Sede:**  
   Capacidad de administrar diferentes ubicaciones geográficas desde una única cuenta de administrador corporativo.
 
-  ## 1.2.2.3. Lean UX Hypothesis Statements
+## 1.2.2.3. Lean UX Hypothesis Statements
 
 Estas validan si FlowQueue funciona como negocio y aporta valor a las instituciones.
 
