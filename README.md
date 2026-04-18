@@ -228,3 +228,99 @@ No existe una solución que permita a los responsables de sede monitorear la ate
 
 **Pregunta clave:**  
 ¿Cómo diseñar una plataforma web que permita a los supervisores o responsables de sede monitorear el flujo de atención, identificar oportunidades de mejora y optimizar la distribución de recursos de manera eficiente?
+
+## 1.2.2.2. Lean UX Assumptions
+
+### 1.2.2.2.1. Assumptions Worksheet
+
+En esta sección declaramos las suposiciones fundamentales sobre nuestro modelo de negocio y el comportamiento de los usuarios.
+
+- **¿Quién es el usuario?**  
+  Ciudadanos peruanos que realizan trámites en instituciones con alta demanda y personal administrativo de dichas entidades.
+
+- **¿Dónde encaja nuestro producto?**  
+  En el proceso de espera y gestión de turnos, sustituyendo la fila física por una virtual.
+
+- **¿Qué problemas resolvemos?**  
+  Pérdida de tiempo del usuario, falta de información en tiempo real, desorden administrativo y falta de métricas operativas en las instituciones.
+
+- **¿Cuándo y cómo se usa nuestro producto?**  
+  Se usa desde el dispositivo móvil del usuario antes de llegar o al llegar a la sede, y por el personal administrativo a través de una interfaz de gestión durante su jornada laboral.
+
+- **¿Qué valor ofrecemos?**  
+  Predictibilidad y ahorro de tiempo para el ciudadano; eficiencia y control de datos para la institución.
+
+---
+
+### 1.2.2.2.2. Business Outcomes
+
+Estos son los resultados medibles que FlowQueue espera lograr para las instituciones que adopten el sistema:
+
+- **Reducción del tiempo promedio de espera:**  
+  Lograr una disminución del 30% en el tiempo que los usuarios pasan físicamente en las instalaciones.
+
+- **Aumento en la satisfacción del cliente:**  
+  Incrementar el puntaje de satisfacción (NPS) del servicio de atención al público en un 25%.
+
+- **Optimización de recursos:**  
+  Reducción del 15% en costos operativos relacionados con la gestión manual de colas y personal de seguridad para control de filas.
+
+- **Toma de decisiones basada en datos:**  
+  Generación de reportes semanales de afluencia por sede que permitan ajustar el personal según la demanda real.
+
+---
+
+### 1.2.2.2.3. Users
+
+Identificamos los segmentos específicos que interactúan con la plataforma:
+
+- **Usuarios Finales (Ciudadanos):**  
+  Personas de entre 18 y 65 años que necesitan realizar trámites en RENIEC, EsSalud o Banco de la Nación y buscan optimizar su tiempo.
+
+- **Personal de Atención (Operadores):**  
+  Trabajadores de las instituciones que gestionan el llamado de turnos y la atención directa.
+
+- **Administradores de Sede:**  
+  Encargados de monitorear el flujo general de una o varias oficinas y generar reportes de rendimiento.
+
+---
+
+### 1.2.2.2.4. User Outcomes
+
+Lo que los usuarios esperan lograr o sentir al usar FlowQueue:
+
+- **Sentido de Control:**  
+  El usuario siente que tiene el control de su tiempo al saber exactamente cuántas personas hay delante de él.
+
+- **Reducción del estrés:**  
+  Menor ansiedad al no tener que estar físicamente de pie en una fila larga e incierta.
+
+- **Eficiencia Laboral (Administrativos):**  
+  El personal siente que su trabajo es más organizado y menos caótico, permitiéndoles enfocarse en la atención y no en el orden de la fila.
+
+- **Transparencia:**  
+  El usuario confía en que el sistema de turnos es justo y no existen saltos en el orden de llegada.
+
+---
+
+### 1.2.2.2.5. Features
+
+Funcionalidades clave que implementaremos para cumplir con los resultados anteriores:
+
+- **Generación de Ticket Virtual:**  
+  Los usuarios pueden obtener un turno digital desde el Landing Page o Web App sin estar presentes.
+
+- **Monitor en Tiempo Real:**  
+  Visualización dinámica de la posición actual y el tiempo estimado para ser atendido.
+
+- **Sistema de Notificaciones:**  
+  Alertas automáticas cuando el turno del usuario esté próximo a ser llamado.
+
+- **Dashboard Administrativo:**  
+  Interfaz para que el personal gestione la cola, asigne prioridades y marque turnos como completados.
+
+- **Módulo de Analítica:**  
+  Herramientas de reporte para visualizar tiempos de espera históricos y picos de demanda por sede.
+
+- **Gestión Multi-Sede:**  
+  Capacidad de administrar diferentes ubicaciones geográficas desde una única cuenta de administrador corporativo.
