@@ -419,7 +419,66 @@ Este segmento agrupa a supervisores o encargados de una sede o área de atenció
 
 ## Capítulo III: Requirements Specification
 
-### 3.1. User Stories
+## 3.1. User Stories
+
+| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
+|----------------|--------|-------------|------------------------|--------------------------|
+| EP-01 | Landing Page | N/A | N/A | N/A |
+| HU-01 | Propuesta de valor | Como visitante, quiero entender el propósito de la plataforma, para conocer sus beneficios. | Dado que accede a la web, cuando ve el hero, entonces se muestra el mensaje principal. | EP-01 |
+| HU-02 | Beneficios | Como visitante, quiero ver beneficios, para evaluar el servicio. | Dado que navega la página, cuando llega a beneficios, entonces se muestran ventajas por rol. | EP-01 |
+| HU-03 | Flujo del sistema | Como visitante, quiero entender cómo funciona, para saber cómo usarlo. | Dado que revisa información, cuando ve el flujo, entonces comprende el proceso. | EP-01 |
+| HU-26 | Recuperar contraseña | Como citizen, quiero recuperar mi cuenta, para volver a acceder. | Dado que olvidó contraseña, cuando ingresa correo, entonces recibe enlace. | EP-01 |
+| HU-27 | Responsive | Como visitante, quiero usar cualquier dispositivo, para acceder fácilmente. | Dado que entra desde el móvil, cuando carga la web, entonces se adapta. | EP-01 |
+| HU-28 | CTA | Como visitante, quiero botones claros, para registrarme rápido. | Dado que está en landing, cuando ve CTA, entonces navega a registro. | EP-01 |
+| EP-02 | Citizen Experience | N/A | N/A | N/A |
+| HU-04 | Registro | Como citizen, quiero registrarme, para acceder al sistema. | Dado que no tiene cuenta, cuando ingresa datos, entonces se crea perfil. | EP-02 |
+| HU-05 | Login | Como citizen, quiero iniciar sesión, para acceder a mis turnos. | Dado que está registrado, cuando ingresa credenciales, entonces accede. | EP-02 |
+| HU-06 | Buscar entidades | Como citizen, quiero filtrar entidades, para encontrar servicios. | Dado que usa buscador, cuando filtra, entonces muestra resultados. | EP-02 |
+| HU-07 | Seleccionar sede | Como citizen, quiero elegir sede, para atenderme ahí. | Dado que selecciona entidad, cuando ve sedes, entonces elige una. | EP-02 |
+| HU-08 | Seleccionar trámite | Como citizen, quiero elegir servicio, para obtener el turno correcto. | Dado que elige sede, cuando selecciona el trámite, entonces continúa. | EP-02 |
+| HU-09 | Generar ticket | Como citizen, quiero ticket digital, para evitar filas. | Dado que confirma servicio, cuando genera ticket, entonces crea QR. | EP-02 |
+| HU-10 | Ver posición | Como citizen, quiero ver mi posición, para estimar espera. | Dado que tiene ticket, cuando consulta, entonces se actualiza. | EP-02 |
+| HU-11 | Tiempo estimado | Como citizen, quiero ver tiempo para organizarme. | Dado que tiene ticket, cuando el sistema calcula, entonces muestra tiempo. | EP-02 |
+| HU-12 | Notificación turno | Como citizen, quiero alertas, para no perder turno. | Dado que el turno está cerca, cuando faltan pocos, entonces notifica. | EP-02 |
+| HU-13 | Estado turno | Como citizen, quiero ver el estado, para saber la situación. | Dado que consulta ticket, cuando el sistema responde, entonces muestra estado. | EP-02 |
+| HU-14 | Cancelar turno | Como citizen, quiero cancelar turno, para liberar espacio. | Dado que tiene turno, cuando cancela, entonces elimina. | EP-02 |
+| HU-15 | Historial | Como citizen, quiero ver historial, para registrar trámites. | Dado que entra perfil, cuando ve historial, entonces lista registros. | EP-02 |
+| HU-29 | Reprogramar | Como citizen, quiero cambiar turno, para otro horario. | Dado que tiene turno, cuando reprograma, entonces elige nuevo. | EP-02 |
+| HU-30 | Personas delante | Como citizen, quiero ver cuántos hay antes, para estimar mejor. | Dado que consulta ticket, cuando el sistema responde, entonces muestra el número. | EP-02 |
+| HU-31 | Retrasos | Como citizen, quiero saber los retrasos, para ajustar el tiempo. | Dado que hay demora, cuando el sistema detecta, entonces notifica. | EP-02 |
+| EP-03 | Counter Management | N/A | N/A | N/A |
+| HU-16 | Seleccionar ventanilla | Como operador, quiero elegir ventanilla, para atender correctamente. | Dado que inicia sesión, cuando selecciona, entonces queda activo. | EP-03 |
+| HU-17 | Llamar turno | Como operador, quiero llamar al siguiente, para mantener el orden. | Dado que hay cola, cuando llama, entonces asigna turno. | EP-03 |
+| HU-18 | Mostrar en pantalla | Como operador, quiero mostrar ticket, para guiar al usuario. | Dado que llama turno, cuando el sistema procesa, entonces muestra en pantalla. | EP-03 |
+| HU-19 | Prioridad | Como operador, quiero dar prioridad, para casos especiales. | Dado que hay prioridad, cuando edita, entonces sube en cola. | EP-03 |
+| HU-20 | Finalizar atención | Como operador, quiero cerrar turno, para liberar ventanilla. | Dado que termina atención, cuando confirma, entonces se completa. | EP-03 |
+| HU-32 | Marcar ausente | Como operador, quiero marcar ausencia, para continuar el flujo. | Dado que no responde, cuando marca, entonces se omite. | EP-03 |
+| HU-33 | Pausar atención | Como operador, quiero pausar, para detener flujo. | Dado que ocurre pausa, cuando activa, entonces se detiene. | EP-03 |
+| HU-34 | Reanudar | Como operador, quiero reanudar, para continuar el flujo. | Dado que estaba pausado, cuando reanuda, entonces continúa. | EP-03 |
+| HU-35 | Filtrar turnos | Como operador, quiero filtrar, para ver específicos. | Dado que aplica filtro, cuando ejecuta, entonces muestra resultados. | EP-03 |
+| EP-04 | Administración | N/A | N/A | N/A |
+| HU-21 | Dashboard | Como admin, quiero ver métricas, para monitorear. | Dado que accede, cuando carga, entonces muestra datos. | EP-04 |
+| HU-22 | Métricas espera | Como admin, quiero analizar tiempos, para mejorar servicio. | Dado que filtra fechas, cuando consulta, entonces muestra gráfico. | EP-04 |
+| HU-23 | Desempeño | Como admin, quiero ver productividad, para optimizar recursos. | Dado que consulta, cuando revisa, entonces muestra datos. | EP-04 |
+| HU-36 | Crear sede | Como admin, quiero crear sedes, para expandir servicio. | Dado que ingresa datos, cuando guarda, entonces crea sede. | EP-04 |
+| HU-37 | Crear servicios | Como admin, quiero definir trámites, para gestionar atención. | Dado que crea servicio, cuando guarda, entonces aparece. | EP-04 |
+| HU-38 | Asignar operadores | Como admin, quiero asignar personal, para operar sedes. | Dado que selecciona operador, cuando asigna, entonces vincula. | EP-04 |
+| HU-39 | Reportes | Como admin, quiero reportes, para analizar datos. | Dado que consulta, cuando selecciona periodo, entonces genera informe. | EP-04 |
+| HU-40 | Comparar sedes | Como admin, quiero comparar, para evaluar rendimiento. | Dado que selecciona sedes, cuando compara, entonces muestra diferencias. | EP-04 |
+| EP-05 | Technical | N/A | N/A | N/A |
+| HU-24 | WebSockets | Como dev, quiero tiempo real, para actualizar datos. | Dado que hay cambios, cuando ocurren, entonces se reflejan. | EP-05 |
+| HU-25 | Notificaciones | Como dev, quiero alertas push, para avisar turnos. | Dado que evento ocurre, cuando se dispara, entonces envía notificación. | EP-05 |
+| HU-41 | Seguridad | Como sistema, quiero proteger datos, para evitar accesos indebidos. | Dado que hay login, cuando valida, entonces autentica. | EP-05 |
+| HU-42 | Escalabilidad | Como sistema, quiero soportar usuarios, para no fallar. | Dado que hay alta carga, cuando escala, entonces responde bien. | EP-05 |
+| HU-43 | Disponibilidad | Como sistema, quiero estar activo, para ser accesible. | Dado que sistema opera, cuando usuario accede, entonces responde. | EP-05 |
+| HU-44 | Backup | Como sistema, quiero respaldo, para evitar pérdida. | Dado que ocurre fallo, cuando recupera, entonces restaura datos. | EP-05 |
+| HU-45 | Logs | Como dev, quiero registrar eventos, para monitorear. | Dado que ocurre evento, cuando se ejecuta, entonces guarda log. | EP-05 |
+| HU-46 | API REST | Como dev, quiero endpoints, para comunicación. | Dado que cliente solicita, cuando API responde, entonces entrega datos. | EP-05 |
+| HU-47 | Actualización automática | Como usuario, quiero ver datos en tiempo real, para no recargar la página. | Dado que el usuario tiene un ticket activo, cuando cambia la cola, entonces la interfaz se actualiza automáticamente. | EP-05 |
+| HU-48 | Multidispositivo | Como usuario, quiero usar el sistema en distintos dispositivos, para tener flexibilidad de acceso. | Dado que el usuario cambia de dispositivo, cuando inicia sesión, entonces puede continuar su sesión sin problemas. | EP-05 |
+| HU-49 | Accesibilidad | Como usuario, quiero una interfaz accesible, para poder usarla sin dificultad. | Dado que el usuario accede al sistema, cuando navega la interfaz, entonces cumple criterios básicos de accesibilidad. | EP-05 |
+| HU-50 | Onboarding inicial | Como usuario, quiero una guía inicial, para entender cómo usar la plataforma. | Dado que el usuario ingresa por primera vez, cuando accede al sistema, entonces se muestra una guía paso a paso. | EP-05 |
+
 ### 3.2. Impact Mapping
 ### 3.3. Product Backlog
 
