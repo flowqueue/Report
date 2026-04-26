@@ -463,8 +463,49 @@ Para cada entrevistado se recogerá:
 
 ### 2.3. NeedFinding
 #### 2.3.1. User Personas
-#### 2.3.2. User Task Matrix
-#### 2.3.3. User Journey Mapping
+## 2.3.2. User Task Matrix
+
+### User Task Matrix – Citizen
+
+| Tarea del usuario | Frecuencia | Importancia |
+|-------------------|-----------|-------------|
+| Consultar disponibilidad de atención | Alta | Alta |
+| Obtener un turno | Alta | Alta |
+| Ver posición en la cola | Alta | Alta |
+| Recibir notificaciones de atención | Media | Alta |
+| Reprogramar o cancelar turno | Media | Media |
+| Estimar tiempo de espera | Alta | Alta |
+| Evitar desplazamiento innecesario | Alta | Alta |
+| Validar requisitos del trámite | Media | Alta |
+| Acceder a información del trámite | Media | Alta |
+
+### User Task Matrix – Counter Operator
+
+| Tarea del usuario | Frecuencia | Importancia |
+|-------------------|-----------|-------------|
+| Registrar usuarios en cola | Alta | Alta |
+| Visualizar cola en tiempo real | Alta | Alta |
+| Llamar al siguiente usuario | Alta | Alta |
+| Priorizar casos especiales | Media | Alta |
+| Reorganizar turnos | Media | Alta |
+| Controlar flujo de atención | Alta | Alta |
+| Comunicar incidencias | Media | Media |
+| Gestionar usuarios ausentes | Media | Media |
+| Validar asistencia del usuario | Alta | Alta |
+
+### User Task Matrix – Supervisor
+
+| Tarea del usuario | Frecuencia | Importancia |
+|-------------------|-----------|-------------|
+| Monitorear tiempos de espera | Alta | Alta |
+| Identificar horas pico | Media | Alta |
+| Evaluar desempeño del personal | Media | Alta |
+| Tomar decisiones operativas | Media | Alta |
+| Supervisar múltiples colas | Alta | Alta |
+| Generar reportes | Media | Media |
+| Detectar cuellos de botella | Media | Alta |
+| Optimizar asignación de recursos | Media | Alta |
+| Analizar satisfacción del usuario | Baja | Media |#### 2.3.3. User Journey Mapping
 #### 2.3.4. Empathy Mapping
 
 ### 2.4. Big Picture EventStorming
