@@ -480,8 +480,60 @@ Este segmento agrupa a supervisores o encargados de una sede o área de atenció
 | HU-50 | Onboarding inicial | Como usuario, quiero una guía inicial, para entender cómo usar la plataforma. | Dado que el usuario ingresa por primera vez, cuando accede al sistema, entonces se muestra una guía paso a paso. | EP-05 |
 
 ### 3.2. Impact Mapping
-### 3.3. Product Backlog
+## 3.3. Product Backlog
 
+| # Orden | User Story ID | Título | Descripción | Story Points |
+|---------|--------------|--------|-------------|-------------|
+| 1 | HU-01 | Visualizar propuesta de valor | Como visitante, quiero ver la misión de FlowQueue para entender cómo la plataforma optimiza mi tiempo de atención. | 2 |
+| 2 | HU-02 | Sección de beneficios | Como visitante, quiero visualizar los beneficios por rol para evaluar la conveniencia del servicio. | 2 |
+| 3 | HU-03 | Guía de funcionamiento | Como visitante, quiero ver un flujo de pasos para comprender el proceso de obtención de un turno digital. | 3 |
+| 4 | HU-27 | Navegación responsive | Como visitante, quiero usar la plataforma en cualquier dispositivo para acceder fácilmente. | 2 |
+| 5 | HU-28 | Call to Action | Como visitante, quiero acceder rápidamente al registro o login. | 2 |
+| 6 | HU-04 | Registrarse en la plataforma | Como citizen, quiero registrarme para acceder a los servicios. | 3 |
+| 7 | HU-05 | Iniciar sesión | Como citizen, quiero iniciar sesión para acceder a mis turnos. | 2 |
+| 8 | HU-26 | Recuperar contraseña | Como citizen, quiero recuperar mi cuenta en caso de olvido. | 2 |
+| 9 | HU-06 | Búsqueda de entidades | Como citizen, quiero filtrar instituciones para encontrar dónde hacer mi trámite. | 3 |
+| 10 | HU-07 | Seleccionar sede | Como citizen, quiero elegir la sede donde seré atendido. | 3 |
+| 11 | HU-08 | Seleccionar trámite | Como citizen, quiero elegir el servicio que necesito. | 3 |
+| 12 | HU-09 | Generar ticket virtual | Como citizen, quiero obtener un ticket virtual para evitar filas. | 5 |
+| 13 | HU-13 | Consultar estado del turno | Como citizen, quiero consultar el estado de mi turno. | 3 |
+| 14 | HU-10 | Visualizar posición en la cola | Como citizen, quiero ver mi posición en la cola. | 5 |
+| 15 | HU-11 | Ver tiempo estimado | Como citizen, quiero visualizar el tiempo de espera. | 5 |
+| 16 | HU-30 | Ver personas delante | Como citizen, quiero saber cuántos hay antes que yo. | 3 |
+| 17 | HU-12 | Recibir notificaciones | Como citizen, quiero recibir alertas de turno. | 3 |
+| 18 | HU-31 | Notificación de retraso | Como citizen, quiero saber si hay retrasos. | 2 |
+| 19 | HU-14 | Cancelación de ticket | Como citizen, quiero cancelar mi turno si no asistiré. | 2 |
+| 20 | HU-29 | Reprogramar turno | Como citizen, quiero cambiar mi turno. | 3 |
+| 21 | HU-15 | Historial de trámites | Como citizen, quiero ver mis atenciones pasadas. | 2 |
+| 22 | HU-16 | Selección de ventanilla | Como operador, quiero elegir mi ventanilla de trabajo. | 2 |
+| 23 | HU-17 | Llamar siguiente turno | Como operador, quiero llamar al siguiente usuario. | 5 |
+| 24 | HU-18 | Visualizar cola en tiempo real | Como operador, quiero ver la cola actualizada. | 5 |
+| 25 | HU-19 | Marcar turno atendido | Como operador, quiero marcar un turno como atendido. | 3 |
+| 26 | HU-20 | Gestionar prioridad | Como operador, quiero priorizar ciertos casos. | 5 |
+| 27 | HU-32 | Marcar ausente | Como operador, quiero registrar usuarios ausentes. | 3 |
+| 28 | HU-33 | Pausar atención | Como operador, quiero pausar la cola. | 2 |
+| 29 | HU-34 | Reanudar atención | Como operador, quiero reanudar la atención. | 2 |
+| 30 | HU-35 | Filtrar turnos | Como operador, quiero filtrar la cola. | 3 |
+| 31 | HU-21 | Visualizar dashboard | Como supervisor, quiero ver métricas generales. | 5 |
+| 32 | HU-22 | Analizar tiempos | Como supervisor, quiero analizar tiempos de espera. | 5 |
+| 33 | HU-25 | Identificar horas pico | Como supervisor, quiero identificar picos de demanda. | 3 |
+| 34 | HU-23 | Evaluar desempeño | Como supervisor, quiero ver rendimiento de operadores. | 3 |
+| 35 | HU-39 | Generar reportes | Como supervisor, quiero generar reportes. | 3 |
+| 36 | HU-40 | Comparar sedes | Como supervisor, quiero comparar rendimiento. | 3 |
+| 37 | HU-36 | Crear sede | Como administrador, quiero registrar sedes. | 3 |
+| 38 | HU-37 | Crear servicios | Como administrador, quiero definir trámites. | 3 |
+| 39 | HU-38 | Asignar operadores | Como administrador, quiero asignar personal. | 3 |
+| 40 | HU-24 | WebSockets | Como developer, quiero actualizar datos en tiempo real. | 5 |
+| 41 | HU-41 | Seguridad | Como sistema, quiero proteger los datos. | 5 |
+| 42 | HU-42 | Escalabilidad | Como sistema, quiero soportar alta demanda. | 5 |
+| 43 | HU-43 | Disponibilidad | Como sistema, quiero estar disponible siempre. | 5 |
+| 44 | HU-44 | Backup | Como sistema, quiero respaldar información. | 3 |
+| 45 | HU-45 | Logs | Como sistema, quiero registrar eventos. | 3 |
+| 46 | HU-46 | API REST | Como sistema, quiero exponer servicios. | 5 |
+| 47 | HU-47 | Actualización automática | Como usuario, quiero ver cambios sin recargar. | 5 |
+| 48 | HU-48 | Multidispositivo | Como usuario, quiero usar varios dispositivos. | 3 |
+| 49 | HU-49 | Accesibilidad | Como usuario, quiero una interfaz fácil de usar. | 3 |
+| 50 | HU-50 | Onboarding | Como usuario, quiero una guía inicial. | 2 |
 ## Capítulo IV: Product Design
 
 ### 4.1. Style Guidelines
