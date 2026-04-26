@@ -404,7 +404,60 @@ Este segmento agrupa a supervisores o encargados de una sede o área de atenció
 #### 2.1.1. Análisis competitivo
 #### 2.1.2. Estrategias y tácticas frente a competidores
 ### 2.2. Entrevistas
-#### 2.2.1. Diseño de entrevistas
+## 2.2.1. Diseño de entrevistas
+
+Las entrevistas tienen como propósito comprender cómo viven actualmente los ciudadanos y el personal administrativo el proceso de atención presencial en servicios públicos del Estado, identificar frustraciones, necesidades y oportunidades de mejora, y recopilar información suficiente para construir user personas y definir requerimientos funcionales del producto.
+
+### Segmentos a entrevistar
+
+- **Segmento 1:** Ciudadanos usuarios de servicios públicos
+- **Segmento 2:** Personal administrativo de atención
+- **Segmento 3:** Responsables o supervisores de sede
+
+### Datos generales a recolectar
+
+Para cada entrevistado se recogerá:
+
+- Nombres y Apellidos
+- Edad
+- Distrito
+- Ocupación
+- Frecuencia con la que utiliza o gestiona servicios públicos
+- Dispositivo que usa con mayor frecuencia
+- Canales digitales que suele utilizar
+
+### Ciudadanos usuarios de servicios públicos (Segmento 1)
+
+**Preguntas principales:**
+
+1. ¿Con qué frecuencia acudes a entidades públicas para realizar trámites?
+2. ¿Qué tipo de problemas sueles enfrentar cuando haces cola?
+3. ¿Cuánto tiempo sueles esperar antes de ser atendido?
+4. ¿Qué es lo que más te molesta: el tiempo de espera o la falta de información?
+5. Si pudieras ver información en tiempo real mientras esperas, ¿qué te gustaría saber?
+6. ¿Usarías una plataforma web para sacar turno y monitorear tu lugar en la cola? ¿Por qué?
+
+### Preguntas para personal administrativo (Segmento 2)
+
+**Preguntas principales:**
+
+1. ¿Cómo se organiza actualmente la atención al público en su institución?
+2. ¿Cuáles son los principales problemas en la gestión de colas?
+3. ¿Qué dificultades enfrenta el personal para controlar el flujo de usuarios?
+4. ¿En qué momentos del día hay mayor congestión de usuarios?
+5. ¿Qué información o herramientas le ayudarían a mejorar la atención?
+6. ¿Considera útil una plataforma que gestione turnos en tiempo real? ¿Por qué?
+
+### Preguntas para supervisores o responsables de sede (Segmento 3)
+
+**Preguntas principales:**
+
+1. ¿Cuáles son los mayores retos al gestionar la atención al público?
+2. ¿Cómo evalúan actualmente la eficiencia del servicio?
+3. ¿Qué indicadores consideran más importantes (tiempo de espera, cantidad de usuarios, etc.)?
+4. ¿Qué problemas se repiten con más frecuencia en la atención?
+5. ¿Qué beneficios esperaría de una plataforma de colas virtuales?
+6. ¿La institución estaría dispuesta a adoptar una solución digital si mejora la eficiencia?
 #### 2.2.2. Registro de entrevistas
 #### 2.2.3. Análisis de entrevistas
 
