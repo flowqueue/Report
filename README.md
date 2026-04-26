@@ -415,7 +415,45 @@ Este segmento agrupa a supervisores o encargados de una sede o área de atenció
 #### 2.3.4. Empathy Mapping
 
 ### 2.4. Big Picture EventStorming
-### 2.5. Ubiquitous Language
+
+## 2.5. Ubiquitous Language
+
+En esta sección se definen los términos clave del dominio de **FlowQueue**. Estos términos son de uso obligatorio para el equipo de desarrollo, los interesados y los usuarios finales, garantizando una comunicación sin ambigüedades.
+
+---
+
+**Administrative Dashboard**  
+Interfaz de gestión centralizada donde el *Headquarters Supervisor* visualiza indicadores de rendimiento, métricas de atención y supervisa el estado operativo de las sedes.
+
+**Citizen**  
+Usuario final que accede a la plataforma para buscar instituciones, emitir un *Digital Ticket* y realizar el seguimiento de su turno de forma remota.
+
+**Counter Operator**  
+Personal de la institución encargado de gestionar el flujo de la *Virtual Queue* desde un *Service Counter*, realizando llamados y finalizando atenciones.
+
+**Digital Ticket**  
+Identificador único generado por el sistema que representa el turno del *Citizen*. Incluye código de turno, hora de emisión y un código QR para validación.
+
+**Headquarters Supervisor**  
+Rol administrativo responsable de monitorear la eficiencia de la sede y tomar decisiones basadas en analítica de datos.
+
+**Queue Status**  
+Información dinámica que indica la posición del usuario en la fila, el número de turnos restantes y el estado actual de la atención en sala.
+
+**Real-Time Update**  
+Mecanismo de sincronización que asegura que los cambios en la *Virtual Queue* se reflejen instantáneamente en todos los dispositivos conectados.
+
+**Service Counter**  
+Punto de atención físico (ventanilla) asignado a un *Counter Operator* para realizar el trámite solicitado por el *Citizen*.
+
+**Service Type**  
+Categorización de trámites que define a qué flujo o *Virtual Queue* específico ingresará el usuario.
+
+**Virtual Queue**  
+Estructura lógica y digital que organiza el orden de llegada de los usuarios, eliminando la necesidad de una fila física en la sede.
+
+**Waiting Time Estimate**  
+Tiempo aproximado de espera calculado mediante algoritmos que consideran el ritmo de atención actual de los *Counter Operators*.
 
 ## Capítulo III: Requirements Specification
 
