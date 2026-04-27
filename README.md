@@ -19,6 +19,7 @@
       <li><h3>U202417693 - Alexander Auden Aliaga Ocampo</h3></li>
       <li><h3>u202210764 - Daniel Elias Ruiz Huisa</h3></li>
       <li><h3>u20211b686 - Uribe Linares Francisco Javier</h3></li>
+      <li><h3>u202414510 - Mansilla Rivero, Carlos Marcelo</h3></li>
   </ul>
   <br>
   <h4>abril del 2026</h4>
@@ -987,6 +988,11 @@ https://1drv.ms/v/c/6463e088f0304028/IQCq8gBOgwtkQ6fONdbxlr2MAadxw0UsnvvyXu048hA
 
 ### 4.6. Domain-Driven Software Architecture
 #### 4.6.1. Domain-Level EventStorming
+![domain1](./assets/assets/chapter-1/domainlevel1.png)
+
+![domain2](./assets/assets/chapter-1/domainilevel2.png)
+
+![domain3](./assets/assets/chapter-1/domainlevel3.png)
 ### 4.6.2 Software Architecture Context Diagram
 
 El diagrama de contexto representa el nivel más alto de abstracción de la arquitectura de **FlowQueue**, siguiendo el modelo **C4**. En este nivel, el sistema se muestra como una única entidad central rodeada por los actores que interactúan con él y los sistemas externos con los que se comunica.
@@ -1014,7 +1020,9 @@ El diagrama de contexto representa el nivel más alto de abstracción de la arqu
 ### 4.7.1 Class Diagrams
 
 El diagrama de clases es la representación estática del sistema **FlowQueue**. En esta sección se detallan las entidades lógicas del software, sus atributos, los métodos que definen su comportamiento y las relaciones que permiten la interacción entre los diferentes roles de usuario (**Ciudadano, Operador y Supervisor**) y los componentes centrales como los **tickets** y las **colas de atención**.
+![Diagrama](./assets/assets/chapter-1/Diagrama%20en%20blanco.png)
 ### 4.8. Database Design
+![Database Diagram](./assets/assets/chapter-1/databasediagram.png)
 #### 4.8.1. Database Diagrams
 
 ## Capítulo V: Product Implementation, Validation & Deployment
