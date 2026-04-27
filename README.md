@@ -605,3 +605,15 @@ Durante este Sprint, el proceso de despliegue se centró en la automatización d
 * **Configuración de Recursos:** Se habilitó el servicio de **GitHub Pages** dentro de la organización de GitHub del equipo.
 * **Automatización:** Se configuró un workflow de **GitHub Actions** para que, tras cada commit en la rama `main`, se ejecute un despliegue automático.
 * **Evidencia:** Se verificó la correcta renderización de estilos y activos en el entorno cloud.
+
+#### 5.2.1.8 Team Collaboration Insights during Sprint
+
+En esta sección el equipo explica cómo se han desarrollado las actividades de implementación. Durante el Sprint 1, el equipo de FlowQueue adoptó un flujo de trabajo basado en ramas (**GitFlow**). Se utilizó la rama `develop` como eje principal de integración y ramas de características (`feature/`) para el desarrollo individual.
+
+La colaboración se evidencia en la participación estratégica de los integrantes:
+* **Alexander Aliaga:** Lideró la arquitectura de **i18n** (internacionalización) y la creación de secciones dinámicas para métricas de impacto.
+* **c3sv (Carlos Mansilla):** Actuó como Release Manager, coordinando el despliegue automatizado y asegurando la integridad de la rama `develop`.
+* **Dan Ruiz y RIBlankRam (Luis Pillaca):** Responsables de la fidelidad visual de los componentes core, incluyendo la **Navbar**, el sistema de **Acceso** y el catálogo de **Funcionalidades**.
+* **Francisco Uribe:** Lideró el desarrollo y validación de la sección de **Contacto e Interacción Institucional**, implementó la lógica de captura de prospectos y la validación de formularios en el frontend
+
+La comunicación fue constante vía **Discord**, realizando revisiones de código (**Code Reviews**) cruzadas y sesiones de Pair Programming antes de cada merge, garantizando que el incremento de software sea escalable y libre de deuda técnica técnica desde el primer Sprint.
