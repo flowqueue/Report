@@ -516,6 +516,19 @@ Todas las nomenclaturas (variables, funciones, clases, archivos) se escribirán 
 * Escenarios escritos en inglés. Formato: `Given`, `When`, `Then`.
 
 #### 5.1.4. Software Deployment Configuration
+**A. Despliegue de la Landing Page (GitHub Pages)**
+* Configuración de integración continua (CI) donde cada cambio en la rama `main` se refleja automáticamente.
+* **URL de Acceso:** [https://flowqueue.github.io/FlowQueue-LandingPage](https://flowqueue.github.io/FlowQueue-LandingPage)
+
+**B. Despliegue de la Web API (Cloud Deployment)**
+* **Contenedores:** Uso de **Docker** para empaquetar la API de .NET.
+* **Plataforma de Hosting:** Despliegue en **Azure App Services** (o Render) para escalabilidad automática.
+* **Base de Datos Cloud:** Instancia de **Azure Database for MySQL** con acceso restringido por IP.
+
+**C. Configuración de Variables de Entorno**
+* Datos sensibles (ConnectionStrings, Jwt Keys) configurados mediante **GitHub Secrets**.
+
+---
 
 ### 5.2. Landing Page, Services & Applications Implementation
 #### 5.2.1. Sprint 1
