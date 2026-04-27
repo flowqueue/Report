@@ -581,3 +581,11 @@ Durante el Sprint 1, el equipo se enfocó en la implementación de la estructura
 | landingFlowQueue | develop | `c566a34` | feat: navbar and home section | 25/04/2026 |
 | landingFlowQueue | develop | `ab5bc5e` | chore: Access section | 25/04/2026 |
 | landingFlowQueue | feature/dan | `52cf3a2` | chore: Funcionalities section | 25/04/2026 |
+
+#### 5.2.1.5 Execution Evidence
+
+Se logró una Landing Page funcional con las siguientes secciones:
+* **Header:** Navegación fluida y selector de idiomas.
+* **Hero Section:** Propuesta de valor sobre reducción de esperas.
+* **Features:** Información sobre ticket virtual y monitoreo.
+* **Contact:** Formulario de contacto institucional.
