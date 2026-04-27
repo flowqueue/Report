@@ -597,3 +597,11 @@ El alcance del Sprint 1 se limitó exclusivamente al diseño y desarrollo fronte
 | Endpoint | Acciones | URL de Documentación | Verbo HTTP | Sintaxis / Parámetros | Response (Explicación) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | N/A | N/A | N/A | N/A | N/A | N/A |
+
+#### 5.2.1.7 Software Deployment Evidence for Sprint Review
+
+Durante este Sprint, el proceso de despliegue se centró en la automatización de la Landing Page para asegurar su visibilidad pública inmediata.
+
+* **Configuración de Recursos:** Se habilitó el servicio de **GitHub Pages** dentro de la organización de GitHub del equipo.
+* **Automatización:** Se configuró un workflow de **GitHub Actions** para que, tras cada commit en la rama `main`, se ejecute un despliegue automático.
+* **Evidencia:** Se verificó la correcta renderización de estilos y activos en el entorno cloud.
