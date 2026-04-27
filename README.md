@@ -964,6 +964,7 @@ El supervisor necesita evaluar la eficiencia del servicio. FlowQueue le proporci
 ### 4.4.3 Web Applications Mock-ups
 
 En esta sección se presentan los diseños de alta fidelidad de la aplicación web **FlowQueue**. Estos mock-ups representan el estado final visual de la plataforma, integrando la paleta de colores institucional, la tipografía seleccionada y los componentes de interfaz definidos en las guías de estilo para asegurar una experiencia de usuario profesional y confiable.
+![Web App Landing Page](./assets/assets/chapter-1/webapplandingpage.png)
 
 #### 4.4.4. Web Applications User Flow Diagrams
 
@@ -996,6 +997,7 @@ https://1drv.ms/v/c/6463e088f0304028/IQCq8gBOgwtkQ6fONdbxlr2MAadxw0UsnvvyXu048hA
 ### 4.6.2 Software Architecture Context Diagram
 
 El diagrama de contexto representa el nivel más alto de abstracción de la arquitectura de **FlowQueue**, siguiendo el modelo **C4**. En este nivel, el sistema se muestra como una única entidad central rodeada por los actores que interactúan con él y los sistemas externos con los que se comunica.
+![Architecture Diagram](./assets/assets/chapter-1/archi.png)
 
 #### Actores del sistema
 
