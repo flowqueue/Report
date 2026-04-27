@@ -473,62 +473,12 @@ Para el desarrollo de **FlowQueue**, se ha configurado un ecosistema de herramie
 * **Software Deployment:** Se emplea **Git** como sistema de control de versiones local y **GitHub** como repositorio remoto para la integración continua.
 
 #### 5.1.1. Software Development Environment Configuration
-El equipo adopta la metodología **GitFlow** para mantener la estabilidad del código de FlowQueue:
-* **Main branch:** Contiene el código de producción (Landing Page y API funcional).
-* **Develop branch:** Rama de integración para las funcionalidades de gestión de tickets y administración de sedes.
-
-**Repositorios de GitHub:**
-* **Organización:** [https://github.com/flowqueue](https://github.com/flowqueue)
-* **Repositorio del Proyecto:** [https://github.com/orgs/flowqueue/repositories](https://github.com/orgs/flowqueue/repositories)
 
 #### 5.1.2. Source Code Management
-Para asegurar la mantenibilidad de la plataforma, se aplican las siguientes convenciones:
-* **Backend (C#):** Uso de `PascalCase` para nombres de clases, interfaces y métodos públicos. Uso de `camelCase` para variables privadas y parámetros.
-* **Database (MySQL):** Nombres de tablas en `PascalCase` (ej. `Tickets`, `Agencies`) para coincidir con las entidades de Entity Framework.
-* **API:** Implementación de verbos HTTP claros (`GET` para consulta de turnos, `POST` para generación de tickets).
 
 #### 5.1.3. Source Code Style Guide & Conventions
-Todas las nomenclaturas (variables, funciones, clases, archivos) se escribirán en **inglés**.
-
-#### HTML (W3C / Google Style)
-* Indentación de 2 espacios.
-* Minúsculas para etiquetas y atributos. Comillas dobles (`" "`) en atributos.
-* Estructura semántica correcta (`<header>`, `<main>`, `<footer>`).
-
-#### CSS (Google Style)
-* `kebab-case` para nombres de clases: `.main-container`, `.button-primary`.
-* Organización de reglas: posición → caja → tipografía → visual.
-* Uso de variables CSS para colores y tipografías.
-
-#### JavaScript / Vue.js (Google / Vue Official Style)
-* `camelCase` para variables/funciones: `getUserData()`.
-* `PascalCase` para clases y componentes: `UserProfile.vue`.
-* Declaraciones con `const` y `let`. Uso de funciones flecha (`=>`).
-* **Vue.js:** Props en `camelCase` en JS y `kebab-case` en templates.
-
-#### C# (Microsoft Guidelines)
-* `PascalCase` para clases, métodos y propiedades: `CustomerService`, `GetTicket()`.
-* `camelCase` para variables locales y parámetros: `userId`.
-* Interfaces con prefijo `I`: `IRepository`.
-* Indentación de 4 espacios.
-
-#### BDD (Gherkin)
-* Escenarios escritos en inglés. Formato: `Given`, `When`, `Then`.
 
 #### 5.1.4. Software Deployment Configuration
-**A. Despliegue de la Landing Page (GitHub Pages)**
-* Configuración de integración continua (CI) donde cada cambio en la rama `main` se refleja automáticamente.
-* **URL de Acceso:** [https://flowqueue.github.io/FlowQueue-LandingPage](https://flowqueue.github.io/FlowQueue-LandingPage)
-
-**B. Despliegue de la Web API (Cloud Deployment)**
-* **Contenedores:** Uso de **Docker** para empaquetar la API de .NET.
-* **Plataforma de Hosting:** Despliegue en **Azure App Services** (o Render) para escalabilidad automática.
-* **Base de Datos Cloud:** Instancia de **Azure Database for MySQL** con acceso restringido por IP.
-
-**C. Configuración de Variables de Entorno**
-* Datos sensibles (ConnectionStrings, Jwt Keys) configurados mediante **GitHub Secrets**.
-
----
 
 ### 5.2. Landing Page, Services & Applications Implementation
 #### 5.2.1. Sprint 1
