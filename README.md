@@ -570,3 +570,14 @@ En relación al EP-01 (Interacción con la Landing Page de FlowQueue), se detall
 | **HU-02** | (Cont.) Métricas de impacto y perfiles. | Aliaga Ocampo, Alexander |
 | **HU-01** | (i18n) Integración de selector de idiomas. | Aliaga Ocampo, Alexander |
 | **HU-46** | Configuración de arquitectura inicial API. | Uribe Linares, Francisco |
+
+#### 5.2.1.4 Development Evidence for Sprint Review
+Durante el Sprint 1, el equipo se enfocó en la implementación de la estructura base y la interfaz responsiva de la Landing Page de FlowQueue. Se priorizó la claridad en la propuesta de valor y la accesibilidad desde dispositivos móviles. A continuación, se detallan los commits que evidencian el avance en el repositorio: 
+
+| Repositorio | Rama | Commit Id | Mensaje | Fecha |
+| :--- | :--- | :--- | :--- | :--- |
+| landingFlowQueue | develop | `7009d99` | feat(i18n): integrate language switcher | 26/04/2026 |
+| landingFlowQueue | develop | `5ba6785` | feat(landing): add profiles, metrics | 26/04/2026 |
+| landingFlowQueue | develop | `c566a34` | feat: navbar and home section | 25/04/2026 |
+| landingFlowQueue | develop | `ab5bc5e` | chore: Access section | 25/04/2026 |
+| landingFlowQueue | feature/dan | `52cf3a2` | chore: Funcionalities section | 25/04/2026 |
