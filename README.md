@@ -637,7 +637,143 @@ A continuación, se presenta la estructura general de implementación de los met
 </head>
 ```
 
-#### 4.2.4. Searching Systems
+### 4.2.4 Searching Systems
+
+## Requerimientos funcionales
+
+El sistema de búsqueda de **FlowQueue** permite localizar información de manera rápida tanto para ciudadanos como para operadores y supervisores.
+
+| Requerimiento funcional | Descripción |
+|---|---|
+| Búsqueda por texto | Permite buscar entidades públicas, sedes, trámites, turnos digitales y reportes. |
+| Autocomplete / sugerencias | Acelera la localización de instituciones, sedes o tipos de trámite. |
+| Filtros avanzados | Filtrado por entidad, sede, servicio, estado, fecha, prioridad o ventanilla. |
+| Búsqueda por ticket o QR | Validación rápida de turnos digitales mediante código o QR. |
+| Búsqueda por estado de cola | Identificación de turnos en espera, llamados, atendidos, cancelados o ausentes. |
+| Ordenamiento de resultados | Orden por fecha, prioridad, tiempo de espera, sede o relevancia. |
+| Visualización de resultados | Resultados claros para identificación rápida de información. |
+| Búsqueda combinada con filtros | Aplicable en tablas administrativas, dashboards y reportes. |
+| Búsqueda por métricas | Consulta por rangos de fecha para análisis de desempeño. |
+| Búsqueda multi-sede | Comparación de rendimiento entre diferentes oficinas. |
+
+---
+
+## Opciones de tecnología
+
+### Comparativa de alternativas
+
+| Tecnología | Pros | Contras |
+|---|---|---|
+| PostgreSQL Full-Text Search | Integrado con base de datos, simple, sin infraestructura adicional y suficiente para búsquedas del MVP | Menor flexibilidad para búsquedas avanzadas o gran escala |
+| Elasticsearch / OpenSearch | Alto rendimiento, filtros avanzados, ranking y analítica potente | Requiere infraestructura adicional y mayor complejidad |
+| Algolia (SaaS) | Muy rápida, autocomplete potente, tolerancia a errores tipográficos | Dependencia externa, costos y menor control |
+
+---
+
+## Tecnología seleccionada para el MVP
+
+Para el MVP de **FlowQueue** se propone utilizar **PostgreSQL Full-Text Search**, debido a que permite implementar búsquedas internas de forma sencilla, integrada y suficiente para los módulos principales del sistema.
+
+Esta alternativa resulta adecuada para una primera versión porque permite buscar:
+
+- Entidades públicas  
+- Sedes  
+- Trámites  
+- Tickets digitales  
+- Colas virtuales  
+- Reportes operativos  
+
+Sin depender inicialmente de infraestructura externa.
+
+En etapas futuras, si la plataforma crece en volumen de datos o requiere búsquedas más avanzadas, podría evaluarse incorporar **Elasticsearch** u **OpenSearch** para mejorar:
+
+- Rendimiento  
+- Relevancia de resultados  
+- Analítica histórica  
+- Escalabilidad  
+
+---
+
+## Esquema de índice
+
+Ejemplo de índice para un motor tipo Elasticsearch / OpenSearch:
+
+```json
+{
+ "mappings": {
+   "properties": {
+     "id": { "type": "keyword" },
+     "ticket_code": { "type": "keyword" },
+     "citizen_name": { "type": "text", "analyzer": "standard" },
+     "institution_name": { "type": "text", "analyzer": "standard" },
+     "branch_name": { "type": "text", "analyzer": "standard" },
+     "service_type": { "type": "keyword" },
+     "queue_status": { "type": "keyword" },
+     "priority_level": { "type": "keyword" },
+     "counter_number": { "type": "keyword" },
+     "created_at": { "type": "date" },
+     "estimated_waiting_time": { "type": "integer" }
+   }
+ }
+}
+```
+
+---
+
+## Campos principales del índice
+
+| Campo | Descripción |
+|---|---|
+| `id` | Identificador único del registro |
+| `ticket_code` | Código del ticket digital generado |
+| `citizen_name` | Nombre del ciudadano asociado |
+| `institution_name` | Entidad pública donde se realizará la atención |
+| `branch_name` | Sede seleccionada |
+| `service_type` | Tipo de trámite solicitado |
+| `queue_status` | Estado actual del turno |
+| `priority_level` | Nivel de prioridad del ticket |
+| `counter_number` | Ventanilla asignada |
+| `created_at` | Fecha y hora de generación |
+| `estimated_waiting_time` | Tiempo estimado de espera |
+
+---
+
+## Ejemplos de búsqueda
+
+### Búsqueda de ciudadano
+
+**Buscar:**  
+`RENIEC duplicado DNI`
+
+**Filtros aplicados:**
+- Distrito: Lima  
+- Servicio: DNI  
+- Estado de atención: Disponible
+
+---
+
+### Búsqueda de operador
+
+**Buscar:**  
+`FQ-2026-00125`
+
+**Filtros aplicados:**
+- Estado: En espera  
+- Prioridad: Normal  
+- Ventanilla: 3
+
+---
+
+### Búsqueda de supervisor
+
+**Buscar:**  
+`Tiempos de espera`
+
+**Filtros aplicados:**
+- Sede: Lima Norte  
+- Fecha: Últimos 7 días  
+- Horario: 08:00 – 12:00
+  
 #### 4.2.5. Navigation Systems
 
 ### 4.3. Landing Page UI Design
