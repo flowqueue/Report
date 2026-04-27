@@ -932,8 +932,9 @@ El diagrama de contexto representa el nivel más alto de abstracción de la arqu
 #### 4.6.4. Software Architecture Components Diagrams
 
 ### 4.7. Software Object-Oriented Design
-#### 4.7.1. Class Diagrams
+### 4.7.1 Class Diagrams
 
+El diagrama de clases es la representación estática del sistema **FlowQueue**. En esta sección se detallan las entidades lógicas del software, sus atributos, los métodos que definen su comportamiento y las relaciones que permiten la interacción entre los diferentes roles de usuario (**Ciudadano, Operador y Supervisor**) y los componentes centrales como los **tickets** y las **colas de atención**.
 ### 4.8. Database Design
 #### 4.8.1. Database Diagrams
 
