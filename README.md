@@ -29,6 +29,7 @@
 ## Contenido
 
 - [Contenido](#contenido)
+- [Registro de Versiones](#registro-de-versiones)
 - [Student Outcome](#student-outcome)
 - [Capítulo 1: Introducción](#capítulo-1-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
@@ -103,6 +104,12 @@
     - [5.1.4. Software Deployment Configuration](#514-software-deployment-configuration)
   - [5.2. Landing Page, Services \& Applications Implementation](#52-landing-page-services--applications-implementation)
     - [5.2.1. Sprint 1](#521-sprint-1)
+
+## Registro de Versiones
+
+| Versión | Fecha       | Autor      | Descripción de modificación |
+|--------|------------|-----------|-----------------------------|
+| AV1    | 26/04/2026 | FlowQueue | Creación inicial del informe, incluyendo la estructura base, definición de secciones principales y recopilación preliminar de información del proyecto FlowQueue. |
 
 ## Student Outcome
 
