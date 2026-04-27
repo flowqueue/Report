@@ -532,3 +532,16 @@ Todas las nomenclaturas (variables, funciones, clases, archivos) se escribirán 
 
 ### 5.2. Landing Page, Services & Applications Implementation
 #### 5.2.1. Sprint 1
+#### 5.2.1.1 Sprint Planning 1
+
+| Aspecto | Detalle |
+| :--- | :--- |
+| **Sprint #** | Sprint 1 |
+| **Fecha de inicio** | 2026-03-30 |
+| **Ubicación** | Reunión virtual mediante Discord |
+| **Preparado por** | Carlos Marcelo Mansilla Rivero |
+| **Participantes** | Pillaca Vidal, L.; Mansilla Rivero, C.; Uribe Linares, F.; Aliaga Ocampo, A. |
+|**Sprint 1 Goal:** |
+|Diseñar e implementar una landing page funcional y responsiva que transmita la propuesta de valor de FlowQueue sobre la gestión de colas virtuales en instituciones peruanas.|
+|**Sprint Velocity:**| 13|
+|**Sum of Story Points:**| 13|
