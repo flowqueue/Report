@@ -767,6 +767,17 @@ Como resultado del análisis de entrevistas realizadas a potenciales usuarios y 
 | Analizar satisfacción del usuario | Baja | Media |#### 2.3.3. User Journey Mapping
 #### 2.3.4. Empathy Mapping
 
+**Segmento 1: El ciudadano con tiempo limitado**
+
+![alt text](assets/assets/chapter-2/UserJourneyMap/S1.png)
+
+**Segmento 2: El operador de atención al ciudadano**
+
+![alt text](assets/assets/chapter-2/UserJourneyMap/S2.png)
+
+**Segmento 3: El responsable de gestión de sede**
+
+![alt text](assets/assets/chapter-2/UserJourneyMap/S3.png)
 
 
 ### 2.4. Big Picture EventStorming
