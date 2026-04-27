@@ -887,7 +887,24 @@ En esta sección se presentan los diseños de alta fidelidad de la aplicación w
 
 #### 4.4.4. Web Applications User Flow Diagrams
 
-### 4.5. Web Applications Prototyping
+### 4.5 Web Applications Prototyping
+
+En esta sección se presentan los prototipos de interfaz web de **FlowQueue**, desarrollados para simular los principales flujos de interacción de la plataforma en navegador web. Los prototipos fueron diseñados considerando una arquitectura de información organizada por perfiles de usuario: ciudadano, operador de ventanilla y supervisor o administrador de sede.
+
+Las decisiones de interacción se enfocan en facilitar una navegación clara, directa y orientada a tareas. Para el ciudadano, se prioriza la búsqueda de entidades, selección de sede, generación de ticket virtual y visualización de la posición en cola en tiempo real. Para el operador, se plantea una interfaz que permite seleccionar ventanilla, visualizar la cola, llamar al siguiente turno, priorizar casos y controlar el flujo de atención. Para el supervisor, se presenta un dashboard con métricas, análisis de horas pico, gestión de sedes y generación de reportes.
+
+Los prototipos incluyen interacciones como botones de navegación, tarjetas seleccionables, formularios, filtros, estados visuales, notificaciones y transiciones entre pantallas. Estas decisiones están alineadas con los User Flow Diagrams y con las User Stories definidas para FlowQueue.
+
+---
+
+### 4.5.2 Mobile Web Browser Prototype
+
+El prototipo mobile web browser representa la experiencia de **FlowQueue** adaptada a dispositivos móviles. Esta versión es importante porque el ciudadano utilizará principalmente su celular para obtener turnos, consultar su posición en cola y recibir notificaciones antes de acudir a una sede.
+
+En esta versión se priorizan pantallas verticales, botones visibles, formularios simples, tarjetas apiladas y navegación directa. El flujo principal permite al usuario buscar una entidad pública, seleccionar sede y trámite, generar un ticket digital, visualizar su estado de atención y recibir alertas sobre su turno.
+
+**Link del video:**  
+https://1drv.ms/v/c/6463e088f0304028/IQCq8gBOgwtkQ6fONdbxlr2MAadxw0UsnvvyXu048hAwrlM?e=RE4nc5
 
 ### 4.6. Domain-Driven Software Architecture
 #### 4.6.1. Domain-Level EventStorming
