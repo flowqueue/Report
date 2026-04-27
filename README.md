@@ -29,7 +29,6 @@
 ## Contenido
 
 - [Contenido](#contenido)
-- [Registro de Versiones](#registro-de-versiones)
 - [Student Outcome](#student-outcome)
 - [Capítulo 1: Introducción](#capítulo-1-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
@@ -52,18 +51,33 @@
 - [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
+  - [Debilidades](#debilidades)
+  - [Oportunidades](#oportunidades)
+  - [Amenazas](#amenazas)
     - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
   - [2.2. Entrevistas](#22-entrevistas)
-    - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+- [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+  - [Segmentos a entrevistar](#segmentos-a-entrevistar)
+  - [Datos generales a recolectar](#datos-generales-a-recolectar)
+  - [Ciudadanos usuarios de servicios públicos (Segmento 1)](#ciudadanos-usuarios-de-servicios-públicos-segmento-1)
+  - [Preguntas para personal administrativo (Segmento 2)](#preguntas-para-personal-administrativo-segmento-2)
+  - [Preguntas para supervisores o responsables de sede (Segmento 3)](#preguntas-para-supervisores-o-responsables-de-sede-segmento-3)
     - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
-    - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
+  - [Resumen](#resumen)
+  - [Resumen](#resumen-1)
+  - [Resumen](#resumen-2)
+  - [Resumen](#resumen-3)
+  - [Resumen](#resumen-4)
   - [2.3. NeedFinding](#23-needfinding)
     - [2.3.1. User Personas](#231-user-personas)
-    - [2.3.2. User Task Matrix](#232-user-task-matrix)
+- [2.3.2. User Task Matrix](#232-user-task-matrix)
+  - [User Task Matrix – Citizen](#user-task-matrix--citizen)
+  - [User Task Matrix – Counter Operator](#user-task-matrix--counter-operator)
+  - [User Task Matrix – Supervisor](#user-task-matrix--supervisor)
     - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
     - [2.3.4. Empathy Mapping](#234-empathy-mapping)
   - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
-  - [2.5. Ubiquitous Language](#25-ubiquitous-language)
+- [2.5. Ubiquitous Language](#25-ubiquitous-language)
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
   - [3.1. User Stories](#31-user-stories)
   - [3.2. Impact Mapping](#32-impact-mapping)
@@ -104,12 +118,6 @@
     - [5.1.4. Software Deployment Configuration](#514-software-deployment-configuration)
   - [5.2. Landing Page, Services \& Applications Implementation](#52-landing-page-services--applications-implementation)
     - [5.2.1. Sprint 1](#521-sprint-1)
-
-## Registro de Versiones
-
-| Versión | Fecha       | Autor      | Descripción de modificación |
-|--------|------------|-----------|-----------------------------|
-| AV1    | 26/04/2026 | FlowQueue | Creación inicial del informe, incluyendo la estructura base, definición de secciones principales y recopilación preliminar de información del proyecto FlowQueue. |
 
 ## Student Outcome
 
@@ -392,21 +400,442 @@ Este segmento agrupa a supervisores o encargados de una sede o área de atenció
 ## Capítulo II: Requirements Elicitation & Analysis
 
 ### 2.1. Competidores
+
+En el mercado existen diversas soluciones que abordan la gestión de colas y atención al cliente, tanto a nivel local como internacional. Los principales competidores identificados son:
+<b>Competidores directos:</b>
+- <b>Qmatic</b>
+  Plataforma global especializada en sistemas de gestión de colas y experiencia del cliente en instituciones públicas y privadas.
+- Turnero (sistemas de turnos digitales locales)
+ Soluciones implementadas por algunas entidades en Perú o LATAM que permiten asignación básica de turnos, generalmente sin monitoreo en tiempo real avanzado.
+- <b>Queue-it</b>
+ Sistema enfocado en la gestión de colas virtuales principalmente para tráfico web (ej. alta demanda en sitios), pero aplicable a gestión de acceso.
+<b>Competidores indirectos:</b>
+- <b>Sistemas manuales o semi-digitales</b>
+ (tickets físicos, Excel, atención por orden de llegada).
+- **Aplicaciones internas de instituciones**
+ Algunas entidades desarrollan sistemas propios limitados a una sola sede o servicio.
+- **Plataformas de citas previas**
+ Sistemas que permiten agendar citas, pero no gestionan colas dinámicas en tiempo real.
+
 #### 2.1.1. Análisis competitivo
+Competitive Analysis Landscape
+
+ ¿Por qué llevar a cabo este análisis?
+
+- Identificar las brechas existentes en el mercado peruano.
+- Evaluar las fortalezas y limitaciones de los competidores directos e indirectos.
+- Definir estrategias de diferenciación para SafeHome, enfocadas en accesibilidad, integración IoT y una plataforma web responsive.
+- Validar que la solución propuesta responde a necesidades reales no cubiertas de manera integral.
+
+---
+
+**Competidores**
+
+**Overview**
+| Overview | FlowQueue | Qminder | QLess | Inalto |
+|----------|----------|---------|-------|--------|
+| | FlowQueue es una startup peruana que ofrece una plataforma web de gestión de colas virtuales orientada a instituciones públicas y privadas. | Qminder es una plataforma SaaS global especializada en la gestión de colas y experiencia del cliente. | QLess es un sistema de colas virtuales basado en la nube con registro remoto. | Inalto es una empresa peruana con sistema híbrido que integra web/app con hardware. |
+
+---
+
+**Perfil**
+
+**Ventaja competitiva**
+
+| Ventaja competitiva | FlowQueue | Qminder | QLess | Inalto |
+|---------------------|----------|---------|-------|--------|
+| | - Plataforma 100% web<br>- Sin instalación ni hardware<br>- Adaptado al contexto peruano<br>- Reducción de tiempos de espera<br>- Escalabilidad multi-sede | - Plataforma madura internacional<br>- Notificaciones automatizadas<br>- Analítica avanzada<br>- Integraciones empresariales | - Eliminación total de filas físicas<br>- Plataforma cloud escalable<br>- Enfoque UX<br>- Implementación multisector | - Presencia local<br>- Solución hardware + software<br>- Adaptabilidad sectorial<br>- Soporte técnico local |
+
+---
+
+**Perfil de marketing**
+
+**Mercado objetivo**
+
+| Mercado Objetivo | FlowQueue | Qminder | QLess | Inalto |
+|-----------------|----------|---------|-------|--------|
+| | Instituciones públicas y privadas peruanas | Empresas globales, hospitales, bancos, universidades | Empresas globales, hospitales, bancos, universidades | Empresas peruanas con infraestructura física |
+
+**Estrategias de marketing**
+
+| Estrategias | FlowQueue | Qminder | QLess | Inalto |
+|------------|----------|---------|-------|--------|
+| | - Alianzas con el Estado<br>- Pilotos institucionales<br>- Enfoque GovTech | - Marketing digital global<br>- SaaS B2B<br>- Casos de éxito | - Marketing digital global<br>- SaaS B2B<br>- Casos de éxito | - Ventas directas<br>- Implementaciones personalizadas<br>- Relación comercial local |
+
+---
+
+**Perfil de producto**
+
+**Productos & Servicios**
+
+| Productos & Servicios | FlowQueue | Qminder | QLess | Inalto |
+|----------------------|----------|---------|-------|--------|
+| | Plataforma web + monitoreo en tiempo real | SaaS de gestión de filas + analítica + notificaciones | SaaS de gestión de filas + analítica + notificaciones | Sistema híbrido (software + kioscos + pantallas) |
+
+**Precios y costos**
+
+| Precios y Costos | FlowQueue | Qminder | QLess | Inalto |
+|------------------|----------|---------|-------|--------|
+| | SaaS accesible (suscripción) | Suscripción SaaS (costo medio-alto) | Suscripción SaaS (costo medio-alto) | Costos altos por implementación + hardware |
+
+**Canales**
+
+| Canales | FlowQueue | Qminder | QLess | Inalto |
+|---------|----------|---------|-------|--------|
+| | Web responsive | Web + móvil | Web + móvil | Web + app + hardware físico |
+
+---
+
+**Análisis SWOT**
+
+**Fortalezas**
+
+| Fortalezas | FlowQueue | Qminder | QLess | Inalto |
+|-----------|----------|---------|-------|--------|
+| | - Adaptado a Perú<br>- 100% web<br>- Bajo costo<br>- Enfoque UX | - SaaS consolidado<br>- Presencia internacional<br>- Analítica avanzada<br>- Alta confiabilidad | - Eliminación de filas<br>- Cloud escalable<br>- UX optimizada<br>- Experiencia multisector | - Presencia local<br>- Solución completa<br>- Soporte técnico<br>- Experiencia implementación |
+
+---
+
+### Debilidades
+
+| Debilidades | FlowQueue | Qminder | QLess | Inalto |
+|------------|----------|---------|-------|--------|
+| | - Bajo reconocimiento<br>- Recursos limitados<br>- Dependencia institucional<br>- Menor desarrollo tecnológico | - Costos elevados<br>- No adaptado a Perú<br>- Dependencia técnica | - Costos altos<br>- Enfoque global<br>- Dependencia conectividad | - Dependencia hardware<br>- Implementación compleja<br>- Menor flexibilidad<br>- Escalabilidad limitada |
+
+---
+
+### Oportunidades
+
+| Oportunidades | FlowQueue | Qminder | QLess | Inalto |
+|--------------|----------|---------|-------|--------|
+| | - Digitalización del sector público<br>- Alta demanda<br>- Falta de soluciones locales<br>- Expansión LATAM | - Expansión LATAM<br>- Adopción cloud<br>- Integraciones empresariales | - Crecimiento GovTech<br>- Sector público<br>- Digitalización | - Digitalización empresas<br>- Proyectos institucionales<br>- Modernización |
+
+---
+
+### Amenazas
+
+| Amenazas | FlowQueue | Qminder | QLess | Inalto |
+|----------|----------|---------|-------|--------|
+| | - Competidores globales<br>- Soluciones híbridas<br>- Resistencia al cambio<br>- Presupuesto estatal | - Competidores económicos<br>- Barreras culturales<br>- Regulaciones | - Nuevos SaaS<br>- Limitación local<br>- Competencia híbrida | - SaaS simples<br>- Competidores internacionales<br>- Cambio a web |
+
 #### 2.1.2. Estrategias y tácticas frente a competidores
+
+En un mercado donde existen soluciones internacionales consolidadas como Qminder y QLess, así como alternativas locales como Inalto EIRL, FlowQueue adopta una estrategia competitiva basada en la diferenciación por accesibilidad, simplicidad y adaptación al contexto peruano.
+A continuación, se detallan las principales estrategias y tácticas:
+1. Estrategia de diferenciación por accesibilidad
+FlowQueue se posiciona como una solución ligera y fácil de implementar, eliminando la necesidad de hardware especializado o instalaciones complejas.
+Tácticas:
+   - Plataforma 100% web accesible desde cualquier dispositivo
+   - Interfaz intuitiva enfocada en usuarios no técnicos
+   - Eliminación de barreras de entrada (sin app obligatoria ni equipos físicos)
+
+
+2. Estrategia de enfoque en el mercado local (Perú)
+A diferencia de competidores globales, FlowQueue se adapta a las necesidades específicas de las instituciones peruanas.
+Tácticas:
+   - Personalización según procesos de entidades públicas (RENIEC, bancos, etc.)
+   - Soporte local y conocimiento del contexto operativo
+   - Adaptación a limitaciones tecnológicas (conectividad, dispositivos)
+
+3. Estrategia de liderazgo en costos (modelo accesible)
+FlowQueue busca ofrecer una solución más económica frente a plataformas internacionales y sistemas híbridos.
+Tácticas:
+   - Modelo SaaS con precios accesibles
+   - Reducción de costos al no requerir hardware
+   - Planes escalables según tamaño de la institución
+
+4. Estrategia de experiencia de usuario (UX-first)
+Se prioriza la experiencia del ciudadano, facilitando la interacción con el sistema.
+Tácticas:
+   - Visualización en tiempo real del estado de la cola
+   - Estimación clara del tiempo de espera
+   - Notificaciones simples y comprensibles
+   - Reducción del estrés asociado a filas físicas
+
+5. Estrategia de entrada mediante pilotos institucionales
+Para superar barreras de adopción, se plantea una estrategia de validación progresiva.
+Tácticas:
+   - Implementación piloto en instituciones específicas
+   - Medición de resultados (tiempo de espera, satisfacción)
+   - Uso de casos de éxito para escalar a otras entidades
+
+6. Estrategia de escalabilidad tecnológica
+FlowQueue se diseña para crecer de forma progresiva sin incrementar significativamente los costos.
+Tácticas:
+   - Arquitectura web escalable en la nube
+   - Soporte para múltiples sedes y servicios
+   - Integración futura con tecnologías como IA y analítica avanzada
+
+7. Estrategia frente a competidores específicos
+  Frente a Qminder y QLess:
+    - FlowQueue compite con precios más accesibles y adaptación local
+
+  Frente a Inalto:
+ - FlowQueue se diferencia al eliminar la dependencia de hardware y simplificar la implementación 
+
 ### 2.2. Entrevistas
-#### 2.2.1. Diseño de entrevistas
+## 2.2.1. Diseño de entrevistas
+
+Las entrevistas tienen como propósito comprender cómo viven actualmente los ciudadanos y el personal administrativo el proceso de atención presencial en servicios públicos del Estado, identificar frustraciones, necesidades y oportunidades de mejora, y recopilar información suficiente para construir user personas y definir requerimientos funcionales del producto.
+
+### Segmentos a entrevistar
+
+- **Segmento 1:** Ciudadanos usuarios de servicios públicos
+- **Segmento 2:** Personal administrativo de atención
+- **Segmento 3:** Responsables o supervisores de sede
+
+### Datos generales a recolectar
+
+Para cada entrevistado se recogerá:
+
+- Nombres y Apellidos
+- Edad
+- Distrito
+- Ocupación
+- Frecuencia con la que utiliza o gestiona servicios públicos
+- Dispositivo que usa con mayor frecuencia
+- Canales digitales que suele utilizar
+
+### Ciudadanos usuarios de servicios públicos (Segmento 1)
+
+**Preguntas principales:**
+
+1. ¿Con qué frecuencia acudes a entidades públicas para realizar trámites?
+2. ¿Qué tipo de problemas sueles enfrentar cuando haces cola?
+3. ¿Cuánto tiempo sueles esperar antes de ser atendido?
+4. ¿Qué es lo que más te molesta: el tiempo de espera o la falta de información?
+5. Si pudieras ver información en tiempo real mientras esperas, ¿qué te gustaría saber?
+6. ¿Usarías una plataforma web para sacar turno y monitorear tu lugar en la cola? ¿Por qué?
+
+### Preguntas para personal administrativo (Segmento 2)
+
+**Preguntas principales:**
+
+1. ¿Cómo se organiza actualmente la atención al público en su institución?
+2. ¿Cuáles son los principales problemas en la gestión de colas?
+3. ¿Qué dificultades enfrenta el personal para controlar el flujo de usuarios?
+4. ¿En qué momentos del día hay mayor congestión de usuarios?
+5. ¿Qué información o herramientas le ayudarían a mejorar la atención?
+6. ¿Considera útil una plataforma que gestione turnos en tiempo real? ¿Por qué?
+
+### Preguntas para supervisores o responsables de sede (Segmento 3)
+
+**Preguntas principales:**
+
+1. ¿Cuáles son los mayores retos al gestionar la atención al público?
+2. ¿Cómo evalúan actualmente la eficiencia del servicio?
+3. ¿Qué indicadores consideran más importantes (tiempo de espera, cantidad de usuarios, etc.)?
+4. ¿Qué problemas se repiten con más frecuencia en la atención?
+5. ¿Qué beneficios esperaría de una plataforma de colas virtuales?
+6. ¿La institución estaría dispuesta a adoptar una solución digital si mejora la eficiencia?
 #### 2.2.2. Registro de entrevistas
-#### 2.2.3. Análisis de entrevistas
+
+**Entrevista 1 – Ciudadano usuario de servicios públicos**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado | Angye Hilasak |
+| Edad | 20 años |
+| Distrito | Santiago de Surco - Lima |
+| Duración | 1:12 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/18fmulg-DBUSSvQ2X1qlPd__TzqZKzSGg/view?usp=sharing) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S1-AngieHilasak.png)
+
+### Resumen
+ En la entrevista, Angye comparte su experiencia frente a las largas colas y tiempos de espera en servicios públicos. Señala que este problema genera incomodidad, pérdida de tiempo y desorganización para los usuarios, especialmente cuando no existe información clara sobre turnos, horarios o avance de la atención. 
+ Además, menciona que una solución digital podría ayudar a ordenar mejor el proceso, reducir la incertidumbre y permitir que las personas gestionen su tiempo de forma más eficiente. Su testimonio refuerza la necesidad de implementar una herramienta que mejore la experiencia del usuario y haga más ágil la atención.
+
+**Entrevista 2 – Ciudadano usuario de servicios públicos**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado | Joaquin Basas |
+| Edad | 20 años |
+| Distrito | Santiago de Surco - Lima |
+| Duración | 3:06 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/1aMRICU_kFHHbjtRqSG4-3lFay4bM_Jip/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S1-JoaquinBasas2.png) ![alt text](assets/assets/chapter-2/Entrevistas/S1-JoaquinBasas1.png)
+
+### Resumen
+ En la entrevista, Joaquin expresa su frustración a las incertidumbres que hay en los tiempos de atención para trámites públicos. Se enfoca principalmente en el tiempo que le consume y el estrés que genera que un trámite sencillo y rápido demore por colas interminables y poco eficientes.Menciona que una solución digital, que le de un turno, similar a los que hay en clinica privadas, puede ser bastante beneficioso. Su testimonio demuestra que el problema de las colas está presente en otros rubros y es enfrentado con turnos, como en el sector de la medicina privada. 
+
+**Entrevista 1 – Personal administrativo de atención**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado |  Nicole Quispe |
+| Edad | 23 años |
+| Distrito | Elmer Faucett - Callao |
+| Duración | 6:14 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/1ykERqgZVzP2aI6VF0UUVsJki2yhW-nRG/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S2-NicoleQuispe.png)
+
+### Resumen
+En la entrevista se presenta FlowQueue a una trabajadora administrativa de Talma Servicios Aeroportuarios. Ella explica que la atención se organiza por orden de llegada y, en algunos casos, con números manuales. El principal problema ocurre en horas pico, especialmente en la mañana y tarde, cuando las colas aumentan y los pasajeros esperan más de 30 minutos, generando quejas e incomodidad. Además, menciona que el personal tiene dificultades para manejar a los usuarios por falta de información clara sobre los tiempos de atención. Considera que una plataforma que gestione turnos en tiempo real ayudaría a organizar mejor las filas, informar a los pasajeros y asignar el personal necesario. 
+
+
+**Entrevista 2 – Personal administrativo de atención**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado |  Eduardo Aguirre |
+| Edad | 31 años |
+| Distrito |  San Miguel |
+| Duración | 4:31 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/17PgnA8MeDgaUX3k68Mo4J2JP2S1-qrt7/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S2-EduardoAguirre.png)
+
+### Resumen
+Eduardo Aguirre (31 años, San Miguel) es un técnico administrativo con una personalidad metódica pero estresada por el desorden ambiental. En su vida personal es un usuario tecnológico habitual de Android, Rappi y YouTube, lo que lo hace muy crítico con el sistema de su oficina, el cual considera obsoleto al funcionar sobre Windows y Microsoft Edge con tiqueteros de papel que fallan seguido. Su mayor frustración ocurre en la hora punta (10:30 AM a 1:30 PM), donde la aglomeración y el ruido lo obligan a actuar como controlador de multitudes en lugar de administrativo, afectando su salud mental. Eduardo considera que FlowQueue es una solución indispensable porque, al notificar al usuario en tiempo real, limpiaría la sala de espera física, permitiéndole trabajar en silencio, con mayor seguridad y enfocado únicamente en la gestión del trámite.
+
+**Entrevista 1 -  Responsables o supervisores de sede**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado |  Eduardo Villanueva|
+| Edad | 21 años |
+| Distrito |  Santiago de Surco |
+| Duración | 4:31 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/17PgnA8MeDgaUX3k68Mo4J2JP2S1-qrt7/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S3-EduardoVillanueva.png)
+
+### Resumen
+Eduardo Villanueva (25 años, Surco) es un Jefe de Operaciones con un perfil ejecutivo y orientado a resultados. Como usuario de tecnología de alta gama (Apple), valoro la inmediatez y el orden, lo cual contrasta con la realidad de su sede, donde la medición de eficiencia es manual y arcaica. Su principal frustración es la falta de datos precisos para reducir la Tasa de Abandono y el Tiempo de Espera. Javier ve en FlowQueue una oportunidad estratégica de transformación digital para descongestionar las salas físicas y proyectar una imagen de "Smart City", permitiéndole gestionar la sede mediante indicadores reales y no solo por volumen de tickets al final del día. 
 
 ### 2.3. NeedFinding
+Como resultado del análisis de entrevistas realizadas a potenciales usuarios y del estudio de plataformas similares en el mercado, se han identificado dos segmentos objetivos clave para la propuesta de valor de la startup FlowQueue
 #### 2.3.1. User Personas
-#### 2.3.2. User Task Matrix
+**Segmento 1: El ciudadano con tiempo limitado**
+
+![alt text](assets/assets/chapter-2/UserPersonas/S1.png)
+
+**Segmento 2: El operador de atención al ciudadano**
+
+![alt text](assets/assets/chapter-2/UserPersonas/S2.png)
+
+**Segmento 3: El responsable de gestión de sede**
+
+![alt text](assets/assets/chapter-2/UserPersonas/S3.png)
+## 2.3.2. User Task Matrix
+
+### User Task Matrix – Citizen
+
+| Tarea del usuario | Frecuencia | Importancia |
+|-------------------|-----------|-------------|
+| Consultar disponibilidad de atención | Alta | Alta |
+| Obtener un turno | Alta | Alta |
+| Ver posición en la cola | Alta | Alta |
+| Recibir notificaciones de atención | Media | Alta |
+| Reprogramar o cancelar turno | Media | Media |
+| Estimar tiempo de espera | Alta | Alta |
+| Evitar desplazamiento innecesario | Alta | Alta |
+| Validar requisitos del trámite | Media | Alta |
+| Acceder a información del trámite | Media | Alta |
+
+### User Task Matrix – Counter Operator
+
+| Tarea del usuario | Frecuencia | Importancia |
+|-------------------|-----------|-------------|
+| Registrar usuarios en cola | Alta | Alta |
+| Visualizar cola en tiempo real | Alta | Alta |
+| Llamar al siguiente usuario | Alta | Alta |
+| Priorizar casos especiales | Media | Alta |
+| Reorganizar turnos | Media | Alta |
+| Controlar flujo de atención | Alta | Alta |
+| Comunicar incidencias | Media | Media |
+| Gestionar usuarios ausentes | Media | Media |
+| Validar asistencia del usuario | Alta | Alta |
+
+### User Task Matrix – Supervisor
+
+| Tarea del usuario | Frecuencia | Importancia |
+|-------------------|-----------|-------------|
+| Monitorear tiempos de espera | Alta | Alta |
+| Identificar horas pico | Media | Alta |
+| Evaluar desempeño del personal | Media | Alta |
+| Tomar decisiones operativas | Media | Alta |
+| Supervisar múltiples colas | Alta | Alta |
+| Generar reportes | Media | Media |
+| Detectar cuellos de botella | Media | Alta |
+| Optimizar asignación de recursos | Media | Alta |
+| Analizar satisfacción del usuario | Baja | Media |#### 2.3.3. User Journey Mapping
+
 #### 2.3.3. User Journey Mapping
+
+**Segmento 1: El ciudadano con tiempo limitado**
+
+![alt text](assets/assets/chapter-2/UserJourneyMap/S1.png)
+
+**Segmento 2: El operador de atención al ciudadano**
+
+![alt text](assets/assets/chapter-2/UserJourneyMap/S2.png)
+
+**Segmento 3: El responsable de gestión de sede**
+
+![alt text](assets/assets/chapter-2/UserJourneyMap/S3.png)
+
 #### 2.3.4. Empathy Mapping
 
+**Segmento 1: El ciudadano con tiempo limitado**
+
+![alt text](assets/assets/chapter-2/EmpathyMapping/S1.png)
+
+**Segmento 2: El operador de atención al ciudadano**
+
+![alt text](assets/assets/chapter-2/EmpathyMapping/S2.png)
+
+**Segmento 3: El responsable de gestión de sede**
+
+![alt text](assets/assets/chapter-2/EmpathyMapping/S3.png)
+
+
 ### 2.4. Big Picture EventStorming
-### 2.5. Ubiquitous Language
+
+
+
+## 2.5. Ubiquitous Language
+
+En esta sección se definen los términos clave del dominio de **FlowQueue**. Estos términos son de uso obligatorio para el equipo de desarrollo, los interesados y los usuarios finales, garantizando una comunicación sin ambigüedades.
+
+---
+
+**Administrative Dashboard**  
+Interfaz de gestión centralizada donde el *Headquarters Supervisor* visualiza indicadores de rendimiento, métricas de atención y supervisa el estado operativo de las sedes.
+
+**Citizen**  
+Usuario final que accede a la plataforma para buscar instituciones, emitir un *Digital Ticket* y realizar el seguimiento de su turno de forma remota.
+
+**Counter Operator**  
+Personal de la institución encargado de gestionar el flujo de la *Virtual Queue* desde un *Service Counter*, realizando llamados y finalizando atenciones.
+
+**Digital Ticket**  
+Identificador único generado por el sistema que representa el turno del *Citizen*. Incluye código de turno, hora de emisión y un código QR para validación.
+
+**Headquarters Supervisor**  
+Rol administrativo responsable de monitorear la eficiencia de la sede y tomar decisiones basadas en analítica de datos.
+
+**Queue Status**  
+Información dinámica que indica la posición del usuario en la fila, el número de turnos restantes y el estado actual de la atención en sala.
+
+**Real-Time Update**  
+Mecanismo de sincronización que asegura que los cambios en la *Virtual Queue* se reflejen instantáneamente en todos los dispositivos conectados.
+
+**Service Counter**  
+Punto de atención físico (ventanilla) asignado a un *Counter Operator* para realizar el trámite solicitado por el *Citizen*.
+
+**Service Type**  
+Categorización de trámites que define a qué flujo o *Virtual Queue* específico ingresará el usuario.
+
+**Virtual Queue**  
+Estructura lógica y digital que organiza el orden de llegada de los usuarios, eliminando la necesidad de una fila física en la sede.
+
+**Waiting Time Estimate**  
+Tiempo aproximado de espera calculado mediante algoritmos que consideran el ritmo de atención actual de los *Counter Operators*.
 
 ## Capítulo III: Requirements Specification
 
