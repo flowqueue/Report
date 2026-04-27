@@ -627,3 +627,11 @@ Tras el desarrollo del primer ciclo de implementación y validación de **FlowQu
 * **Contraste de Hypotheses Statements:** Nuestra hipótesis de que "proporcionar un ticket virtual reduciría el estrés operativo" fue validada. El personal administrativo identificó que el acceso a la posición en tiempo real desde el smartphone del ciudadano eliminaría la presión física en ventanilla, permitiendo un flujo de trabajo más silencioso y eficiente.
 * **Criterios de Éxito Lean UX:** Se cumplieron los indicadores de éxito del Sprint 1 al lograr una Landing Page con una tasa de rebote mínima y una comprensión de la propuesta de valor en menos de 30 segundos. Las validaciones externas demostraron que el valor agregado reside en el Dashboard de datos para la toma de decisiones estratégicas.
 
+### Recomendaciones
+
+Basado en los resultados obtenidos, el equipo establece la siguiente hoja de ruta (**Roadmap**) para el producto digital:
+
+1.  **Priorización del Backend (Sprint 2):** Implementar la lógica de negocio en **.NET 9** para la generación dinámica de tickets y el motor de notificaciones en tiempo real, asegurando la escalabilidad de la API bajo el modelo de arquitectura limpia.
+2.  **Módulo de Analítica para Supervisores:** Desarrollar el **Dashboard** de monitoreo para el Segmento 3, permitiendo visualizar KPIs como el *Tiempo Promedio de Espera* y la *Tasa de Abandono*, transformando datos operativos en decisiones de gestión.
+3.  **Optimización Mobile-First:** Dado que el perfil psicográfico de los ciudadanos (Segmento 1) muestra una alta dependencia de smartphones **Android** y browsers como **Chrome**, se recomienda mantener la interfaz ligera y optimizada para redes móviles inestables.
+4.  **Integración de Feedback Continuo:** Mantener sesiones de validación periódicas con el personal de ventanilla para ajustar la interfaz del operador, asegurando que la herramienta sea un apoyo y no una carga administrativa adicional.
