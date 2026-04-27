@@ -473,6 +473,13 @@ Para el desarrollo de **FlowQueue**, se ha configurado un ecosistema de herramie
 * **Software Deployment:** Se emplea **Git** como sistema de control de versiones local y **GitHub** como repositorio remoto para la integración continua.
 
 #### 5.1.1. Software Development Environment Configuration
+El equipo adopta la metodología **GitFlow** para mantener la estabilidad del código de FlowQueue:
+* **Main branch:** Contiene el código de producción (Landing Page y API funcional).
+* **Develop branch:** Rama de integración para las funcionalidades de gestión de tickets y administración de sedes.
+
+**Repositorios de GitHub:**
+* **Organización:** [https://github.com/flowqueue](https://github.com/flowqueue)
+* **Repositorio del Proyecto:** [https://github.com/orgs/flowqueue/repositories](https://github.com/orgs/flowqueue/repositories)
 
 #### 5.1.2. Source Code Management
 
