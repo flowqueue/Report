@@ -854,7 +854,32 @@ El wireframe mobile está adaptado a **375px de ancho**, siguiendo los breakpoin
 
 ### 4.4. Web Applications UX/UI Design
 #### 4.4.1. Web Applications Wireframes
-#### 4.4.2. Web Applications Wireflow Diagrams
+### 4.4.2 Web Applications Wireflow Diagrams
+
+#### User Goal 1  
+**Segmento:** Ciudadanos usuarios de servicios públicos  
+**User Goal:** Obtener un turno virtual y monitorear su posición en la cola  
+
+**Explicación:**  
+El ciudadano busca evitar largas filas presenciales. A través de FlowQueue puede buscar la institución, seleccionar la sede y el trámite, generar su ticket digital y visualizar en tiempo real su posición en la cola y el tiempo estimado de atención, sin necesidad de estar físicamente presente.
+
+---
+
+#### User Goal 2  
+**Segmento:** Personal administrativo de atención  
+**User Goal:** Gestionar el flujo de turnos de forma eficiente desde el dashboard  
+
+**Explicación:**  
+El operador necesita mantener el orden de atención sin desorganización. FlowQueue le permite visualizar la cola en tiempo real, llamar al siguiente turno, priorizar casos especiales y marcar turnos como atendidos o ausentes desde una interfaz centralizada.
+
+---
+
+#### User Goal 3  
+**Segmento:** Supervisores o responsables de sede  
+**User Goal:** Monitorear el rendimiento de la atención y tomar decisiones operativas  
+
+**Explicación:**  
+El supervisor necesita evaluar la eficiencia del servicio. FlowQueue le proporciona un dashboard con métricas de tiempo de espera, volumen de usuarios, horas pico y desempeño por operador, permitiéndole tomar decisiones basadas en datos para optimizar los recursos de la sede.
 #### 4.4.3. Web Applications Mock-ups
 #### 4.4.4. Web Applications User Flow Diagrams
 
