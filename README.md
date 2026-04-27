@@ -74,6 +74,7 @@
   - [User Task Matrix – Citizen](#user-task-matrix--citizen)
   - [User Task Matrix – Counter Operator](#user-task-matrix--counter-operator)
   - [User Task Matrix – Supervisor](#user-task-matrix--supervisor)
+    - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
     - [2.3.4. Empathy Mapping](#234-empathy-mapping)
   - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
 - [2.5. Ubiquitous Language](#25-ubiquitous-language)
@@ -765,7 +766,8 @@ Como resultado del análisis de entrevistas realizadas a potenciales usuarios y 
 | Detectar cuellos de botella | Media | Alta |
 | Optimizar asignación de recursos | Media | Alta |
 | Analizar satisfacción del usuario | Baja | Media |#### 2.3.3. User Journey Mapping
-#### 2.3.4. Empathy Mapping
+
+#### 2.3.3. User Journey Mapping
 
 **Segmento 1: El ciudadano con tiempo limitado**
 
@@ -779,8 +781,24 @@ Como resultado del análisis de entrevistas realizadas a potenciales usuarios y 
 
 ![alt text](assets/assets/chapter-2/UserJourneyMap/S3.png)
 
+#### 2.3.4. Empathy Mapping
+
+**Segmento 1: El ciudadano con tiempo limitado**
+
+![alt text](assets/assets/chapter-2/EmpathyMapping/S1.png)
+
+**Segmento 2: El operador de atención al ciudadano**
+
+![alt text](assets/assets/chapter-2/EmpathyMapping/S2.png)
+
+**Segmento 3: El responsable de gestión de sede**
+
+![alt text](assets/assets/chapter-2/EmpathyMapping/S3.png)
+
 
 ### 2.4. Big Picture EventStorming
+
+
 
 ## 2.5. Ubiquitous Language
 
