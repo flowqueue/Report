@@ -556,3 +556,17 @@ Para este Sprint se han establecido los aspectos esenciales relacionados con el 
 | Ruiz, Daniel | DanRuizPeru | C | C | **L** |
 | Aliaga Ocampo, Alexander Auden | AlexanderAliaga19 | C | C | C |
 | Uribe Linares, Francisco Javier | XFranciscoLinaresX | C | C | C |
+
+#### 5.2.1.3 Sprint Backlog 1
+En relación al EP-01 (Interacción con la Landing Page de FlowQueue), se detallan las historias de usuario que contribuyen directamente al logro del Sprint Goal: 
+
+| ID | Historia de Usuario | Asignado a |
+| :--- | :--- | :--- |
+| **HU-01** | Propósito de la plataforma y beneficios. | Mansilla Rivero, Carlos |
+| **HU-02** | Visualización de beneficios por rol. | Aliaga Ocampo, Alexander |
+| **HU-03** | Entender flujo del sistema. | Ruiz, Daniel |
+| **HU-27** | Adaptabilidad en dispositivos móviles (Responsive). | Mansilla Rivero, Carlos |
+| **HU-28** | Botones de llamado a la acción (CTA) claros. | Pillaca Vidal, Luis |
+| **HU-02** | (Cont.) Métricas de impacto y perfiles. | Aliaga Ocampo, Alexander |
+| **HU-01** | (i18n) Integración de selector de idiomas. | Aliaga Ocampo, Alexander |
+| **HU-46** | Configuración de arquitectura inicial API. | Uribe Linares, Francisco |
