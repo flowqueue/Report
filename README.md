@@ -545,3 +545,14 @@ Todas las nomenclaturas (variables, funciones, clases, archivos) se escribirán 
 |Diseñar e implementar una landing page funcional y responsiva que transmita la propuesta de valor de FlowQueue sobre la gestión de colas virtuales en instituciones peruanas.|
 |**Sprint Velocity:**| 13|
 |**Sum of Story Points:**| 13|
+
+#### 5.2.1.2 Aspect Leaders and Collaborators (LACX)
+Para este Sprint se han establecido los aspectos esenciales relacionados con el desarrollo de la landing page de FlowQueue. Con el propósito de optimizar la organización y la comunicación del equipo, se diseñó la matriz Leadership and Collaboration Matrix (LACX), en la cual se especifica quién desempeña el rol de Líder (L) y quiénes intervienen como Colaboradores (C). 
+
+| Miembro del equipo | GitHub Username | Landing Page | Deployment | Documentation |
+| :--- | :--- | :---: | :---: | :---: |
+| Pillaca Vidal, Luis Angel | RIBlankRam | **L** | C | C |
+| Mansilla Rivero, Carlos Marcelo | c3sv | C | **L** | C |
+| Ruiz, Daniel | DanRuizPeru | C | C | **L** |
+| Aliaga Ocampo, Alexander Auden | AlexanderAliaga19 | C | C | C |
+| Uribe Linares, Francisco Javier | XFranciscoLinaresX | C | C | C |
