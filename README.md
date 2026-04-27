@@ -997,7 +997,7 @@ https://1drv.ms/v/c/6463e088f0304028/IQCq8gBOgwtkQ6fONdbxlr2MAadxw0UsnvvyXu048hA
 #### 4.6.1. Domain-Level EventStorming
 ![domain1](./assets/assets/chapter-1/domainlevel1.png)
 
-![domain2](./assets/assets/chapter-1/domainilevel2.png)
+![domain2](./assets/assets/chapter-1/domanilevel2.png)
 
 ![domain3](./assets/assets/chapter-1/domainlevel3.png)
 ### 4.6.2 Software Architecture Context Diagram
