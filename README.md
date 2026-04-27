@@ -63,7 +63,11 @@
   - [Preguntas para personal administrativo (Segmento 2)](#preguntas-para-personal-administrativo-segmento-2)
   - [Preguntas para supervisores o responsables de sede (Segmento 3)](#preguntas-para-supervisores-o-responsables-de-sede-segmento-3)
     - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
-    - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
+  - [Resumen](#resumen)
+  - [Resumen](#resumen-1)
+  - [Resumen](#resumen-2)
+  - [Resumen](#resumen-3)
+  - [Resumen](#resumen-4)
   - [2.3. NeedFinding](#23-needfinding)
     - [2.3.1. User Personas](#231-user-personas)
 - [2.3.2. User Task Matrix](#232-user-task-matrix)
@@ -517,6 +521,59 @@ Competitive Analysis Landscape
 
 #### 2.1.2. Estrategias y tácticas frente a competidores
 
+En un mercado donde existen soluciones internacionales consolidadas como Qminder y QLess, así como alternativas locales como Inalto EIRL, FlowQueue adopta una estrategia competitiva basada en la diferenciación por accesibilidad, simplicidad y adaptación al contexto peruano.
+A continuación, se detallan las principales estrategias y tácticas:
+1. Estrategia de diferenciación por accesibilidad
+FlowQueue se posiciona como una solución ligera y fácil de implementar, eliminando la necesidad de hardware especializado o instalaciones complejas.
+Tácticas:
+   - Plataforma 100% web accesible desde cualquier dispositivo
+   - Interfaz intuitiva enfocada en usuarios no técnicos
+   - Eliminación de barreras de entrada (sin app obligatoria ni equipos físicos)
+
+
+2. Estrategia de enfoque en el mercado local (Perú)
+A diferencia de competidores globales, FlowQueue se adapta a las necesidades específicas de las instituciones peruanas.
+Tácticas:
+   - Personalización según procesos de entidades públicas (RENIEC, bancos, etc.)
+   - Soporte local y conocimiento del contexto operativo
+   - Adaptación a limitaciones tecnológicas (conectividad, dispositivos)
+
+3. Estrategia de liderazgo en costos (modelo accesible)
+FlowQueue busca ofrecer una solución más económica frente a plataformas internacionales y sistemas híbridos.
+Tácticas:
+   - Modelo SaaS con precios accesibles
+   - Reducción de costos al no requerir hardware
+   - Planes escalables según tamaño de la institución
+
+4. Estrategia de experiencia de usuario (UX-first)
+Se prioriza la experiencia del ciudadano, facilitando la interacción con el sistema.
+Tácticas:
+   - Visualización en tiempo real del estado de la cola
+   - Estimación clara del tiempo de espera
+   - Notificaciones simples y comprensibles
+   - Reducción del estrés asociado a filas físicas
+
+5. Estrategia de entrada mediante pilotos institucionales
+Para superar barreras de adopción, se plantea una estrategia de validación progresiva.
+Tácticas:
+   - Implementación piloto en instituciones específicas
+   - Medición de resultados (tiempo de espera, satisfacción)
+   - Uso de casos de éxito para escalar a otras entidades
+
+6. Estrategia de escalabilidad tecnológica
+FlowQueue se diseña para crecer de forma progresiva sin incrementar significativamente los costos.
+Tácticas:
+   - Arquitectura web escalable en la nube
+   - Soporte para múltiples sedes y servicios
+   - Integración futura con tecnologías como IA y analítica avanzada
+
+7. Estrategia frente a competidores específicos
+  Frente a Qminder y QLess:
+    - FlowQueue compite con precios más accesibles y adaptación local
+
+  Frente a Inalto:
+ - FlowQueue se diferencia al eliminar la dependencia de hardware y simplificar la implementación 
+
 ### 2.2. Entrevistas
 ## 2.2.1. Diseño de entrevistas
 
@@ -573,7 +630,83 @@ Para cada entrevistado se recogerá:
 5. ¿Qué beneficios esperaría de una plataforma de colas virtuales?
 6. ¿La institución estaría dispuesta a adoptar una solución digital si mejora la eficiencia?
 #### 2.2.2. Registro de entrevistas
-#### 2.2.3. Análisis de entrevistas
+
+**Entrevista 1 – Ciudadano usuario de servicios públicos**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado | Angye Hilasak |
+| Edad | 20 años |
+| Distrito | Santiago de Surco - Lima |
+| Duración | 1:12 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/18fmulg-DBUSSvQ2X1qlPd__TzqZKzSGg/view?usp=sharing) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S1-AngieHilasak.png)
+
+### Resumen
+ En la entrevista, Angye comparte su experiencia frente a las largas colas y tiempos de espera en servicios públicos. Señala que este problema genera incomodidad, pérdida de tiempo y desorganización para los usuarios, especialmente cuando no existe información clara sobre turnos, horarios o avance de la atención. 
+ Además, menciona que una solución digital podría ayudar a ordenar mejor el proceso, reducir la incertidumbre y permitir que las personas gestionen su tiempo de forma más eficiente. Su testimonio refuerza la necesidad de implementar una herramienta que mejore la experiencia del usuario y haga más ágil la atención.
+
+**Entrevista 2 – Ciudadano usuario de servicios públicos**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado | Joaquin Basas |
+| Edad | 20 años |
+| Distrito | Santiago de Surco - Lima |
+| Duración | 3:06 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/1aMRICU_kFHHbjtRqSG4-3lFay4bM_Jip/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S1-JoaquinBasas2.png) ![alt text](assets/assets/chapter-2/Entrevistas/S1-JoaquinBasas1.png)
+
+### Resumen
+ En la entrevista, Joaquin expresa su frustración a las incertidumbres que hay en los tiempos de atención para trámites públicos. Se enfoca principalmente en el tiempo que le consume y el estrés que genera que un trámite sencillo y rápido demore por colas interminables y poco eficientes.Menciona que una solución digital, que le de un turno, similar a los que hay en clinica privadas, puede ser bastante beneficioso. Su testimonio demuestra que el problema de las colas está presente en otros rubros y es enfrentado con turnos, como en el sector de la medicina privada. 
+
+**Entrevista 1 – Personal administrativo de atención**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado |  Nicole Quispe |
+| Edad | 23 años |
+| Distrito | Elmer Faucett - Callao |
+| Duración | 6:14 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/1ykERqgZVzP2aI6VF0UUVsJki2yhW-nRG/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S2-NicoleQuispe.png)
+
+### Resumen
+En la entrevista se presenta FlowQueue a una trabajadora administrativa de Talma Servicios Aeroportuarios. Ella explica que la atención se organiza por orden de llegada y, en algunos casos, con números manuales. El principal problema ocurre en horas pico, especialmente en la mañana y tarde, cuando las colas aumentan y los pasajeros esperan más de 30 minutos, generando quejas e incomodidad. Además, menciona que el personal tiene dificultades para manejar a los usuarios por falta de información clara sobre los tiempos de atención. Considera que una plataforma que gestione turnos en tiempo real ayudaría a organizar mejor las filas, informar a los pasajeros y asignar el personal necesario. 
+
+
+**Entrevista 2 – Personal administrativo de atención**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado |  Eduardo Aguirre |
+| Edad | 31 años |
+| Distrito |  San Miguel |
+| Duración | 4:31 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/17PgnA8MeDgaUX3k68Mo4J2JP2S1-qrt7/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S2-EduardoAguirre.png)
+
+### Resumen
+Eduardo Aguirre (31 años, San Miguel) es un técnico administrativo con una personalidad metódica pero estresada por el desorden ambiental. En su vida personal es un usuario tecnológico habitual de Android, Rappi y YouTube, lo que lo hace muy crítico con el sistema de su oficina, el cual considera obsoleto al funcionar sobre Windows y Microsoft Edge con tiqueteros de papel que fallan seguido. Su mayor frustración ocurre en la hora punta (10:30 AM a 1:30 PM), donde la aglomeración y el ruido lo obligan a actuar como controlador de multitudes en lugar de administrativo, afectando su salud mental. Eduardo considera que FlowQueue es una solución indispensable porque, al notificar al usuario en tiempo real, limpiaría la sala de espera física, permitiéndole trabajar en silencio, con mayor seguridad y enfocado únicamente en la gestión del trámite.
+
+**Entrevista 1 -  Responsables o supervisores de sede**
+| Campo | Detalle |
+|------|--------|
+| Entrevistado |  Eduardo Villanueva|
+| Edad | 21 años |
+| Distrito |  Santiago de Surco |
+| Duración | 4:31 |
+| Tiempo de inicio | 00:00 |
+| Link | [Ver entrevista](https://drive.google.com/file/d/17PgnA8MeDgaUX3k68Mo4J2JP2S1-qrt7/view?usp=drive_link) |
+
+![alt text](assets/assets/chapter-2/Entrevistas/S3-EduardoVillanueva.png)
+
+### Resumen
+Eduardo Villanueva (25 años, Surco) es un Jefe de Operaciones con un perfil ejecutivo y orientado a resultados. Como usuario de tecnología de alta gama (Apple), valoro la inmediatez y el orden, lo cual contrasta con la realidad de su sede, donde la medición de eficiencia es manual y arcaica. Su principal frustración es la falta de datos precisos para reducir la Tasa de Abandono y el Tiempo de Espera. Javier ve en FlowQueue una oportunidad estratégica de transformación digital para descongestionar las salas físicas y proyectar una imagen de "Smart City", permitiéndole gestionar la sede mediante indicadores reales y no solo por volumen de tickets al final del día. 
 
 ### 2.3. NeedFinding
 #### 2.3.1. User Personas
@@ -621,6 +754,8 @@ Para cada entrevistado se recogerá:
 | Optimizar asignación de recursos | Media | Alta |
 | Analizar satisfacción del usuario | Baja | Media |#### 2.3.3. User Journey Mapping
 #### 2.3.4. Empathy Mapping
+
+
 
 ### 2.4. Big Picture EventStorming
 
