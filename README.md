@@ -18,7 +18,7 @@
       <li><h3>U202315654 - Pillaca Vidal, Luis Angel</h3></li>
       <li><h3>U202417693 - Alexander Auden Aliaga Ocampo</h3></li>
       <li><h3>u202210764 - Daniel Elias Ruiz Huisa</h3></li>
-      <li><h3> -  </h3></li>
+      <li><h3>u20211b686 - Uribe Linares Francisco Javier</h3></li>
   </ul>
   <br>
   <h4>abril del 2026</h4>
@@ -426,9 +426,116 @@ Este segmento agrupa a supervisores o encargados de una sede o área de atenció
 ## Capítulo IV: Product Design
 
 ### 4.1. Style Guidelines
-#### 4.1.1. General Style Guidelines
-#### 4.1.2. Web Style Guidelines
+### 4.1.1 General Style Guidelines
 
+#### Branding
+
+FlowQueue es una plataforma institucional peruana orientada a la digitalización de servicios públicos. Su identidad visual debe transmitir confianza, modernidad y accesibilidad, evitando una estética fría o corporativa excesiva. El nombre **“Flow”** inspira fluidez y movimiento, mientras que **“Queue”** refuerza el concepto de orden y gestión.
+
+| Dimensión | Posición |
+|---|---|
+| Divertido / Serio | Moderadamente serio |
+| Formal / Casual | Semi-formal |
+| Respetuoso / Irreverente | Respetuoso |
+| Entusiasta / Sereno | Ligeramente entusiasta |
+
+Este tono se refleja en frases como **“Di adiós a las filas interminables”**, usada en el hero de la landing, ya que es directa y motivadora sin resultar informal.
+
+#### Colores
+
+| Color | Nombre | Uso | Significado |
+|---|---|---|---|
+| `#0C447C` | Deep Blue | `.navbar`, `.home-section` | Transmite institucionalidad, seriedad y confianza. Es ideal para entidades públicas. |
+| `#22c55e` | Action Green | `.solicitar-btn`, `.texto-Queue` | Representa fluidez, avance y acción. Es el color principal de llamada a la acción. |
+| `#5DCAA5` | Soft Teal | `.segunda-linea` del `h1` | Funciona como acento visual, suaviza el contraste y aporta modernidad. |
+| `#185FA5` | Institutional Blue | `.descripcion-lugar` | Diferencia visualmente las etiquetas informativas del fondo principal. |
+
+#### Tipografía
+
+En el código se usa `sans-serif` como familia base. Para producción, se recomienda utilizar **Inter**, debido a su alta legibilidad en interfaces digitales institucionales.
+
+| Elemento | Tamaño | Peso | Uso |
+|---|---:|---:|---|
+| Hero `h1` | `2.5rem` | `700` | Título principal de la landing |
+| Métricas | `1.5rem` | `700` | Números destacados |
+| Cuerpo | `1rem` | `400` | Párrafos descriptivos |
+| UI pequeño | `0.875rem` | `500 - 600` | Navbar, botones y etiquetas |
+
+#### Espaciado
+
+El sistema de espaciado sigue una escala basada en `rem` para garantizar consistencia responsive.
+
+```css
+/* Espaciados usados en el proyecto */
+
+gap: 0.5rem;      /* Entre logo e ícono de marca */
+gap: 1rem;        /* Entre botones en móvil */
+gap: 1.5rem;      /* Entre links de navegación */
+gap: 2rem;        /* Entre métricas destacadas */
+gap: 2.5rem;      /* Entre elementos del container navbar */
+
+padding: 0 2rem;        /* Navbar horizontal */
+padding: 4rem 2rem;     /* Sección hero */
+padding: 0.5rem 1.2rem; /* Botones */
+```
+
+### 4.4.2 Web Style Guidelines
+
+#### Layout & Grid System
+
+El sistema de layout define cómo se estructuran todas las pantallas del sistema, como landing, dashboards, paneles administrativos y vistas operativas.
+
+##### Grid principal
+
+| Elemento | Regla de diseño |
+|---|---|
+| Contenedores | Centrados con `max-width: 1200px - 1440px` |
+| Margen lateral | Consistente con `padding: 0 2rem` |
+| Organización | Secciones claras y jerarquizadas |
+| Adaptabilidad | Diseño responsive para laptop, tablet y móvil |
+
+#### Estructura por tipo de vista
+
+| Vista | Estructura recomendada |
+|---|---|
+| Landing | Layout centrado con jerarquía vertical: `Hero → Features → CTA`. Uso de secciones con padding amplio entre `4rem` y `6rem`. |
+| Dashboard / Paneles | Sidebar fija a la izquierda, contenido con scroll independiente y uso de `cards` para mostrar información. |
+| Panel Operador | Layout principal horizontal, información crítica en la parte superior como el turno actual y tabla operativa disponible. |
+
+#### Patrones de Interacción
+
+Define cómo el usuario interactúa con el sistema de manera clara, consistente y predecible.
+
+##### Estado de botones
+
+Todos los botones deben considerar los siguientes estados:
+
+| Estado | Comportamiento visual |
+|---|---|
+| Default | Estado normal del botón |
+| Hover | Leve cambio de brillo o sombra |
+| Active | Reducción de escala con `scale(0.98)` |
+| Disabled | Opacidad reducida y sin interacción |
+
+```css
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+```
 ### 4.2. Information Architecture
 #### 4.2.1. Organization Systems
 #### 4.2.2. Labeling Systems
