@@ -908,7 +908,26 @@ https://1drv.ms/v/c/6463e088f0304028/IQCq8gBOgwtkQ6fONdbxlr2MAadxw0UsnvvyXu048hA
 
 ### 4.6. Domain-Driven Software Architecture
 #### 4.6.1. Domain-Level EventStorming
-#### 4.6.2. Software Architecture Context Diagram
+### 4.6.2 Software Architecture Context Diagram
+
+El diagrama de contexto representa el nivel más alto de abstracción de la arquitectura de **FlowQueue**, siguiendo el modelo **C4**. En este nivel, el sistema se muestra como una única entidad central rodeada por los actores que interactúan con él y los sistemas externos con los que se comunica.
+
+#### Actores del sistema
+
+| Actor | Descripción |
+|---|---|
+| Ciudadano | Usuario final que accede a FlowQueue para obtener un turno virtual, consultar su posición en la cola y recibir notificaciones sobre su atención, todo desde cualquier dispositivo con acceso web. |
+| Operador | Personal administrativo de la institución que gestiona el flujo de turnos desde su ventanilla, llamando al siguiente usuario y marcando atenciones como completadas o ausentes. |
+| Supervisor | Responsable de sede que monitorea el rendimiento general, visualiza métricas en tiempo real y genera reportes para la toma de decisiones. |
+| Administrador | Configura las sedes, servicios y operadores dentro de la plataforma, garantizando la correcta operación del sistema. |
+
+#### Sistemas externos
+
+| Sistema externo | Descripción |
+|---|---|
+| Servicio de notificaciones | Sistema de alertas que envía notificaciones push y mensajes al ciudadano cuando su turno está próximo a ser llamado. |
+| Base de datos | Almacena toda la información del sistema incluyendo turnos, usuarios, métricas de atención e historial de operaciones. |
+| Institución pública | Entidades como RENIEC, EsSalud y Banco de la Nación que adoptan FlowQueue para digitalizar su gestión de atención al ciudadano. |
 #### 4.6.3. Software Architecture Container Diagrams
 #### 4.6.4. Software Architecture Components Diagrams
 
