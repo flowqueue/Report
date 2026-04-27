@@ -617,3 +617,13 @@ La colaboración se evidencia en la participación estratégica de los integrant
 * **Francisco Uribe:** Lideró el desarrollo y validación de la sección de **Contacto e Interacción Institucional**, implementó la lógica de captura de prospectos y la validación de formularios en el frontend
 
 La comunicación fue constante vía **Discord**, realizando revisiones de código (**Code Reviews**) cruzadas y sesiones de Pair Programming antes de cada merge, garantizando que el incremento de software sea escalable y libre de deuda técnica técnica desde el primer Sprint.
+
+### Conclusiones
+
+Tras el desarrollo del primer ciclo de implementación y validación de **FlowQueue**, el equipo ha llegado a las siguientes conclusiones:
+
+* **Resultados frente a Problem Statements:** Se confirmó que el hacinamiento físico y la incertidumbre informativa son los problemas críticos. Las entrevistas validaron que el desorden no solo genera frustración en el ciudadano, sino que provoca un entorno laboral hostil para el personal administrativo (como Eduardo Aguirre), confirmando que la solución debe atacar tanto la gestión del turno como la comunicación del tiempo de espera.
+* **Validación de Assumptions:** Inicialmente asumimos que el usuario solo valoraba la rapidez; sin embargo, el comportamiento real de los segmentos muestra que valoran más la **predictibilidad**. Los supervisores (como Javier Mendieta) confirmaron que el "abandono de cola" es su mayor ineficiencia, validando nuestra suposición de que una espera virtual reduce la carga física en las sedes.
+* **Contraste de Hypotheses Statements:** Nuestra hipótesis de que "proporcionar un ticket virtual reduciría el estrés operativo" fue validada. El personal administrativo identificó que el acceso a la posición en tiempo real desde el smartphone del ciudadano eliminaría la presión física en ventanilla, permitiendo un flujo de trabajo más silencioso y eficiente.
+* **Criterios de Éxito Lean UX:** Se cumplieron los indicadores de éxito del Sprint 1 al lograr una Landing Page con una tasa de rebote mínima y una comprensión de la propuesta de valor en menos de 30 segundos. Las validaciones externas demostraron que el valor agregado reside en el Dashboard de datos para la toma de decisiones estratégicas.
+
