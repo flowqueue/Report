@@ -709,7 +709,19 @@ Eduardo Aguirre (31 años, San Miguel) es un técnico administrativo con una per
 Eduardo Villanueva (25 años, Surco) es un Jefe de Operaciones con un perfil ejecutivo y orientado a resultados. Como usuario de tecnología de alta gama (Apple), valoro la inmediatez y el orden, lo cual contrasta con la realidad de su sede, donde la medición de eficiencia es manual y arcaica. Su principal frustración es la falta de datos precisos para reducir la Tasa de Abandono y el Tiempo de Espera. Javier ve en FlowQueue una oportunidad estratégica de transformación digital para descongestionar las salas físicas y proyectar una imagen de "Smart City", permitiéndole gestionar la sede mediante indicadores reales y no solo por volumen de tickets al final del día. 
 
 ### 2.3. NeedFinding
+Como resultado del análisis de entrevistas realizadas a potenciales usuarios y del estudio de plataformas similares en el mercado, se han identificado dos segmentos objetivos clave para la propuesta de valor de la startup FlowQueue
 #### 2.3.1. User Personas
+**Segmento 1: El ciudadano con tiempo limitado**
+
+![alt text](assets/assets/chapter-2/UserPersonas/S1.png)
+
+**Segmento 2: El operador de atención al ciudadano**
+
+![alt text](assets/assets/chapter-2/UserPersonas/S2.png)
+
+**Segmento 3: El responsable de gestión de sede**
+
+![alt text](assets/assets/chapter-2/UserPersonas/S3.png)
 ## 2.3.2. User Task Matrix
 
 ### User Task Matrix – Citizen
