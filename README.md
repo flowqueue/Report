@@ -617,7 +617,26 @@ Para la gestión de tickets dentro de la plataforma, los estados se etiquetan co
 | Sustantivos simples | Funciones, Sedes, Precios |
 | Primera persona en CTAs | “Obtener mi turno” para generar cercanía |
 | Sin tecnicismos visibles | El lenguaje debe ser claro para el usuario final |
-#### 4.2.3. SEO Tags and Meta Tags
+### 4.2.3 SEO Tags and Meta Tags
+
+En esta sección se definen los metadatos que serán utilizados en las principales páginas de la plataforma **FlowQueue**, tanto para la **Landing Page** como para la **Web Application**. Estos elementos permiten mejorar la visibilidad en motores de búsqueda y garantizar una correcta indexación del contenido.
+
+#### Estructura Base HTML
+
+A continuación, se presenta la estructura general de implementación de los meta tags dentro del documento HTML:
+
+```html
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Título de la página</title>
+  <meta name="description" content="Descripción de la página">
+  <meta name="keywords" content="palabras clave">
+  <meta name="author" content="autor del sitio">
+</head>
+```
+
 #### 4.2.4. Searching Systems
 #### 4.2.5. Navigation Systems
 
