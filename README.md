@@ -589,3 +589,11 @@ Se logró una Landing Page funcional con las siguientes secciones:
 * **Hero Section:** Propuesta de valor sobre reducción de esperas.
 * **Features:** Información sobre ticket virtual y monitoreo.
 * **Contact:** Formulario de contacto institucional.
+
+#### 5.2.1.6 Services Documentation Evidence for Sprint Review
+
+El alcance del Sprint 1 se limitó exclusivamente al diseño y desarrollo frontend de la Landing Page de FlowQueue. Por consiguiente, no se implementaron Web Services ni endpoints en esta fase inicial. El desarrollo de la RESTful API en C# y su correspondiente documentación con OpenAPI (Swagger) está programado para iniciarse en el Sprint 2.
+
+| Endpoint | Acciones | URL de Documentación | Verbo HTTP | Sintaxis / Parámetros | Response (Explicación) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| N/A | N/A | N/A | N/A | N/A | N/A |
