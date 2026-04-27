@@ -934,6 +934,11 @@ El wireframe mobile está adaptado a **375px de ancho**, siguiendo los breakpoin
 
 ### 4.4. Web Applications UX/UI Design
 #### 4.4.1. Web Applications Wireframes
+![Wireframe 1](./assets/assets/chapter-1/winfares1.png)
+
+![Wireframe 2](./assets/assets/chapter-1/winfares2.png)
+
+![Wireframe 3](./assets/assets/chapter-1/winfares3.png)
 ### 4.4.2 Web Applications Wireflow Diagrams
 
 #### User Goal 1  
