@@ -774,7 +774,30 @@ Ejemplo de índice para un motor tipo Elasticsearch / OpenSearch:
 - Fecha: Últimos 7 días  
 - Horario: 08:00 – 12:00
   
-#### 4.2.5. Navigation Systems
+### 4.2.5 Navigation Systems
+
+El sistema de navegación de **FlowQueue** ha sido diseñado para proporcionar una experiencia intuitiva, eficiente y consistente para los distintos tipos de usuarios que interactúan con la plataforma.
+
+Debido a que el sistema contempla tres perfiles principales:
+
+- Ciudadanos  
+- Operadores de atención  
+- Supervisores / Administradores  
+
+La navegación se organiza por módulos y flujos específicos para cada rol.
+
+La estructura responde a principios de:
+
+- Usabilidad  
+- Mínima fricción cognitiva  
+- Enfoque mobile-first  
+- Consistencia entre vistas  
+- Acceso rápido a funciones críticas  
+
+Esto permite que los usuarios puedan desplazarse fácilmente entre pantallas, acceder rápidamente a funcionalidades clave y completar tareas sin complejidad innecesaria.
+
+---
+
 
 ### 4.3. Landing Page UI Design
 #### 4.3.1. Landing Page Wireframe
