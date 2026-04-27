@@ -1586,10 +1586,175 @@ El diagrama de clases es la representación estática del sistema **FlowQueue**.
 ## Capítulo V: Product Implementation, Validation & Deployment
 
 ### 5.1. Software Configuration Management
+Para el desarrollo de **FlowQueue**, se ha configurado un ecosistema de herramientas que garantizan la trazabilidad y eficiencia del equipo:
+
+* **Project Management:** Se utiliza **Trello** para la gestión del Product Backlog y el seguimiento de Sprints mediante tableros Kanban. La comunicación síncrona y coordinación de Daily Meetings se realiza vía **Discord**.
+    * *Ruta de referencia:* [https://discord.gg/qFDFAwCw](https://discord.gg/qFDFAwCw)
+* **Diseño UX/UI:** **Figma** es la herramienta principal para los Mock-ups y el Wireflow, permitiendo la validación de la experiencia del ciudadano y el operador.
+    * *Ruta de referencia:* [Proyecto Figma - FlowQueue](https://www.figma.com/design/6qzIbj58xjcLeY7m07Snip/Sin-t%C3%ADtulo?node-id=0-1&t=K0kTNX7whucRPCNp-1)
+* **Software Development:** El desarrollo del Backend se realiza en **Visual Studio 2022** utilizando **.NET 8/9**. La gestión de la base de datos relacional se realiza mediante **MySQL Workbench** sobre un motor **MySQL 9.5**.
+* **Software Deployment:** Se emplea **Git** como sistema de control de versiones local y **GitHub** como repositorio remoto para la integración continua.
+
 #### 5.1.1. Software Development Environment Configuration
+El equipo adopta la metodología **GitFlow** para mantener la estabilidad del código de FlowQueue:
+* **Main branch:** Contiene el código de producción (Landing Page y API funcional).
+* **Develop branch:** Rama de integración para las funcionalidades de gestión de tickets y administración de sedes.
+
+**Repositorios de GitHub:**
+* **Organización:** [https://github.com/flowqueue](https://github.com/flowqueue)
+* **Repositorio del Proyecto:** [https://github.com/orgs/flowqueue/repositories](https://github.com/orgs/flowqueue/repositories)
+
 #### 5.1.2. Source Code Management
+Para asegurar la mantenibilidad de la plataforma, se aplican las siguientes convenciones:
+* **Backend (C#):** Uso de `PascalCase` para nombres de clases, interfaces y métodos públicos. Uso de `camelCase` para variables privadas y parámetros.
+* **Database (MySQL):** Nombres de tablas en `PascalCase` (ej. `Tickets`, `Agencies`) para coincidir con las entidades de Entity Framework.
+* **API:** Implementación de verbos HTTP claros (`GET` para consulta de turnos, `POST` para generación de tickets).
+
 #### 5.1.3. Source Code Style Guide & Conventions
+Todas las nomenclaturas (variables, funciones, clases, archivos) se escribirán en **inglés**.
+
+#### HTML (W3C / Google Style)
+* Indentación de 2 espacios.
+* Minúsculas para etiquetas y atributos. Comillas dobles (`" "`) en atributos.
+* Estructura semántica correcta (`<header>`, `<main>`, `<footer>`).
+
+#### CSS (Google Style)
+* `kebab-case` para nombres de clases: `.main-container`, `.button-primary`.
+* Organización de reglas: posición → caja → tipografía → visual.
+* Uso de variables CSS para colores y tipografías.
+
+#### JavaScript / Vue.js (Google / Vue Official Style)
+* `camelCase` para variables/funciones: `getUserData()`.
+* `PascalCase` para clases y componentes: `UserProfile.vue`.
+* Declaraciones con `const` y `let`. Uso de funciones flecha (`=>`).
+* **Vue.js:** Props en `camelCase` en JS y `kebab-case` en templates.
+
+#### C# (Microsoft Guidelines)
+* `PascalCase` para clases, métodos y propiedades: `CustomerService`, `GetTicket()`.
+* `camelCase` para variables locales y parámetros: `userId`.
+* Interfaces con prefijo `I`: `IRepository`.
+* Indentación de 4 espacios.
+
+#### BDD (Gherkin)
+* Escenarios escritos en inglés. Formato: `Given`, `When`, `Then`.
+
 #### 5.1.4. Software Deployment Configuration
+**A. Despliegue de la Landing Page (GitHub Pages)**
+* Configuración de integración continua (CI) donde cada cambio en la rama `main` se refleja automáticamente.
+* **URL de Acceso:** [https://flowqueue.github.io/FlowQueue-LandingPage](https://flowqueue.github.io/FlowQueue-LandingPage)
+
+**B. Despliegue de la Web API (Cloud Deployment)**
+* **Contenedores:** Uso de **Docker** para empaquetar la API de .NET.
+* **Plataforma de Hosting:** Despliegue en **Azure App Services** (o Render) para escalabilidad automática.
+* **Base de Datos Cloud:** Instancia de **Azure Database for MySQL** con acceso restringido por IP.
+
+**C. Configuración de Variables de Entorno**
+* Datos sensibles (ConnectionStrings, Jwt Keys) configurados mediante **GitHub Secrets**.
+
+---
 
 ### 5.2. Landing Page, Services & Applications Implementation
 #### 5.2.1. Sprint 1
+#### 5.2.1.1 Sprint Planning 1
+
+| Aspecto | Detalle |
+| :--- | :--- |
+| **Sprint #** | Sprint 1 |
+| **Fecha de inicio** | 2026-03-30 |
+| **Ubicación** | Reunión virtual mediante Discord |
+| **Preparado por** | Carlos Marcelo Mansilla Rivero |
+| **Participantes** | Pillaca Vidal, L.; Mansilla Rivero, C.; Uribe Linares, F.; Aliaga Ocampo, A. |
+|**Sprint 1 Goal:** |
+|Diseñar e implementar una landing page funcional y responsiva que transmita la propuesta de valor de FlowQueue sobre la gestión de colas virtuales en instituciones peruanas.|
+|**Sprint Velocity:**| 13|
+|**Sum of Story Points:**| 13|
+
+#### 5.2.1.2 Aspect Leaders and Collaborators (LACX)
+Para este Sprint se han establecido los aspectos esenciales relacionados con el desarrollo de la landing page de FlowQueue. Con el propósito de optimizar la organización y la comunicación del equipo, se diseñó la matriz Leadership and Collaboration Matrix (LACX), en la cual se especifica quién desempeña el rol de Líder (L) y quiénes intervienen como Colaboradores (C). 
+
+| Miembro del equipo | GitHub Username | Landing Page | Deployment | Documentation |
+| :--- | :--- | :---: | :---: | :---: |
+| Pillaca Vidal, Luis Angel | RIBlankRam | **L** | C | C |
+| Mansilla Rivero, Carlos Marcelo | c3sv | C | **L** | C |
+| Ruiz, Daniel | DanRuizPeru | C | C | **L** |
+| Aliaga Ocampo, Alexander Auden | AlexanderAliaga19 | C | C | C |
+| Uribe Linares, Francisco Javier | XFranciscoLinaresX | C | C | C |
+
+#### 5.2.1.3 Sprint Backlog 1
+En relación al EP-01 (Interacción con la Landing Page de FlowQueue), se detallan las historias de usuario que contribuyen directamente al logro del Sprint Goal: 
+
+| ID | Historia de Usuario | Asignado a |
+| :--- | :--- | :--- |
+| **HU-01** | Propósito de la plataforma y beneficios. | Mansilla Rivero, Carlos |
+| **HU-02** | Visualización de beneficios por rol. | Aliaga Ocampo, Alexander |
+| **HU-03** | Entender flujo del sistema. | Ruiz, Daniel |
+| **HU-27** | Adaptabilidad en dispositivos móviles (Responsive). | Mansilla Rivero, Carlos |
+| **HU-28** | Botones de llamado a la acción (CTA) claros. | Pillaca Vidal, Luis |
+| **HU-02** | (Cont.) Métricas de impacto y perfiles. | Aliaga Ocampo, Alexander |
+| **HU-01** | (i18n) Integración de selector de idiomas. | Aliaga Ocampo, Alexander |
+| **HU-46** | Configuración de arquitectura inicial API. | Uribe Linares, Francisco |
+
+#### 5.2.1.4 Development Evidence for Sprint Review
+Durante el Sprint 1, el equipo se enfocó en la implementación de la estructura base y la interfaz responsiva de la Landing Page de FlowQueue. Se priorizó la claridad en la propuesta de valor y la accesibilidad desde dispositivos móviles. A continuación, se detallan los commits que evidencian el avance en el repositorio: 
+
+| Repositorio | Rama | Commit Id | Mensaje | Fecha |
+| :--- | :--- | :--- | :--- | :--- |
+| landingFlowQueue | develop | `7009d99` | feat(i18n): integrate language switcher | 26/04/2026 |
+| landingFlowQueue | develop | `5ba6785` | feat(landing): add profiles, metrics | 26/04/2026 |
+| landingFlowQueue | develop | `c566a34` | feat: navbar and home section | 25/04/2026 |
+| landingFlowQueue | develop | `ab5bc5e` | chore: Access section | 25/04/2026 |
+| landingFlowQueue | feature/dan | `52cf3a2` | chore: Funcionalities section | 25/04/2026 |
+
+#### 5.2.1.5 Execution Evidence
+
+Se logró una Landing Page funcional con las siguientes secciones:
+* **Header:** Navegación fluida y selector de idiomas.
+* **Hero Section:** Propuesta de valor sobre reducción de esperas.
+* **Features:** Información sobre ticket virtual y monitoreo.
+* **Contact:** Formulario de contacto institucional.
+
+#### 5.2.1.6 Services Documentation Evidence for Sprint Review
+
+El alcance del Sprint 1 se limitó exclusivamente al diseño y desarrollo frontend de la Landing Page de FlowQueue. Por consiguiente, no se implementaron Web Services ni endpoints en esta fase inicial. El desarrollo de la RESTful API en C# y su correspondiente documentación con OpenAPI (Swagger) está programado para iniciarse en el Sprint 2.
+
+| Endpoint | Acciones | URL de Documentación | Verbo HTTP | Sintaxis / Parámetros | Response (Explicación) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| N/A | N/A | N/A | N/A | N/A | N/A |
+
+#### 5.2.1.7 Software Deployment Evidence for Sprint Review
+
+Durante este Sprint, el proceso de despliegue se centró en la automatización de la Landing Page para asegurar su visibilidad pública inmediata.
+
+* **Configuración de Recursos:** Se habilitó el servicio de **GitHub Pages** dentro de la organización de GitHub del equipo.
+* **Automatización:** Se configuró un workflow de **GitHub Actions** para que, tras cada commit en la rama `main`, se ejecute un despliegue automático.
+* **Evidencia:** Se verificó la correcta renderización de estilos y activos en el entorno cloud.
+
+#### 5.2.1.8 Team Collaboration Insights during Sprint
+
+En esta sección el equipo explica cómo se han desarrollado las actividades de implementación. Durante el Sprint 1, el equipo de FlowQueue adoptó un flujo de trabajo basado en ramas (**GitFlow**). Se utilizó la rama `develop` como eje principal de integración y ramas de características (`feature/`) para el desarrollo individual.
+
+La colaboración se evidencia en la participación estratégica de los integrantes:
+* **Alexander Aliaga:** Lideró la arquitectura de **i18n** (internacionalización) y la creación de secciones dinámicas para métricas de impacto.
+* **c3sv (Carlos Mansilla):** Actuó como Release Manager, coordinando el despliegue automatizado y asegurando la integridad de la rama `develop`.
+* **Dan Ruiz y RIBlankRam (Luis Pillaca):** Responsables de la fidelidad visual de los componentes core, incluyendo la **Navbar**, el sistema de **Acceso** y el catálogo de **Funcionalidades**.
+* **Francisco Uribe:** Lideró el desarrollo y validación de la sección de **Contacto e Interacción Institucional**, implementó la lógica de captura de prospectos y la validación de formularios en el frontend
+
+La comunicación fue constante vía **Discord**, realizando revisiones de código (**Code Reviews**) cruzadas y sesiones de Pair Programming antes de cada merge, garantizando que el incremento de software sea escalable y libre de deuda técnica técnica desde el primer Sprint.
+
+### Conclusiones
+
+Tras el desarrollo del primer ciclo de implementación y validación de **FlowQueue**, el equipo ha llegado a las siguientes conclusiones:
+
+* **Resultados frente a Problem Statements:** Se confirmó que el hacinamiento físico y la incertidumbre informativa son los problemas críticos. Las entrevistas validaron que el desorden no solo genera frustración en el ciudadano, sino que provoca un entorno laboral hostil para el personal administrativo (como Eduardo Aguirre), confirmando que la solución debe atacar tanto la gestión del turno como la comunicación del tiempo de espera.
+* **Validación de Assumptions:** Inicialmente asumimos que el usuario solo valoraba la rapidez; sin embargo, el comportamiento real de los segmentos muestra que valoran más la **predictibilidad**. Los supervisores (como Javier Mendieta) confirmaron que el "abandono de cola" es su mayor ineficiencia, validando nuestra suposición de que una espera virtual reduce la carga física en las sedes.
+* **Contraste de Hypotheses Statements:** Nuestra hipótesis de que "proporcionar un ticket virtual reduciría el estrés operativo" fue validada. El personal administrativo identificó que el acceso a la posición en tiempo real desde el smartphone del ciudadano eliminaría la presión física en ventanilla, permitiendo un flujo de trabajo más silencioso y eficiente.
+* **Criterios de Éxito Lean UX:** Se cumplieron los indicadores de éxito del Sprint 1 al lograr una Landing Page con una tasa de rebote mínima y una comprensión de la propuesta de valor en menos de 30 segundos. Las validaciones externas demostraron que el valor agregado reside en el Dashboard de datos para la toma de decisiones estratégicas.
+
+### Recomendaciones
+
+Basado en los resultados obtenidos, el equipo establece la siguiente hoja de ruta (**Roadmap**) para el producto digital:
+
+1.  **Priorización del Backend (Sprint 2):** Implementar la lógica de negocio en **.NET 9** para la generación dinámica de tickets y el motor de notificaciones en tiempo real, asegurando la escalabilidad de la API bajo el modelo de arquitectura limpia.
+2.  **Módulo de Analítica para Supervisores:** Desarrollar el **Dashboard** de monitoreo para el Segmento 3, permitiendo visualizar KPIs como el *Tiempo Promedio de Espera* y la *Tasa de Abandono*, transformando datos operativos en decisiones de gestión.
+3.  **Optimización Mobile-First:** Dado que el perfil psicográfico de los ciudadanos (Segmento 1) muestra una alta dependencia de smartphones **Android** y browsers como **Chrome**, se recomienda mantener la interfaz ligera y optimizada para redes móviles inestables.
+4.  **Integración de Feedback Continuo:** Mantener sesiones de validación periódicas con el personal de ventanilla para ajustar la interfaz del operador, asegurando que la herramienta sea un apoyo y no una carga administrativa adicional.
