@@ -800,7 +800,56 @@ Esto permite que los usuarios puedan desplazarse fácilmente entre pantallas, ac
 
 
 ### 4.3. Landing Page UI Design
-#### 4.3.1. Landing Page Wireframe
+### 4.3.1 Landing Page Wireframe
+
+Los wireframes de la **Landing Page de FlowQueue** representan la estructura visual base para **Desktop Web Browser** y **Mobile Web Browser**. Estas representaciones permiten validar la arquitectura de información, jerarquía visual y distribución de contenidos antes de aplicar estilos definitivos.
+
+---
+
+## Desktop Web Browser
+
+El wireframe de escritorio está diseñado para una resolución base de **1280px**. La estructura sigue un flujo vertical descendente que guía al visitante desde el reconocimiento del problema hasta la conversión final.
+
+| Sección | Descripción |
+|---|---|
+| Navbar | Barra de navegación fija en la parte superior. Incluye el logotipo FlowQueue a la izquierda, cinco enlaces centrados y el botón **Solicitar demo** destacado en verde a la derecha. |
+| Hero Section | Sección principal de mayor jerarquía visual. Presenta la propuesta de valor, botones CTA, métricas y simulador de turno virtual. |
+| Funcionalidades | Seis cards en grilla de tres columnas con iconografía simple y etiquetas cortas. |
+| Cómo funciona | Proceso explicado en pasos numerados y conectados visualmente. |
+| Perfiles | Tres cards horizontales diferenciadas por rol: ciudadano, operador y supervisor. |
+| Impacto | Banda de contraste oscuro con métricas destacadas para reforzar credibilidad. |
+| Sobre nosotros | Cuatro cards del equipo en grilla de cuatro columnas. |
+| Footer CTA | Cierre con llamada a la acción final, campo de contacto y botón de conversión. |
+
+---
+
+## Mobile Web Browser
+
+El wireframe mobile está adaptado a **375px de ancho**, siguiendo los breakpoints definidos en el código con `@media (max-width: 768px)`.
+
+| Sección | Adaptación mobile |
+|---|---|
+| Navbar | El menú horizontal colapsa en menú hamburguesa. El botón **Solicitar demo** se traslada al menú desplegable. |
+| Hero Section | El título reduce su tamaño de `2.5rem` a `1.8rem`. Los botones pasan a columna y ocupan el 100% del ancho. |
+| Métricas | Las cuatro métricas se reorganizan en grilla `2x2`. |
+| Funcionalidades | La grilla de tres columnas colapsa a una sola columna. |
+| Perfiles | Las tres cards se apilan verticalmente. |
+| Impacto | Se mantiene en columna única con mayor espaciado. |
+| Footer CTA | Se adapta a columna única, manteniendo legibilidad y jerarquía. |
+
+---
+
+## Diseño inclusivo aplicado
+
+| Criterio | Aplicación |
+|---|---|
+| Contraste | Textos sobre fondo `#0C447C` cumplen contraste mínimo WCAG AA. |
+| Área táctil | Botones con área mínima de `44x44px`. |
+| Etiquetas | Elementos interactivos con etiquetas descriptivas. |
+| Tipografía | Tamaño mínimo de `0.875rem` para asegurar legibilidad. |
+| Menú hamburguesa | Estado abierto/cerrado controlado por `ref` en Vue. |
+
+---
 #### 4.3.2. Landing Page Mock-up
 
 ### 4.4. Web Applications UX/UI Design
