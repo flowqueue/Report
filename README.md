@@ -488,6 +488,32 @@ Para asegurar la mantenibilidad de la plataforma, se aplican las siguientes conv
 * **API:** Implementación de verbos HTTP claros (`GET` para consulta de turnos, `POST` para generación de tickets).
 
 #### 5.1.3. Source Code Style Guide & Conventions
+Todas las nomenclaturas (variables, funciones, clases, archivos) se escribirán en **inglés**.
+
+#### HTML (W3C / Google Style)
+* Indentación de 2 espacios.
+* Minúsculas para etiquetas y atributos. Comillas dobles (`" "`) en atributos.
+* Estructura semántica correcta (`<header>`, `<main>`, `<footer>`).
+
+#### CSS (Google Style)
+* `kebab-case` para nombres de clases: `.main-container`, `.button-primary`.
+* Organización de reglas: posición → caja → tipografía → visual.
+* Uso de variables CSS para colores y tipografías.
+
+#### JavaScript / Vue.js (Google / Vue Official Style)
+* `camelCase` para variables/funciones: `getUserData()`.
+* `PascalCase` para clases y componentes: `UserProfile.vue`.
+* Declaraciones con `const` y `let`. Uso de funciones flecha (`=>`).
+* **Vue.js:** Props en `camelCase` en JS y `kebab-case` en templates.
+
+#### C# (Microsoft Guidelines)
+* `PascalCase` para clases, métodos y propiedades: `CustomerService`, `GetTicket()`.
+* `camelCase` para variables locales y parámetros: `userId`.
+* Interfaces con prefijo `I`: `IRepository`.
+* Indentación de 4 espacios.
+
+#### BDD (Gherkin)
+* Escenarios escritos en inglés. Formato: `Given`, `When`, `Then`.
 
 #### 5.1.4. Software Deployment Configuration
 
