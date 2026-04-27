@@ -880,7 +880,11 @@ El operador necesita mantener el orden de atención sin desorganización. FlowQu
 
 **Explicación:**  
 El supervisor necesita evaluar la eficiencia del servicio. FlowQueue le proporciona un dashboard con métricas de tiempo de espera, volumen de usuarios, horas pico y desempeño por operador, permitiéndole tomar decisiones basadas en datos para optimizar los recursos de la sede.
-#### 4.4.3. Web Applications Mock-ups
+
+### 4.4.3 Web Applications Mock-ups
+
+En esta sección se presentan los diseños de alta fidelidad de la aplicación web **FlowQueue**. Estos mock-ups representan el estado final visual de la plataforma, integrando la paleta de colores institucional, la tipografía seleccionada y los componentes de interfaz definidos en las guías de estilo para asegurar una experiencia de usuario profesional y confiable.
+
 #### 4.4.4. Web Applications User Flow Diagrams
 
 ### 4.5. Web Applications Prototyping
