@@ -482,6 +482,10 @@ El equipo adopta la metodología **GitFlow** para mantener la estabilidad del c�
 * **Repositorio del Proyecto:** [https://github.com/orgs/flowqueue/repositories](https://github.com/orgs/flowqueue/repositories)
 
 #### 5.1.2. Source Code Management
+Para asegurar la mantenibilidad de la plataforma, se aplican las siguientes convenciones:
+* **Backend (C#):** Uso de `PascalCase` para nombres de clases, interfaces y métodos públicos. Uso de `camelCase` para variables privadas y parámetros.
+* **Database (MySQL):** Nombres de tablas en `PascalCase` (ej. `Tickets`, `Agencies`) para coincidir con las entidades de Entity Framework.
+* **API:** Implementación de verbos HTTP claros (`GET` para consulta de turnos, `POST` para generación de tickets).
 
 #### 5.1.3. Source Code Style Guide & Conventions
 
