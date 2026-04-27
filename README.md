@@ -538,7 +538,85 @@ button:disabled {
 ```
 ### 4.2. Information Architecture
 #### 4.2.1. Organization Systems
-#### 4.2.2. Labeling Systems
+### 4.2.2 Labeling Systems
+
+El sistema de etiquetado de **FlowQueue** se basa en el principio de mínima fricción cognitiva: cada etiqueta debe comunicar su función con el menor número de palabras posible, siendo comprensible tanto para ciudadanos con poca experiencia digital como para personal administrativo.
+
+#### Navegación Principal — Navbar
+
+Como se implementó en `Navbar.vue`, las etiquetas del menú fueron simplificadas al máximo.
+
+| Etiqueta usada | Alternativa descartada | Razón |
+|---|---|---|
+| Funciones | Funcionalidades del sistema | Demasiado técnico |
+| Cómo funciona | Guía de uso de la plataforma | Muy largo |
+| Sedes | Ubicaciones disponibles | Innecesariamente largo |
+| Precios | Planes y tarifas | Más directo con una sola palabra |
+| Sobre nosotros | Información del equipo | Menos natural |
+| Solicitar demo | Solicitar una demostración | Se acorta sin perder significado |
+
+#### Sección Hero — Home
+
+Las etiquetas informativas de la landing siguen el mismo criterio de claridad, brevedad y orientación a la acción.
+
+| Elemento | Etiqueta | Criterio |
+|---|---|---|
+| Badge de estado | Plataforma activa en Lima, Perú | Breve, con indicador visual de estado |
+| Título principal | Di adiós a las filas interminables | Directo y orientado al problema |
+| CTA principal | Obtener mi turno ahora | Acción clara en primera persona |
+| CTA secundario | Ver cómo funciona | Orientado a exploración |
+
+#### Métricas destacadas
+
+| Número | Etiqueta | Cantidad de palabras |
+|---|---|---:|
+| 30% | Menos espera | 2 |
+| +5k | Turnos gestionados | 2 |
+| 3 | Instituciones piloto | 2 |
+| 87% | Satisfacción | 1 |
+
+#### Estados de turno
+
+Para la gestión de tickets dentro de la plataforma, los estados se etiquetan con una sola palabra o frase breve acompañada de color.
+
+| Estado | Etiqueta | Color asociado |
+|---|---|---|
+| Turno generado | Activo | Verde `#22c55e` |
+| En espera | En cola | Azul `#0C447C` |
+| Próximo a llamar | Próximo | Amarillo `#f59e0b` |
+| Llamado | Llamado | Azul claro `#3b82f6` |
+| Atendido | Completado | Gris `#6b7280` |
+| No se presentó | Ausente | Rojo `#ef4444` |
+
+#### Roles de usuario
+
+| Rol técnico | Etiqueta en UI | Razón |
+|---|---|---|
+| `Citizen` | Ciudadano | Más cercano al usuario peruano |
+| `Counter Operator` | Operador | Simple y directo |
+| `Headquarters Supervisor` | Supervisor | Evita tecnicismos |
+| `Admin` | Administrador | Familiar para todos |
+
+#### Formularios y campos
+
+| Campo | Etiqueta | Alternativa descartada |
+|---|---|---|
+| Email | Correo | Dirección de correo electrónico |
+| Password | Contraseña | Clave de acceso |
+| Nombre completo | Nombre | Nombres y apellidos completos |
+| Sede | Sede | Ubicación de atención |
+| Trámite | Trámite | Tipo de servicio requerido |
+
+#### Criterios generales aplicados
+
+| Criterio | Aplicación |
+|---|---|
+| Máximo 3 palabras | En navegación y botones |
+| Máximo 2 palabras | En métricas y estados |
+| Verbos en infinitivo | Obtener, Ver, Cancelar, Reprogramar |
+| Sustantivos simples | Funciones, Sedes, Precios |
+| Primera persona en CTAs | “Obtener mi turno” para generar cercanía |
+| Sin tecnicismos visibles | El lenguaje debe ser claro para el usuario final |
 #### 4.2.3. SEO Tags and Meta Tags
 #### 4.2.4. Searching Systems
 #### 4.2.5. Navigation Systems
