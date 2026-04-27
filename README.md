@@ -967,6 +967,7 @@ En esta sección se presentan los diseños de alta fidelidad de la aplicación w
 ![Web App Landing Page](./assets/assets/chapter-1/webapplandingpage.png)
 
 #### 4.4.4. Web Applications User Flow Diagrams
+![Web Application User](./assets/assets/chapter-1/webaplicationuser.png)
 
 ### 4.5 Web Applications Prototyping
 
