@@ -28,95 +28,117 @@
 
 ## Contenido
 
+- [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
-
-- [Capítulo I: Introducción](#capítulo-1-introducción)
-    - [1.1. Startup Profile](#11-startup-profile)
-        - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-        - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
-    - [1.2. Solution Profile](#12-solution-profile)
-        - [1.2.1 Antecedentes y problemática](#121-antecedentes-y-problemática)
-        - [1.2.2 Lean UX Process](#122-lean-ux-process)
-            - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
-            - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
-            - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
-            - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
-    - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-
-- [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation--analysis)
-    - [2.1. Competidores](#21-competidores)
-        - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
-        - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
-    - [2.2. Entrevistas](#22-entrevistas)
-        - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
-        - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
-        - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
-    - [2.3. Needfinding](#23-needfinding)
-        - [2.3.1. User Personas](#231-user-personas)
-        - [2.3.2. User Task Matrix](#232-user-task-matrix)
-        - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
-        - [2.3.4. Empathy Mapping](#234-empathy-mapping)
-    - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
-    - [2.5. Ubiquitous Language](#25-ubiquitous-language)
-
-
-
+- [Capítulo 1: Introducción](#capítulo-1-introducción)
+  - [1.1. Startup Profile](#11-startup-profile)
+    - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
+    - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
+  - [1.2. Solution Profile](#12-solution-profile)
+    - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
+    - [1.2.2. Lean UX Process](#122-lean-ux-process)
+      - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
+  - [Segmento — Ciudadanos usuarios de servicios públicos en Lima](#segmento--ciudadanos-usuarios-de-servicios-públicos-en-lima)
+  - [Segmento — Personal administrativo de atención](#segmento--personal-administrativo-de-atención)
+  - [Segmento — Supervisores o responsables de sede](#segmento--supervisores-o-responsables-de-sede)
+      - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
+      - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
+      - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
+  - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
+    - [Segmento objetivo 1: Ciudadanos usuarios de servicios públicos](#segmento-objetivo-1-ciudadanos-usuarios-de-servicios-públicos)
+    - [Segmento objetivo 2: Personal administrativo de atención](#segmento-objetivo-2-personal-administrativo-de-atención)
+    - [Segmento objetivo 3: Responsables o administradores de sede](#segmento-objetivo-3-responsables-o-administradores-de-sede)
+- [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
+  - [2.1. Competidores](#21-competidores)
+    - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
+    - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
+  - [2.2. Entrevistas](#22-entrevistas)
+    - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+    - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
+    - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
+  - [2.3. NeedFinding](#23-needfinding)
+    - [2.3.1. User Personas](#231-user-personas)
+    - [2.3.2. User Task Matrix](#232-user-task-matrix)
+    - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
+    - [2.3.4. Empathy Mapping](#234-empathy-mapping)
+  - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
+  - [2.5. Ubiquitous Language](#25-ubiquitous-language)
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
-    - [3.1. User Stories](#31-user-stories)
-    - [3.2. Impact Mapping](#32-impact-mapping)
-    - [3.3. Product Backlog](#33-product-backlog)
-
-
+  - [3.1. User Stories](#31-user-stories)
+  - [3.2. Impact Mapping](#32-impact-mapping)
+  - [3.3. Product Backlog](#33-product-backlog)
 - [Capítulo IV: Product Design](#capítulo-iv-product-design)
-    - [4.1. Style Guidelines](#41-style-guidelines)
-        - [4.1.1. General Style Guidelines](#411-general-style-guidelines)
-        - [4.1.2. Web Style Guidelines](#412-web-style-guidelines)
-    - [4.2. Information Architecture](#42-information-architecture)
-        - [4.2.1. Organization Systems](#421-organization-systems)
-        - [4.2.2. Labeling Systems](#422-labeling-systems)
-        - [4.2.3. SEO Tags and Meta Tags](#423-seo-tags-and-meta-tags)
-        - [4.2.4. Searching Systems](#424-searching-systems)
-        - [4.2.5. Navigation Systems](#425-navigation-systems)
-    - [4.3. Landing Page UI Design](#43-landing-page-ui-design)
-        - [4.3.1. Landing Page Wireframe](#431-landing-page-wireframe)
-        - [4.3.2. Landing Page Mock-up](#432-landing-page-mock-up)
-    - [4.4. Web Applications UX/UI Design](#44-web-applications-uxui-design)
-        - [4.4.1. Web Applications Wireframes](#441-web-applications-wireframes)
-        - [4.4.2. Web Applications Wireflow Diagrams](#442-web-applications-wireflow-diagrams)
-        - [4.4.3. Web Applications Mock-ups](#443-web-applications-mock-ups)
-        - [4.4.4. Web Applications User Flow Diagrams](#444-web-applications-user-flow-diagrams)
-    - [4.5. Web Applications Prototyping](#45-web-applications-prototyping)
-    - [4.6. Domain-Driven Software Architecture](#46-domain-driven-software-architecture)
-        - [4.6.1. Design-Level EventStorming](#461-design-level-eventstorming)
-        - [4.6.2. Software Architecture Context Diagram](#462-software-architecture-context-diagram)
-        - [4.6.3. Software Architecture Container Diagrams](#463-software-architecture-container-diagrams)
-        - [4.6.4. Software Architecture Components Diagrams](#464-software-architecture-components-diagrams)
-    - [4.7. Software Object-Oriented Design](#47-software-object-oriented-design)
-        - [4.7.1. Class Diagrams](#471-class-diagrams)
-    - [4.8. Database Design](#48-database-design)
-        - [4.8.1. Database Diagram](#481-database-diagram)
-
-
-- [Capítulo V: Product Implementation, Validation & Deployment](#capítulo-v-product-implementation-validation--deployment)
-    - [5.1. Software Configuration Management](#51-software-configuration-management)
-        - [5.1.1. Software Development Environment Configuration](#511-software-development-environment-configuration)
-        - [5.1.2. Source Code Management](#512-source-code-management)
-        - [5.1.3. Source Code Style Guide & Conventions](#513-source-code-style-guide--conventions)
-        - [5.1.4. Software Deployment Configuration](#514-software-deployment-configuration)
-    - [5.2. Landing Page, Services & Applications Implementation](#52-landing-page-services--applications-implementation)
-        - [5.2.1. Sprint 1](#521-sprint-1)
-            - [5.2.1.1. Sprint Planning 1](#5211-sprint-planning-1)
-            - [5.2.1.2. Aspect Leaders and Collaborators](#5212-aspect-leaders-and-collaborators)
-            - [5.2.1.3. Sprint Backlog 1](#5213-sprint-backlog-1)
-            - [5.2.1.4. Development Evidence for Sprint Review](#5214-development-evidence-for-sprint-review)
-            - [5.2.1.5. Execution Evidence for Sprint Review](#5215-execution-evidence-for-sprint-review)
-            - [5.2.1.6. Services Documentation Evidence for Sprint Review](#5216-services-documentation-evidence-for-sprint-review)
-            - [5.2.1.7. Software Deployment Evidence for Sprint Review](#5217-software-deployment-evidence-for-sprint-review)
-            - [5.2.1.8. Team Collaboration Insights during Sprint](#5218-team-collaboration-insights-during-sprint)
-         
-- [Conclusiones](#conclusiones)
-- [Bibliografía](#bibliografía)
-- [Anexos](#anexos)
+  - [4.1. Style Guidelines](#41-style-guidelines)
+  - [4.1.1 General Style Guidelines](#411-general-style-guidelines)
+    - [Branding](#branding)
+    - [Colores](#colores)
+    - [Tipografía](#tipografía)
+    - [Espaciado](#espaciado)
+  - [4.4.2 Web Style Guidelines](#442-web-style-guidelines)
+    - [Layout \& Grid System](#layout--grid-system)
+      - [Grid principal](#grid-principal)
+    - [Estructura por tipo de vista](#estructura-por-tipo-de-vista)
+    - [Patrones de Interacción](#patrones-de-interacción)
+      - [Estado de botones](#estado-de-botones)
+  - [4.2. Information Architecture](#42-information-architecture)
+    - [4.2.1. Organization Systems](#421-organization-systems)
+  - [4.2.2 Labeling Systems](#422-labeling-systems)
+    - [Navegación Principal — Navbar](#navegación-principal--navbar)
+    - [Sección Hero — Home](#sección-hero--home)
+    - [Métricas destacadas](#métricas-destacadas)
+    - [Estados de turno](#estados-de-turno)
+    - [Roles de usuario](#roles-de-usuario)
+    - [Formularios y campos](#formularios-y-campos)
+    - [Criterios generales aplicados](#criterios-generales-aplicados)
+  - [4.2.3 SEO Tags and Meta Tags](#423-seo-tags-and-meta-tags)
+    - [Estructura Base HTML](#estructura-base-html)
+  - [4.2.4 Searching Systems](#424-searching-systems)
+- [Requerimientos funcionales](#requerimientos-funcionales)
+- [Opciones de tecnología](#opciones-de-tecnología)
+  - [Comparativa de alternativas](#comparativa-de-alternativas)
+- [Tecnología seleccionada para el MVP](#tecnología-seleccionada-para-el-mvp)
+- [Esquema de índice](#esquema-de-índice)
+- [Campos principales del índice](#campos-principales-del-índice)
+- [Ejemplos de búsqueda](#ejemplos-de-búsqueda)
+  - [Búsqueda de ciudadano](#búsqueda-de-ciudadano)
+  - [Búsqueda de operador](#búsqueda-de-operador)
+  - [Búsqueda de supervisor](#búsqueda-de-supervisor)
+  - [4.2.5 Navigation Systems](#425-navigation-systems)
+  - [4.3. Landing Page UI Design](#43-landing-page-ui-design)
+  - [4.3.1 Landing Page Wireframe](#431-landing-page-wireframe)
+- [Desktop Web Browser](#desktop-web-browser)
+- [Mobile Web Browser](#mobile-web-browser)
+- [Diseño inclusivo aplicado](#diseño-inclusivo-aplicado)
+    - [4.3.2. Landing Page Mock-up](#432-landing-page-mock-up)
+  - [4.4. Web Applications UX/UI Design](#44-web-applications-uxui-design)
+    - [4.4.1. Web Applications Wireframes](#441-web-applications-wireframes)
+  - [4.4.2 Web Applications Wireflow Diagrams](#442-web-applications-wireflow-diagrams)
+    - [User Goal 1](#user-goal-1)
+    - [User Goal 2](#user-goal-2)
+    - [User Goal 3](#user-goal-3)
+  - [4.4.3 Web Applications Mock-ups](#443-web-applications-mock-ups)
+    - [4.4.4. Web Applications User Flow Diagrams](#444-web-applications-user-flow-diagrams)
+  - [4.5 Web Applications Prototyping](#45-web-applications-prototyping)
+  - [4.5.2 Mobile Web Browser Prototype](#452-mobile-web-browser-prototype)
+  - [4.6. Domain-Driven Software Architecture](#46-domain-driven-software-architecture)
+    - [4.6.1. Domain-Level EventStorming](#461-domain-level-eventstorming)
+  - [4.6.2 Software Architecture Context Diagram](#462-software-architecture-context-diagram)
+    - [Actores del sistema](#actores-del-sistema)
+    - [Sistemas externos](#sistemas-externos)
+    - [4.6.3. Software Architecture Container Diagrams](#463-software-architecture-container-diagrams)
+    - [4.6.4. Software Architecture Components Diagrams](#464-software-architecture-components-diagrams)
+  - [4.7. Software Object-Oriented Design](#47-software-object-oriented-design)
+  - [4.7.1 Class Diagrams](#471-class-diagrams)
+  - [4.8. Database Design](#48-database-design)
+    - [4.8.1. Database Diagrams](#481-database-diagrams)
+- [Capítulo V: Product Implementation, Validation \& Deployment](#capítulo-v-product-implementation-validation--deployment)
+  - [5.1. Software Configuration Management](#51-software-configuration-management)
+    - [5.1.1. Software Development Environment Configuration](#511-software-development-environment-configuration)
+    - [5.1.2. Source Code Management](#512-source-code-management)
+    - [5.1.3. Source Code Style Guide \& Conventions](#513-source-code-style-guide--conventions)
+    - [5.1.4. Software Deployment Configuration](#514-software-deployment-configuration)
+  - [5.2. Landing Page, Services \& Applications Implementation](#52-landing-page-services--applications-implementation)
+    - [5.2.1. Sprint 1](#521-sprint-1)
 
 ## Student Outcome
 
@@ -538,6 +560,63 @@ button:disabled {
 ```
 ### 4.2. Information Architecture
 #### 4.2.1. Organization Systems
+
+**Organization Scheme (Esquema de organización)**
+**Temático / Funcional:**
+La información de FlowQueue se organiza según las funciones principales de la plataforma y los perfiles de usuario que interactúan con el sistema.
+- Landing Page: presenta la propuesta de valor, beneficios, funcionalidades, perfiles de usuario, métricas esperadas, acceso anticipado y datos del equipo.
+- Gestión de ciudadanos: permite al usuario registrarse, iniciar sesión, buscar entidades públicas, seleccionar sede, elegir trámite y generar un ticket virtual.
+- Gestión de turnos: permite visualizar la posición en cola, el tiempo estimado de espera, el estado del turno, notificaciones y cancelación del ticket.
+- Gestión del operador: permite al personal administrativo seleccionar ventanilla, visualizar la cola en tiempo real, llamar al siguiente turno, priorizar casos y marcar usuarios como atendidos o ausentes.
+- Gestión del supervisor: permite monitorear métricas generales, revisar horas pico, comparar sedes, gestionar servicios, administrar operadores y generar reportes.
+- Soporte y contacto: permite solicitar acceso anticipado, registrar datos de contacto y consultar información institucional del proyecto.
+
+**Organization Structure (Estructura de organización)**
+- Jerárquica (Árbol):
+ FlowQueue parte desde una Landing Page como punto principal de entrada. Desde ahí, el usuario puede acceder a secciones informativas o iniciar flujos específicos según su perfil: ciudadano, operador o supervisor.
+- Lineal:
+ Se aplica en procesos que deben seguir una secuencia clara. Por ejemplo, el ciudadano primero busca una entidad, luego selecciona una sede, elige un trámite, genera su ticket virtual y finalmente monitorea su turno en tiempo real.
+- Matriz:
+ Se aplica en módulos donde la información puede organizarse y filtrarse por diferentes criterios. Por ejemplo, las colas pueden filtrarse por estado del turno, prioridad, ventanilla, sede, tipo de trámite o fecha. Asimismo, los reportes pueden analizarse por sede, rango de fechas, horas pico o cantidad de usuarios atendidos.
+
+**Organization System (Sistema de organización aplicado)**
+**Global navigation (menú principal en el header):**
+La navegación global permite acceder a las secciones principales de la Landing Page y orienta al usuario dentro del sitio.
+- Home
+- Funciones
+- Cómo funciona
+- Sedes
+- Precios / Resultados esperados
+- Sobre nosotros
+- Contacto / Solicitar demo
+
+**Local navigation (submenús dentro de cada sección):**
+Dentro de cada módulo o perfil de usuario, la navegación local organiza las acciones específicas que se pueden realizar.
+- **Ciudadano:** Registro, Login, Buscar entidad, Seleccionar sede, Seleccionar trámite, Generar ticket, Ver estado del turno, Cancelar turno, Historial.
+- **Operador:** Seleccionar ventanilla, Ver cola, Llamar siguiente turno, Priorizar casos, Marcar atendido, Marcar ausente, Pausar o reanudar atención.
+- **Supervisor:** Dashboard, Métricas, Horas pico, Gestión de sedes, Gestión de servicios, Gestión de operadores, Reportes y comparación de sedes.
+- **Landing Page:** Beneficios, funcionalidades, perfiles de usuario, métricas, acceso anticipado y contacto.
+- 
+**Contextual navigation (botones de acción dentro de un flujo):**
+FlowQueue utiliza botones y acciones contextuales para guiar al usuario en cada etapa del proceso.
+- “Obtener mi turno ahora”
+- “Ver cómo funciona”
+- “Solicitar demo”
+- “Buscar entidad”
+- “Elegir sede”
+- “Generar ticket virtual”
+- “Ver mi turno”
+- “Cancelar mi turno”
+- “Llamar siguiente turno”
+- “Priorizar”
+- “Marcar como atendido”
+- “Generar reporte”
+- “Enviar”
+
+**Sistema aplicado en FlowQueue:**
+El sistema de organización de FlowQueue combina una estructura jerárquica para la navegación general, una estructura lineal para los procesos principales del ciudadano y una estructura matricial para los módulos administrativos y de reportes. Esta combinación permite que cada usuario encuentre rápidamente la información o función que necesita, manteniendo una experiencia clara, ordenada y coherente con los flujos definidos en el proyecto.
+
+
 ### 4.2.2 Labeling Systems
 
 El sistema de etiquetado de **FlowQueue** se basa en el principio de mínima fricción cognitiva: cada etiqueta debe comunicar su función con el menor número de palabras posible, siendo comprensible tanto para ciudadanos con poca experiencia digital como para personal administrativo.
