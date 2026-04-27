@@ -908,6 +908,11 @@ https://1drv.ms/v/c/6463e088f0304028/IQCq8gBOgwtkQ6fONdbxlr2MAadxw0UsnvvyXu048hA
 
 ### 4.6. Domain-Driven Software Architecture
 #### 4.6.1. Domain-Level EventStorming
+![domain1](./assets/assets/chapter-1/domainlevel1.png)
+
+![domain2](./assets/assets/chapter-1/domainilevel2.png)
+
+![domain3](./assets/assets/chapter-1/domainlevel3.png)
 ### 4.6.2 Software Architecture Context Diagram
 
 El diagrama de contexto representa el nivel más alto de abstracción de la arquitectura de **FlowQueue**, siguiendo el modelo **C4**. En este nivel, el sistema se muestra como una única entidad central rodeada por los actores que interactúan con él y los sistemas externos con los que se comunica.
