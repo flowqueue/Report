@@ -30,58 +30,44 @@
 
 - [Contenido](#contenido)
 - [Student Outcome](#student-outcome)
-- [Capítulo 1: Introducción](#capítulo-1-introducción)
-  - [1.1. Startup Profile](#11-startup-profile)
-    - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-    - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
-  - [1.2. Solution Profile](#12-solution-profile)
-    - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
-    - [1.2.2. Lean UX Process](#122-lean-ux-process)
-      - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
-  - [Segmento — Ciudadanos usuarios de servicios públicos en Lima](#segmento--ciudadanos-usuarios-de-servicios-públicos-en-lima)
-  - [Segmento — Personal administrativo de atención](#segmento--personal-administrativo-de-atención)
-  - [Segmento — Supervisores o responsables de sede](#segmento--supervisores-o-responsables-de-sede)
-      - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
-      - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
-      - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
-  - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-    - [Segmento objetivo 1: Ciudadanos usuarios de servicios públicos](#segmento-objetivo-1-ciudadanos-usuarios-de-servicios-públicos)
-    - [Segmento objetivo 2: Personal administrativo de atención](#segmento-objetivo-2-personal-administrativo-de-atención)
-    - [Segmento objetivo 3: Responsables o administradores de sede](#segmento-objetivo-3-responsables-o-administradores-de-sede)
-- [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
-  - [2.1. Competidores](#21-competidores)
-    - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
-  - [Debilidades](#debilidades)
-  - [Oportunidades](#oportunidades)
-  - [Amenazas](#amenazas)
-    - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
-  - [2.2. Entrevistas](#22-entrevistas)
-- [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
-  - [Segmentos a entrevistar](#segmentos-a-entrevistar)
-  - [Datos generales a recolectar](#datos-generales-a-recolectar)
-  - [Ciudadanos usuarios de servicios públicos (Segmento 1)](#ciudadanos-usuarios-de-servicios-públicos-segmento-1)
-  - [Preguntas para personal administrativo (Segmento 2)](#preguntas-para-personal-administrativo-segmento-2)
-  - [Preguntas para supervisores o responsables de sede (Segmento 3)](#preguntas-para-supervisores-o-responsables-de-sede-segmento-3)
-    - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
-  - [Resumen](#resumen)
-  - [Resumen](#resumen-1)
-  - [Resumen](#resumen-2)
-  - [Resumen](#resumen-3)
-  - [Resumen](#resumen-4)
-  - [2.3. NeedFinding](#23-needfinding)
-    - [2.3.1. User Personas](#231-user-personas)
-- [2.3.2. User Task Matrix](#232-user-task-matrix)
-  - [User Task Matrix – Citizen](#user-task-matrix--citizen)
-  - [User Task Matrix – Counter Operator](#user-task-matrix--counter-operator)
-  - [User Task Matrix – Supervisor](#user-task-matrix--supervisor)
-    - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
-    - [2.3.4. Empathy Mapping](#234-empathy-mapping)
-  - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
-- [2.5. Ubiquitous Language](#25-ubiquitous-language)
+
+- [Capítulo I: Introducción](#capítulo-1-introducción)
+    - [1.1. Startup Profile](#11-startup-profile)
+        - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
+        - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
+    - [1.2. Solution Profile](#12-solution-profile)
+        - [1.2.1 Antecedentes y problemática](#121-antecedentes-y-problemática)
+        - [1.2.2 Lean UX Process](#122-lean-ux-process)
+            - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
+            - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
+            - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
+            - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
+    - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
+
+- [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation--analysis)
+    - [2.1. Competidores](#21-competidores)
+        - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
+        - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
+    - [2.2. Entrevistas](#22-entrevistas)
+        - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+        - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
+        - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
+    - [2.3. Needfinding](#23-needfinding)
+        - [2.3.1. User Personas](#231-user-personas)
+        - [2.3.2. User Task Matrix](#232-user-task-matrix)
+        - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
+        - [2.3.4. Empathy Mapping](#234-empathy-mapping)
+    - [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
+    - [2.5. Ubiquitous Language](#25-ubiquitous-language)
+
+
+
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
-  - [3.1. User Stories](#31-user-stories)
-  - [3.2. Impact Mapping](#32-impact-mapping)
-  - [3.3. Product Backlog](#33-product-backlog)
+    - [3.1. User Stories](#31-user-stories)
+    - [3.2. Impact Mapping](#32-impact-mapping)
+    - [3.3. Product Backlog](#33-product-backlog)
+
+
 - [Capítulo IV: Product Design](#capítulo-iv-product-design)
   - [4.1. Style Guidelines](#41-style-guidelines)
     - [4.1.1. General Style Guidelines](#411-general-style-guidelines)
@@ -839,10 +825,134 @@ Tiempo aproximado de espera calculado mediante algoritmos que consideran el ritm
 
 ## Capítulo III: Requirements Specification
 
-### 3.1. User Stories
-### 3.2. Impact Mapping
-### 3.3. Product Backlog
+## 3.1. User Stories
 
+| Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
+|----------------|--------|-------------|------------------------|--------------------------|
+| EP-01 | Landing Page | N/A | N/A | N/A |
+| HU-01 | Propuesta de valor | Como visitante, quiero entender el propósito de la plataforma, para conocer sus beneficios. | Dado que accede a la web, cuando ve el hero, entonces se muestra el mensaje principal. | EP-01 |
+| HU-02 | Beneficios | Como visitante, quiero ver beneficios, para evaluar el servicio. | Dado que navega la página, cuando llega a beneficios, entonces se muestran ventajas por rol. | EP-01 |
+| HU-03 | Flujo del sistema | Como visitante, quiero entender cómo funciona, para saber cómo usarlo. | Dado que revisa información, cuando ve el flujo, entonces comprende el proceso. | EP-01 |
+| HU-26 | Recuperar contraseña | Como citizen, quiero recuperar mi cuenta, para volver a acceder. | Dado que olvidó contraseña, cuando ingresa correo, entonces recibe enlace. | EP-01 |
+| HU-27 | Responsive | Como visitante, quiero usar cualquier dispositivo, para acceder fácilmente. | Dado que entra desde el móvil, cuando carga la web, entonces se adapta. | EP-01 |
+| HU-28 | CTA | Como visitante, quiero botones claros, para registrarme rápido. | Dado que está en landing, cuando ve CTA, entonces navega a registro. | EP-01 |
+| EP-02 | Citizen Experience | N/A | N/A | N/A |
+| HU-04 | Registro | Como citizen, quiero registrarme, para acceder al sistema. | Dado que no tiene cuenta, cuando ingresa datos, entonces se crea perfil. | EP-02 |
+| HU-05 | Login | Como citizen, quiero iniciar sesión, para acceder a mis turnos. | Dado que está registrado, cuando ingresa credenciales, entonces accede. | EP-02 |
+| HU-06 | Buscar entidades | Como citizen, quiero filtrar entidades, para encontrar servicios. | Dado que usa buscador, cuando filtra, entonces muestra resultados. | EP-02 |
+| HU-07 | Seleccionar sede | Como citizen, quiero elegir sede, para atenderme ahí. | Dado que selecciona entidad, cuando ve sedes, entonces elige una. | EP-02 |
+| HU-08 | Seleccionar trámite | Como citizen, quiero elegir servicio, para obtener el turno correcto. | Dado que elige sede, cuando selecciona el trámite, entonces continúa. | EP-02 |
+| HU-09 | Generar ticket | Como citizen, quiero ticket digital, para evitar filas. | Dado que confirma servicio, cuando genera ticket, entonces crea QR. | EP-02 |
+| HU-10 | Ver posición | Como citizen, quiero ver mi posición, para estimar espera. | Dado que tiene ticket, cuando consulta, entonces se actualiza. | EP-02 |
+| HU-11 | Tiempo estimado | Como citizen, quiero ver tiempo para organizarme. | Dado que tiene ticket, cuando el sistema calcula, entonces muestra tiempo. | EP-02 |
+| HU-12 | Notificación turno | Como citizen, quiero alertas, para no perder turno. | Dado que el turno está cerca, cuando faltan pocos, entonces notifica. | EP-02 |
+| HU-13 | Estado turno | Como citizen, quiero ver el estado, para saber la situación. | Dado que consulta ticket, cuando el sistema responde, entonces muestra estado. | EP-02 |
+| HU-14 | Cancelar turno | Como citizen, quiero cancelar turno, para liberar espacio. | Dado que tiene turno, cuando cancela, entonces elimina. | EP-02 |
+| HU-15 | Historial | Como citizen, quiero ver historial, para registrar trámites. | Dado que entra perfil, cuando ve historial, entonces lista registros. | EP-02 |
+| HU-29 | Reprogramar | Como citizen, quiero cambiar turno, para otro horario. | Dado que tiene turno, cuando reprograma, entonces elige nuevo. | EP-02 |
+| HU-30 | Personas delante | Como citizen, quiero ver cuántos hay antes, para estimar mejor. | Dado que consulta ticket, cuando el sistema responde, entonces muestra el número. | EP-02 |
+| HU-31 | Retrasos | Como citizen, quiero saber los retrasos, para ajustar el tiempo. | Dado que hay demora, cuando el sistema detecta, entonces notifica. | EP-02 |
+| EP-03 | Counter Management | N/A | N/A | N/A |
+| HU-16 | Seleccionar ventanilla | Como operador, quiero elegir ventanilla, para atender correctamente. | Dado que inicia sesión, cuando selecciona, entonces queda activo. | EP-03 |
+| HU-17 | Llamar turno | Como operador, quiero llamar al siguiente, para mantener el orden. | Dado que hay cola, cuando llama, entonces asigna turno. | EP-03 |
+| HU-18 | Mostrar en pantalla | Como operador, quiero mostrar ticket, para guiar al usuario. | Dado que llama turno, cuando el sistema procesa, entonces muestra en pantalla. | EP-03 |
+| HU-19 | Prioridad | Como operador, quiero dar prioridad, para casos especiales. | Dado que hay prioridad, cuando edita, entonces sube en cola. | EP-03 |
+| HU-20 | Finalizar atención | Como operador, quiero cerrar turno, para liberar ventanilla. | Dado que termina atención, cuando confirma, entonces se completa. | EP-03 |
+| HU-32 | Marcar ausente | Como operador, quiero marcar ausencia, para continuar el flujo. | Dado que no responde, cuando marca, entonces se omite. | EP-03 |
+| HU-33 | Pausar atención | Como operador, quiero pausar, para detener flujo. | Dado que ocurre pausa, cuando activa, entonces se detiene. | EP-03 |
+| HU-34 | Reanudar | Como operador, quiero reanudar, para continuar el flujo. | Dado que estaba pausado, cuando reanuda, entonces continúa. | EP-03 |
+| HU-35 | Filtrar turnos | Como operador, quiero filtrar, para ver específicos. | Dado que aplica filtro, cuando ejecuta, entonces muestra resultados. | EP-03 |
+| EP-04 | Administración | N/A | N/A | N/A |
+| HU-21 | Dashboard | Como admin, quiero ver métricas, para monitorear. | Dado que accede, cuando carga, entonces muestra datos. | EP-04 |
+| HU-22 | Métricas espera | Como admin, quiero analizar tiempos, para mejorar servicio. | Dado que filtra fechas, cuando consulta, entonces muestra gráfico. | EP-04 |
+| HU-23 | Desempeño | Como admin, quiero ver productividad, para optimizar recursos. | Dado que consulta, cuando revisa, entonces muestra datos. | EP-04 |
+| HU-36 | Crear sede | Como admin, quiero crear sedes, para expandir servicio. | Dado que ingresa datos, cuando guarda, entonces crea sede. | EP-04 |
+| HU-37 | Crear servicios | Como admin, quiero definir trámites, para gestionar atención. | Dado que crea servicio, cuando guarda, entonces aparece. | EP-04 |
+| HU-38 | Asignar operadores | Como admin, quiero asignar personal, para operar sedes. | Dado que selecciona operador, cuando asigna, entonces vincula. | EP-04 |
+| HU-39 | Reportes | Como admin, quiero reportes, para analizar datos. | Dado que consulta, cuando selecciona periodo, entonces genera informe. | EP-04 |
+| HU-40 | Comparar sedes | Como admin, quiero comparar, para evaluar rendimiento. | Dado que selecciona sedes, cuando compara, entonces muestra diferencias. | EP-04 |
+| EP-05 | Technical | N/A | N/A | N/A |
+| HU-24 | WebSockets | Como dev, quiero tiempo real, para actualizar datos. | Dado que hay cambios, cuando ocurren, entonces se reflejan. | EP-05 |
+| HU-25 | Notificaciones | Como dev, quiero alertas push, para avisar turnos. | Dado que evento ocurre, cuando se dispara, entonces envía notificación. | EP-05 |
+| HU-41 | Seguridad | Como sistema, quiero proteger datos, para evitar accesos indebidos. | Dado que hay login, cuando valida, entonces autentica. | EP-05 |
+| HU-42 | Escalabilidad | Como sistema, quiero soportar usuarios, para no fallar. | Dado que hay alta carga, cuando escala, entonces responde bien. | EP-05 |
+| HU-43 | Disponibilidad | Como sistema, quiero estar activo, para ser accesible. | Dado que sistema opera, cuando usuario accede, entonces responde. | EP-05 |
+| HU-44 | Backup | Como sistema, quiero respaldo, para evitar pérdida. | Dado que ocurre fallo, cuando recupera, entonces restaura datos. | EP-05 |
+| HU-45 | Logs | Como dev, quiero registrar eventos, para monitorear. | Dado que ocurre evento, cuando se ejecuta, entonces guarda log. | EP-05 |
+| HU-46 | API REST | Como dev, quiero endpoints, para comunicación. | Dado que cliente solicita, cuando API responde, entonces entrega datos. | EP-05 |
+| HU-47 | Actualización automática | Como usuario, quiero ver datos en tiempo real, para no recargar la página. | Dado que el usuario tiene un ticket activo, cuando cambia la cola, entonces la interfaz se actualiza automáticamente. | EP-05 |
+| HU-48 | Multidispositivo | Como usuario, quiero usar el sistema en distintos dispositivos, para tener flexibilidad de acceso. | Dado que el usuario cambia de dispositivo, cuando inicia sesión, entonces puede continuar su sesión sin problemas. | EP-05 |
+| HU-49 | Accesibilidad | Como usuario, quiero una interfaz accesible, para poder usarla sin dificultad. | Dado que el usuario accede al sistema, cuando navega la interfaz, entonces cumple criterios básicos de accesibilidad. | EP-05 |
+| HU-50 | Onboarding inicial | Como usuario, quiero una guía inicial, para entender cómo usar la plataforma. | Dado que el usuario ingresa por primera vez, cuando accede al sistema, entonces se muestra una guía paso a paso. | EP-05 |
+
+### 3.2. Impact Mapping
+
+**Roberto (Citizen)**
+![alt text](assets/assets/chapter-3/ImpactMapping/S1.png)
+
+**Luis (Counter Operator)**
+
+![alt text](assets/assets/chapter-3/ImpactMapping/S2.png)
+
+**Carlos (Headquarters Supervisor)**
+
+![alt text](assets/assets/chapter-3/ImpactMapping/S3.png)
+
+
+## 3.3. Product Backlog
+
+| # Orden | User Story ID | Título | Descripción | Story Points |
+|---------|--------------|--------|-------------|-------------|
+| 1 | HU-01 | Visualizar propuesta de valor | Como visitante, quiero ver la misión de FlowQueue para entender cómo la plataforma optimiza mi tiempo de atención. | 2 |
+| 2 | HU-02 | Sección de beneficios | Como visitante, quiero visualizar los beneficios por rol para evaluar la conveniencia del servicio. | 2 |
+| 3 | HU-03 | Guía de funcionamiento | Como visitante, quiero ver un flujo de pasos para comprender el proceso de obtención de un turno digital. | 3 |
+| 4 | HU-27 | Navegación responsive | Como visitante, quiero usar la plataforma en cualquier dispositivo para acceder fácilmente. | 2 |
+| 5 | HU-28 | Call to Action | Como visitante, quiero acceder rápidamente al registro o login. | 2 |
+| 6 | HU-04 | Registrarse en la plataforma | Como citizen, quiero registrarme para acceder a los servicios. | 3 |
+| 7 | HU-05 | Iniciar sesión | Como citizen, quiero iniciar sesión para acceder a mis turnos. | 2 |
+| 8 | HU-26 | Recuperar contraseña | Como citizen, quiero recuperar mi cuenta en caso de olvido. | 2 |
+| 9 | HU-06 | Búsqueda de entidades | Como citizen, quiero filtrar instituciones para encontrar dónde hacer mi trámite. | 3 |
+| 10 | HU-07 | Seleccionar sede | Como citizen, quiero elegir la sede donde seré atendido. | 3 |
+| 11 | HU-08 | Seleccionar trámite | Como citizen, quiero elegir el servicio que necesito. | 3 |
+| 12 | HU-09 | Generar ticket virtual | Como citizen, quiero obtener un ticket virtual para evitar filas. | 5 |
+| 13 | HU-13 | Consultar estado del turno | Como citizen, quiero consultar el estado de mi turno. | 3 |
+| 14 | HU-10 | Visualizar posición en la cola | Como citizen, quiero ver mi posición en la cola. | 5 |
+| 15 | HU-11 | Ver tiempo estimado | Como citizen, quiero visualizar el tiempo de espera. | 5 |
+| 16 | HU-30 | Ver personas delante | Como citizen, quiero saber cuántos hay antes que yo. | 3 |
+| 17 | HU-12 | Recibir notificaciones | Como citizen, quiero recibir alertas de turno. | 3 |
+| 18 | HU-31 | Notificación de retraso | Como citizen, quiero saber si hay retrasos. | 2 |
+| 19 | HU-14 | Cancelación de ticket | Como citizen, quiero cancelar mi turno si no asistiré. | 2 |
+| 20 | HU-29 | Reprogramar turno | Como citizen, quiero cambiar mi turno. | 3 |
+| 21 | HU-15 | Historial de trámites | Como citizen, quiero ver mis atenciones pasadas. | 2 |
+| 22 | HU-16 | Selección de ventanilla | Como operador, quiero elegir mi ventanilla de trabajo. | 2 |
+| 23 | HU-17 | Llamar siguiente turno | Como operador, quiero llamar al siguiente usuario. | 5 |
+| 24 | HU-18 | Visualizar cola en tiempo real | Como operador, quiero ver la cola actualizada. | 5 |
+| 25 | HU-19 | Marcar turno atendido | Como operador, quiero marcar un turno como atendido. | 3 |
+| 26 | HU-20 | Gestionar prioridad | Como operador, quiero priorizar ciertos casos. | 5 |
+| 27 | HU-32 | Marcar ausente | Como operador, quiero registrar usuarios ausentes. | 3 |
+| 28 | HU-33 | Pausar atención | Como operador, quiero pausar la cola. | 2 |
+| 29 | HU-34 | Reanudar atención | Como operador, quiero reanudar la atención. | 2 |
+| 30 | HU-35 | Filtrar turnos | Como operador, quiero filtrar la cola. | 3 |
+| 31 | HU-21 | Visualizar dashboard | Como supervisor, quiero ver métricas generales. | 5 |
+| 32 | HU-22 | Analizar tiempos | Como supervisor, quiero analizar tiempos de espera. | 5 |
+| 33 | HU-25 | Identificar horas pico | Como supervisor, quiero identificar picos de demanda. | 3 |
+| 34 | HU-23 | Evaluar desempeño | Como supervisor, quiero ver rendimiento de operadores. | 3 |
+| 35 | HU-39 | Generar reportes | Como supervisor, quiero generar reportes. | 3 |
+| 36 | HU-40 | Comparar sedes | Como supervisor, quiero comparar rendimiento. | 3 |
+| 37 | HU-36 | Crear sede | Como administrador, quiero registrar sedes. | 3 |
+| 38 | HU-37 | Crear servicios | Como administrador, quiero definir trámites. | 3 |
+| 39 | HU-38 | Asignar operadores | Como administrador, quiero asignar personal. | 3 |
+| 40 | HU-24 | WebSockets | Como developer, quiero actualizar datos en tiempo real. | 5 |
+| 41 | HU-41 | Seguridad | Como sistema, quiero proteger los datos. | 5 |
+| 42 | HU-42 | Escalabilidad | Como sistema, quiero soportar alta demanda. | 5 |
+| 43 | HU-43 | Disponibilidad | Como sistema, quiero estar disponible siempre. | 5 |
+| 44 | HU-44 | Backup | Como sistema, quiero respaldar información. | 3 |
+| 45 | HU-45 | Logs | Como sistema, quiero registrar eventos. | 3 |
+| 46 | HU-46 | API REST | Como sistema, quiero exponer servicios. | 5 |
+| 47 | HU-47 | Actualización automática | Como usuario, quiero ver cambios sin recargar. | 5 |
+| 48 | HU-48 | Multidispositivo | Como usuario, quiero usar varios dispositivos. | 3 |
+| 49 | HU-49 | Accesibilidad | Como usuario, quiero una interfaz fácil de usar. | 3 |
+| 50 | HU-50 | Onboarding | Como usuario, quiero una guía inicial. | 2 |
 ## Capítulo IV: Product Design
 
 ### 4.1. Style Guidelines
