@@ -1576,13 +1576,102 @@ El diagrama de contexto representa el nivel más alto de abstracción de la arqu
 
 ### 4.7. Software Object-Oriented Design
 ### 4.7.1 Class Diagrams
-
 El diagrama de clases es la representación estática del sistema **FlowQueue**. En esta sección se detallan las entidades lógicas del software, sus atributos, los métodos que definen su comportamiento y las relaciones que permiten la interacción entre los diferentes roles de usuario (**Ciudadano, Operador y Supervisor**) y los componentes centrales como los **tickets** y las **colas de atención**.
-![Diagrama](./assets/assets/chapter-1/Diagrama%20en%20blanco.png)
+![Diagrama](./assets/assets/chapter-1/Diagrama%20en%20blanco.png) 
+Para la construcción de este diagrama se aplicaron patrones de diseño orientado a objetos:
+1. Herencia**:** Se abstrajeron los atributos comunes (ID, nombre, correo) en la superclase Usuario.  
+2. Relaciones de Asociación: Se definieron vínculos entre el Ciudadano y el Ticket (un ciudadano solicita muchos tickets).  
+3. Agregación y Composición: Se estableció que una Sede se compone de múltiples Servicios y gestiona una ColaVirtual.
+
+Este diseño permite que el sistema sea escalable. Al utilizar herencia para los usuarios, se facilita la adición de nuevos roles en el futuro sin duplicar código. La estructura garantiza la trazabilidad del ticket desde que el ciudadano lo solicita hasta que el operador lo marca como completado, asegurando que la lógica del backend sea coherente con los requisitos de negocio de la startup.
 ### 4.8. Database Design
 ![Database Diagram](./assets/assets/chapter-1/databasediagram.png)
 #### 4.8.1. Database Diagrams
+**Diccionario de datos**
 
+El siguiente diccionario de datos describe las tablas principales del modelo relacional de FlowQueue, indicando sus atributos, tipos de datos, restricciones y propósito dentro del sistema.
+
+**Tabla: users**
+
+| Campo | Tipo de dato | Restricción | Descripción |
+| ----- | ----- | ----- | ----- |
+| Id | INT | PK | Identificador único del usuario. |
+| FullName | VARCHAR(100) | NOT NULL | Nombre completo del usuario registrado. |
+| Email | VARCHAR(100) | NOT NULL / UNIQUE | Correo electrónico utilizado para iniciar sesión. |
+| PasswordHash | VARCHAR(255) | NOT NULL | Contraseña almacenada de forma cifrada o hasheada. |
+| Role | ENUM | NOT NULL | Rol del usuario dentro del sistema, por ejemplo: ciudadano, operador o administrador. |
+| CreatedAt | DATETIME | NOT NULL | Fecha y hora de creación de la cuenta. |
+
+**Table: agencies** 
+
+| Campo | Tipo de dato | Restricción | Descripción |
+| ----- | ----- | ----- | ----- |
+| **Id** | INT | PK, NOT NULL, AUTO\_INCREMENT | Identificador único de la agencia o sede. |
+| **Name** | VARCHAR(100) | NOT NULL | Nombre de la agencia donde se brindan los servicios. |
+| **Address** | VARCHAR(255) | NOT NULL | Dirección física de la agencia. |
+| **District** | VARCHAR(100) | NOT NULL | Distrito donde se encuentra ubicada la agencia. |
+| **CurrentCapacity** | INT | NOT NULL | Capacidad actual o cantidad de usuarios que la agencia puede atender. |
+
+**Tabla: categories**
+
+| Campo | Tipo de dato | Restricción | Descripción |
+| ----- | ----- | ----- | ----- |
+| **Id** | INT | PK, NOT NULL, AUTO\_INCREMENT | Identificador único de la categoría. |
+| **Name** | VARCHAR(100) | NOT NULL | Nombre de la categoría del servicio. |
+| **Description** | TEXT | NULL | Descripción general de la categoría. |
+
+**Tabla: services**
+
+| Campo | Tipo de dato | Restricción | Descripción |
+| ----- | ----- | ----- | ----- |
+| **Id** | INT | PK, NOT NULL, AUTO\_INCREMENT | Identificador único del servicio. |
+| **CategoryId** | INT | FK, NOT NULL | Relaciona el servicio con una categoría. |
+| **AgencyId** | INT | FK, NOT NULL | Relaciona el servicio con una agencia o sede. |
+| **Name** | VARCHAR(100) | NOT NULL | Nombre del servicio ofrecido. |
+| **AverageServiceTime** | INT | NOT NULL | Tiempo promedio estimado de atención del servicio, expresado en minutos. |
+
+**Tabla: tickets**
+
+| Campo | Tipo de dato | Restricción | Descripción |
+| ----- | ----- | ----- | ----- |
+| **Id** | INT | PK, NOT NULL, AUTO\_INCREMENT | Identificador único del ticket. |
+| **UserId** | INT | FK, NOT NULL | Usuario que generó el ticket. |
+| **ServiceId** | INT | FK, NOT NULL | Servicio solicitado por el usuario. |
+| **TicketCode** | VARCHAR(10) | NOT NULL, UNIQUE | Código visible del ticket asignado al usuario. |
+| **Status** | ENUM | NOT NULL | Estado actual del ticket, por ejemplo: pendiente, en atención, completado o cancelado. |
+| **RequestDate** | DATETIME | NOT NULL | Fecha y hora en que el usuario solicitó el ticket. |
+| **AppointmentTime** | DATETIME | NULL | Fecha y hora estimada o programada para la atención. |
+
+**Tabla: schedules**
+
+| Campo | Tipo de dato | Restricción | Descripción |
+| ----- | ----- | ----- | ----- |
+| **Id** | INT | PK, NOT NULL, AUTO\_INCREMENT | Identificador único del horario. |
+| **AgencyId** | INT | FK, NOT NULL | Agencia a la que pertenece el horario. |
+| **DayOfWeek** | ENUM | NOT NULL | Día de la semana en el que aplica el horario. |
+| **StartTime** | TIME | NOT NULL | Hora de inicio de atención. |
+| **EndTime** | TIME | NOT NULL | Hora de finalización de atención. |
+
+**Tabla: reviews**
+
+| Campo | Tipo de dato | Restricción | Descripción |
+| ----- | ----- | ----- | ----- |
+| **`Id`** | INT | PK, NOT NULL, AUTO\_INCREMENT | Identificador único de la reseña. |
+| **`TicketId`** | INT | FK, NOT NULL | Ticket asociado a la reseña realizada por el usuario. |
+| **`Rating`** | TINYINT | NOT NULL | Calificación numérica otorgada por el usuario después de recibir la atención. |
+| **`Comment`** | TEXT | NULL | Comentario opcional del usuario sobre su experiencia de atención. |
+| **`CreatedAt`** | DATETIME | NOT NULL | Fecha y hora en que se registró la reseña. |
+
+**Relaciones principales**
+
+| Relación | Cardinalidad | Descripción |
+| ----- | ----- | ----- |
+| **users → tickets** | 1:N | Un usuario puede generar varios tickets, pero cada ticket pertenece a un solo usuario. |
+| **agencies → services** | 1:N | Una agencia puede ofrecer varios servicios. |
+| **categories → services** | 1:N | Una categoría puede agrupar varios servicios. |
+| **services → tickets** | 1:N | Un servicio puede estar asociado a varios tickets. |
+| **agencies → schedules** | 1:N | Una agencia puede tener varios horarios de atención. |
+| **tickets → reviews** | 1:1 | Un ticket completado puede tener una reseña asociada. 
 ## Capítulo V: Product Implementation, Validation & Deployment
 
 ### 5.1. Software Configuration Management
@@ -1657,23 +1746,28 @@ Todas las nomenclaturas (variables, funciones, clases, archivos) se escribirán 
 #### 5.2.1. Sprint 1
 #### 5.2.1.1 Sprint Planning 1
 
-| Aspecto | Detalle |
-| :--- | :--- |
-| **Sprint #** | Sprint 1 |
-| **Fecha de inicio** | 2026-03-30 |
-| **Ubicación** | Reunión virtual mediante Discord |
-| **Preparado por** | Carlos Marcelo Mansilla Rivero |
-| **Participantes** | Pillaca Vidal, L.; Mansilla Rivero, C.; Uribe Linares, F.; Aliaga Ocampo, A. |
-|**Sprint 1 Goal:** |
-|Diseñar e implementar una landing page funcional y responsiva que transmita la propuesta de valor de FlowQueue sobre la gestión de colas virtuales en instituciones peruanas.|
-|**Sprint Velocity:**| 13|
-|**Sum of Story Points:**| 13|
+En el marco de Scrum, un Sprint corresponde a un período corto y definido en el que el equipo lleva a cabo las tareas necesarias para avanzar hacia el objetivo general del proyecto (Schwaber & Sutherland, 2020). Para el desarrollo de la plataforma FlowQueue, se decidió dividir el trabajo en sprints de dos semanas. El Sprint 1, iniciado el 30/03/2026, tiene como propósito principal diseñar una landing page funcional que logre transmitir la propuesta de valor sobre la gestión de colas virtuales en instituciones peruanas. 
+
+| Sprint \# | Sprint 1 |
+| ----- | :---- |
+| **Sprint Planning Background** |  |
+| **Date** | 2026-03-30 |
+| **Time** | 03:00 PM |
+| **Location** | Reunión virtual mediante la aplicación Discord |
+| **Prepared By** | Carlos Marcelo Mansilla Rivero |
+| **Attendees** | Pillaca Vidal, Luis Angel, Mansilla Rivero, Carlos Marcelo,  Uribe Linares Francisco Javier, Alexander Auden Aliaga Ocampo. |
+| **Sprint n-1 Review Summary** | Este es el primer sprint del proyecto, por lo tanto, no hay resultados de un sprint anterior para revisar. |
+| **Sprint n-1 Retrospective Summary** | Al tratarse del primer sprint, no se cuenta con una retrospectiva previa. La retroalimentación y oportunidades de mejora se evaluarán al finalizar este sprint. |
+| **Sprint Goal & User Stories** |  |
+| **Sprint 1 Goal**  | **Our focus is on** providing a high-quality landing page for **FlowQueue** that showcases our core value proposition of virtual queue management. **We believe it delivers** a professional and trustworthy entry point for citizens and public institutions in Peru, allowing them to understand the benefits of eliminating physical waiting lines. **This will be confirmed when** new visitors can navigate through all informational sections, identify the core features (Real-time monitoring, Virtual Tickets), and reach the registration call-to-action in less than 30 seconds on both mobile and desktop devices. |
+| **Sprint 1 Velocity**  | 13 |
+| **Sum of Story Points**  | 13 |
 
 #### 5.2.1.2 Aspect Leaders and Collaborators (LACX)
 Para este Sprint se han establecido los aspectos esenciales relacionados con el desarrollo de la landing page de FlowQueue. Con el propósito de optimizar la organización y la comunicación del equipo, se diseñó la matriz Leadership and Collaboration Matrix (LACX), en la cual se especifica quién desempeña el rol de Líder (L) y quiénes intervienen como Colaboradores (C). 
 
-| Miembro del equipo | GitHub Username | Landing Page | Deployment | Documentation |
-| :--- | :--- | :---: | :---: | :---: |
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Software Deployment | Project Documentation |
+| :---- | :---- | :---- | :---- | :---- |
 | Pillaca Vidal, Luis Angel | RIBlankRam | **L** | C | C |
 | Mansilla Rivero, Carlos Marcelo | c3sv | C | **L** | C |
 | Ruiz, Daniel | DanRuizPeru | C | C | **L** |
@@ -1683,35 +1777,52 @@ Para este Sprint se han establecido los aspectos esenciales relacionados con el 
 #### 5.2.1.3 Sprint Backlog 1
 En relación al EP-01 (Interacción con la Landing Page de FlowQueue), se detallan las historias de usuario que contribuyen directamente al logro del Sprint Goal: 
 
-| ID | Historia de Usuario | Asignado a |
-| :--- | :--- | :--- |
-| **HU-01** | Propósito de la plataforma y beneficios. | Mansilla Rivero, Carlos |
-| **HU-02** | Visualización de beneficios por rol. | Aliaga Ocampo, Alexander |
-| **HU-03** | Entender flujo del sistema. | Ruiz, Daniel |
-| **HU-27** | Adaptabilidad en dispositivos móviles (Responsive). | Mansilla Rivero, Carlos |
-| **HU-28** | Botones de llamado a la acción (CTA) claros. | Pillaca Vidal, Luis |
-| **HU-02** | (Cont.) Métricas de impacto y perfiles. | Aliaga Ocampo, Alexander |
-| **HU-01** | (i18n) Integración de selector de idiomas. | Aliaga Ocampo, Alexander |
-| **HU-46** | Configuración de arquitectura inicial API. | Uribe Linares, Francisco |
+| Sprint \# | User Story ID | User Story Description | Task Assigned |
+| :---- | :---- | :---- | :---- |
+| 1 | **HU-01** | Como visitante, quiero entender el propósito de la plataforma, para conocer sus beneficios. | Mansilla Rivero, Carlos |
+| 1 | **HU-02** | Como visitante, quiero ver beneficios, para evaluar el servicio. | Aliaga Ocampo, Alexander |
+| 1 | **HU-03** | Como visitante, quiero entender cómo funciona, para saber cómo usarlo. | Ruiz, Daniel |
+| 1 | **HU-27** | Como visitante, quiero usar cualquier dispositivo, para acceder fácilmente (Responsive). | Mansilla Rivero, Carlos |
+| 1 | **HU-28** | Como visitantes, quiero botones claros (CTA), para registrarme rápido. | Pillaca Vidal, Luis |
+| 1 | **HU-02** | (Continuación) Implementación de métricas de impacto y secciones de perfiles institucionales. | Aliaga Ocampo, Alexander |
+| 1 | **HU-01** | (i18n) Integración de selector de idiomas para mejorar el alcance de la propuesta de valor. | Aliaga Ocampo, Alexander |
+| 1 | **HU-46** | Como dev, quiero endpoints, para comunicación (Configuración inicial de arquitectura API). | Uribe Linares, Francisco |
 
 #### 5.2.1.4 Development Evidence for Sprint Review
-Durante el Sprint 1, el equipo se enfocó en la implementación de la estructura base y la interfaz responsiva de la Landing Page de FlowQueue. Se priorizó la claridad en la propuesta de valor y la accesibilidad desde dispositivos móviles. A continuación, se detallan los commits que evidencian el avance en el repositorio: 
+Durante el Sprint 1, el equipo se enfocó en la implementación de la estructura base y la interfaz responsiva de la Landing Page de **FlowQueue**. Se priorizó la claridad en la propuesta de valor y la accesibilidad desde dispositivos móviles. A continuación, se detallan los commits que evidencian el avance en el repositorio: 
 
-| Repositorio | Rama | Commit Id | Mensaje | Fecha |
-| :--- | :--- | :--- | :--- | :--- |
-| landingFlowQueue | develop | `7009d99` | feat(i18n): integrate language switcher | 26/04/2026 |
-| landingFlowQueue | develop | `5ba6785` | feat(landing): add profiles, metrics | 26/04/2026 |
-| landingFlowQueue | develop | `c566a34` | feat: navbar and home section | 25/04/2026 |
-| landingFlowQueue | develop | `ab5bc5e` | chore: Access section | 25/04/2026 |
-| landingFlowQueue | feature/dan | `52cf3a2` | chore: Funcionalities section | 25/04/2026 |
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| landingFlowQueue | develop | **7009d99** | feat(i18n): integrate language switcher | Implementación del sistema de cambio de idioma y contenido localizado. | 26/04/2026 |
+| landingFlowQueue | develop | **5ba6785** | feat(landing): add profiles, metrics | Adición de las secciones de perfiles de usuario, métricas de impacto y equipo. | 26/04/2026 |
+| landingFlowQueue | develop | **c566a34** | feat: navbar and home section | Creación del componente de navegación y la sección hero de bienvenida. | 25/04/2026 |
+| landingFlowQueue | develop | **ab5bc5e** | chore: Access section | Configuración inicial de la sección de acceso para instituciones. | 25/04/2026 |
+| landingFlowQueue | feature/daniel | **52cf3a2** | chore: Funcionalities section | Desarrollo de la sección de funcionalidades del sistema de colas. | 25/04/2026 |
 
 #### 5.2.1.5 Execution Evidence
 
-Se logró una Landing Page funcional con las siguientes secciones:
-* **Header:** Navegación fluida y selector de idiomas.
-* **Hero Section:** Propuesta de valor sobre reducción de esperas.
-* **Features:** Información sobre ticket virtual y monitoreo.
-* **Contact:** Formulario de contacto institucional.
+
+En este Sprint se logró una Landing Page funcional y adaptativa que comunica eficazmente el sistema de colas virtuales. Se implementaron secciones de:
+
+* **Header:** Navegación fluida y Call-to-Action (CTA) para registro.  
+* **Hero Section:** Mensaje de impacto sobre la reducción de tiempos de espera.  
+* **Features:** Visualización del ticket virtual y monitoreo en tiempo real.  
+* **Contact:** Formulario para instituciones interesadas.
+
+En este Sprint se logró implementar la primera versión funcional del sistema FlowQueue, integrando frontend y backend bajo una arquitectura modular.
+
+Se desarrollaron los siguientes componentes principales:
+
+* Sistema de Login y autenticación por roles.  
+* Dashboard para ciudadanos con visualización de turnos y notificaciones.  
+* Dashboard para operadores con gestión de cola activa.  
+* Dashboard administrativo para supervisores.  
+* Sidebar dinámico adaptado según permisos.  
+* Configuración inicial de rutas protegidas.  
+* Integración entre Vue.js y API REST en ASP.NET Core.  
+* Arquitectura base preparada para escalabilidad futura.
+
+Gracias a esta iteración, el proyecto evolucionó desde una Landing Page informativa hacia una plataforma web interactiva orientada a la gestión digital de colas virtuales.
 
 #### 5.2.1.6 Services Documentation Evidence for Sprint Review
 
@@ -1740,6 +1851,625 @@ La colaboración se evidencia en la participación estratégica de los integrant
 * **Francisco Uribe:** Lideró el desarrollo y validación de la sección de **Contacto e Interacción Institucional**, implementó la lógica de captura de prospectos y la validación de formularios en el frontend
 
 La comunicación fue constante vía **Discord**, realizando revisiones de código (**Code Reviews**) cruzadas y sesiones de Pair Programming antes de cada merge, garantizando que el incremento de software sea escalable y libre de deuda técnica técnica desde el primer Sprint.
+
+#### 5.2.2. Sprint 2
+#### 5.2.2.1 Sprint Planning 2
+En el marco de Scrum, un Sprint corresponde a un período corto y definido en el que el equipo lleva a cabo las tareas necesarias para avanzar hacia el objetivo general del proyecto (Schwaber & Sutherland, 2020). Para el desarrollo de la plataforma FlowQueue, se decidió dividir el trabajo en sprints de dos semanas. El **Sprint 2**, iniciado el **13/04/2026**, tiene como propósito principal desarrollar una **web app funcional** que permita a los usuarios interactuar con las principales funcionalidades del sistema de colas virtuales. A diferencia del Sprint 1, que estuvo orientado a presentar la propuesta de valor mediante una landing page, este segundo sprint se enfoca en implementar módulos operativos como el acceso a la plataforma, visualización de colas, generación de tickets virtuales, dashboard, reportes y analíticas básicas para instituciones peruanas. 
+
+| Sprint \# | Sprint 2 |
+| ----- | :---- |
+| **Sprint Planning Background** |  |
+| **Date** | 2026-04-13  |
+| **Time** | 03:00 PM |
+| **Location** | Reunión virtual mediante la aplicación Discord |
+| **Prepared By** | Pillaca Vidal Luis Angel |
+| **Attendees** | Pillaca Vidal, Luis Angel, Mansilla Rivero, Carlos Marcelo,  Uribe Linares Francisco Javier, Alexander Auden Aliaga Ocampo. |
+| **Sprint n-2 Review Summary** | Para el Sprint 2, el equipo revisó el alcance funcional de la web app de FlowQueue, priorizando los módulos necesarios para que la plataforma deje de ser únicamente informativa y permita una interacción real con el sistema. Se definió como prioridad implementar funcionalidades relacionadas con la gestión de colas virtuales, visualización de tickets, dashboard administrativo, reportes y módulo de analíticas.  |
+| **Sprint n-2 Retrospective Summary** | En la planificación del Sprint 2, el equipo identificó la necesidad de organizar mejor el desarrollo por módulos, asignar responsabilidades específicas a cada integrante y trabajar mediante ramas en GitHub para evitar conflictos en el código. Asimismo, se acordó mantener una estructura modular en la web app, separando vistas, servicios, lógica de datos y componentes principales para facilitar el mantenimiento del proyecto.  |
+| **Sprint Goal & User Stories** |  |
+| **Sprint 2 Goal**  | **Our focus is on** developing the FlowQueue web app with functional modules that allow users and institutions to manage virtual queues, view digital tickets, monitor service activity, and access basic analytics. **We believe it delivers** a more complete and interactive platform where citizens can reduce physical waiting time, while institutions can improve the organisation of their attention processes through digital tools. **This will be confirmed when** users can navigate through the main sections of the web app, access the dashboard, view queue-related information, interact with virtual ticket features, and consult analytics or reports from both mobile and desktop devices.  |
+| **Sprint 2 Velocity**  | 21 |
+| **Sum of Story Points**  | 21 |
+
+#### 5.2.2.2 Aspect Leaders and Collaborators (LACX)
+Para este Sprint se han establecido los aspectos esenciales relacionados con el desarrollo de la Web App de FlowQueue. Con el propósito de optimizar la organización y la comunicación del equipo, se diseñó la matriz Leadership and Collaboration Matrix (LACX), en la cual se especifica quién desempeña el rol de Líder (L) y quiénes intervienen como Colaboradores (C). 
+
+| Team Member (Last Name, First Name) | GitHub Username | Web App | Software Deployment | Project Documentation |
+| :---- | :---- | :---- | :---- | :---- |
+| Pillaca Vidal, Luis Angel | RIBlankRam | C | C | **L** |
+| Mansilla Rivero, Carlos Marcelo | c3sv | C | C | C |
+| Ruiz, Daniel | DanRuizPeru | C | **L** | C |
+| Aliaga Ocampo, Alexander Auden | AlexanderAliaga19 | **L** | C | C |
+| Uribe Linares, Francisco Javier | XFranciscoLinaresX | C | C | C |
+
+#### 5.2.2.3 Sprint Backlog 2
+En relación al EP-01 (Interacción con la Landing Page de FlowQueue), se detallan las historias de usuario que contribuyen directamente al logro del Sprint Goal: 
+
+| Sprint 2 | User Story ID | User Story Description | Task Assigned |
+| :---- | :---- | :---- | :---- |
+| 2 | **HU-04** | Como citizen, quiero registrarme, para acceder al sistema. | Aliaga Ocampo, Alexander |
+| 2 | **HU-05** | Como citizen, quiero iniciar sesión, para acceder a mis turnos. | Aliaga Ocampo, Alexander |
+| 2 | **HU-06** | Como citizen, quiero filtrar entidades, para encontrar servicios. | Aliaga Ocampo, Alexander |
+| 2 | **HU-07** | Como citizen, quiero elegir sede, para atenderme ahí. | Aliaga Ocampo, Alexander |
+| 2 | **HU-08** | Como citizen, quiero elegir servicio, para obtener el turno correcto. | Aliaga Ocampo, Alexander |
+| 2 | **HU-09** | Como citizen, quiero ticket digital, para evitar filas. | Aliaga Ocampo, Alexander |
+| 2 | **HU-10** | Como citizen, quiero ver mi posición, para estimar espera. | Aliaga Ocampo, Alexander |
+| 2 | **HU-11** | Como citizen, quiero ver tiempo para organizarme. | Uribe Linares, Francisco Javier |
+| 2 | **HU-12** | Como citizen, quiero alertas, para no perder turno. | Uribe Linares, Francisco Javier |
+| 2 | **HU-13** | Como citizen, quiero ver el estado, para saber la situación. | Mansilla Rivero, Carlos Marcelo |
+| 2 | **HU-14** | Como citizen, quiero cancelar turno, para liberar espacio. | Mansilla Rivero, Carlos Marcelo |
+| 2 | **HU-15** | Como citizen, quiero ver historial, para registrar trámites. | Mansilla Rivero, Carlos Marcelo |
+| 2 | **HU-29** | Como citizen, quiero cambiar turno, para otro horario. | Aliaga Ocampo, Alexander |
+| 2 | **HU-30** | Como citizen, quiero ver cuántos hay antes, para estimar mejor. | Mansilla Rivero, Carlos Marcelo |
+| 2 | **HU-31**   | Como citizen, quiero saber los retrasos, para ajustar el tiempo. | Mansilla Rivero, Carlos Marcelo |
+| 2 | **HU-16** | Como operador, quiero elegir ventanilla, para   atender correctamente. | Ruiz Huisa, Daniel Elias |
+| 2 | **HU-17** | Como operador, quiero llamar al siguiente, para   mantener el orden. | Ruiz Huisa, Daniel Elias |
+| 2 | **HU-18** | Como operador, quiero mostrar ticket, para guiar al usuario. | Ruiz Huisa, Daniel Elias |
+| 2 | **HU-19** | Como operador, quiero dar prioridad, para casos especiales. | Ruiz Huisa, Daniel Elias |
+| 2 | **HU-20** | Como operador, quiero cerrar turno, para liberar ventanilla. | Ruiz Huisa, Daniel Elias |
+| 2 | **HU-32** | Como operador, quiero marcar ausencia, para continuar el flujo. | Ruiz Huisa, Daniel Elias |
+| 2 | **HU-33** | Como operador, quiero pausar, para detener flujo. | Pillaca Vidal, Luis |
+| 2 | **HU-34** | Como operador, quiero reanudar, para continuar el flujo. | Aliaga Ocampo, Alexander |
+| 2 | **HU-35** | **Como** operador, **quiero** filtrar, **para** ver específicos. | Aliaga Ocampo, Alexander |
+| 2 | **HU-21** | Cómo admin, quiero   ver métricas, para monitorear. | Uribe Linares, Francisco Javier |
+| 2 | **HU-22** | Cómo admin, quiero   analizar tiempos, para mejorar   servicio. | Uribe Linares, Francisco Javier |
+| 2 | **HU-23** | Cómo admin, quiero   ver productividad, para optimizar   recursos. | Pillaca Vidal, Luis |
+| 2 | **HU-36** | Como admin, quiero   crear sedes, para expandir   servicio. | Pillaca Vidal, Luis |
+| 2 | **HU-37** | Como admin, quiero   definir trámites, para gestionar   atención. | Pillaca Vidal, Luis |
+| 2 | **HU-38** | Como admin, quiero   asignar personal, para operar   sedes. | Pillaca Vidal, Luis |
+| 2 | **HU-39** | Como admin, quiero   reportes, para analizar   datos. | Pillaca Vidal, Luis |
+| 2 | **HU-40**   | Como admin, quiero comparar,   para evaluar rendimiento.   | Pillaca Vidal, Luis |
+
+#### 5.2.2.4 Development Evidence for Sprint Review
+Durante el Sprint 1, el equipo se enfocó en la implementación de la estructura base y la interfaz responsiva de la Landing Page de **FlowQueue**. Se priorizó la claridad en la propuesta de valor y la accesibilidad desde dispositivos móviles. A continuación, se detallan los commits que evidencian el avance en el repositorio: 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| frontend | feature/iam  | **dac2e0c** | feature(iam): initial commit  | Implementación del sistema de usuarios | 15/05/2026 |
+| frontend | feature/operator | **e64dd82** | feat: create operator boundend context | Adicion del Bounded Context de Operator | 15/05/2026 |
+| frontend | feature/queueAndlocation | **ce4030b** | feat: create location and queue boundend context | Creacion de los Bounded Context de Location y Queue | 15/05/2026 |
+| frontend | feature/analitics | **6dcde23** | feat: add analitics module  | Implementacion del sistema Analitics | 15/05/2026 |
+| frontend | main | **9612d12** | [feat: add notification system components](https://github.com/flowqueue/frontend/commit/eb29ed9a1f34876541ad89b3e2d280abaa6fda4b)  | Adiccion del Sistema de Notificaciones | 15/05/2026 |
+| frontend | main | **f3e9d8b** | [inicial commit](https://github.com/flowqueue/frontend/commit/f3e9d8b363b60195125a793f35c5a8f817915632)  | Desarrollo de la sección de funcionalidades del sistema de colas. | 13/05/2026 |
+
+#### 5.2.2.5 Execution Evidence
+En este Sprint se logro el despliegue de la aplicación de FlowQueue a traves de plataformas como Vercel como hosting del aplicativo, y SupaBase como Mock Api mas robusta que permita manejar los multiples datos que tenemos.
+
+Evidencia del despliegue en la plataforma Vercel.
+
+![][image87]
+
+Evidencia del despliegue del servicio en SupaBase:
+
+![][image88]
+#### 5.2.2.6 Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 2, el proyecto FlowQueue utilizó Supabase como backend temporal para simular las operaciones principales del sistema mientras se desarrollaba la lógica funcional del frontend en Vue.js. Esta integración permitió validar procesos de autenticación, manejo de usuarios, navegación por roles y gestión básica de información dentro de la plataforma.
+
+Supabase fue utilizado como una Fake API para pruebas funcionales e integración inicial del sistema, permitiendo consumir datos y realizar operaciones CRUD sin implementar todavía un backend personalizado.
+
+![][image89]
+
+| Endpoint | Acciones | URL de Documentación | Verbo HTTP | Sintaxis / Parámetros | Response (Explicación) |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| /auth/login | Autenticación de usuarios |  | POST | Email, Password | Retorna sesión y datos del usuario autenticado |
+| /users | Obtener usuarios |  | GET | N/A | Lista de usuarios registrados |
+| /queues | Obtener colas activas |  | GET | Id de sede | Retorna colas activas disponibles |
+| /tickets | Registrar ticket virtual |  | POST | Datos del ciudadano | Genera un nuevo ticket virtual |
+| /notifications | Obtener notificaciones |  | GET | Id de usuario | Retorna notificaciones del sistema |
+| /operators/queue | Gestionar cola activa |  | PUT | Estado de atención | Actualiza el estado de atención de la cola |
+
+#### 5.2.2.7 Software Deployment Evidence for Sprint Review
+
+Durante este Sprint, el proceso de despliegue se centró en la automatización de la Landing Page para asegurar su visibilidad pública inmediata.
+
+4. **Configuración de Recursos:** Se habilitó el servicio de GitHub Pages dentro de la organización de GitHub del equipo.  
+5. **Automatización:** Se configuró un workflow de GitHub Actions para que, tras cada commit en la rama main, se ejecute un despliegue automático.  
+6. **Evidencia:** Se verificó la correcta renderización de estilos y activos en el entorno cloud.
+
+#### 5.2.2.8 Team Collaboration Insights during Sprint
+En esta sección el equipo explica cómo se han desarrollado las actividades de implementación. Durante el Sprint 2, el equipo de **FlowQueue** adoptó un flujo de trabajo basado en ramas (GitFlow). Se creaaron una rama por asigment (carga de trabajo de cada integrante) y se hizo un merge a la rama principal para realizar el Despliegue
+
+La colaboración se evidencia en la participación de los 5 integrantes:
+
+* **Alexander Aliaga** lideró el desarrollo dando las pautas generales de diseño como el desarrollo de los Bounded Context de Location, Queue y Operator Ademas de la configuracion basica del aplicativo.  
+* **c3sv** fue el encargado de construir la arquitectura principal del proyecto sobre el que se trabajo. Ademas de participar con el Bounded Context de Notifications.  
+* **Dan Ruiz** Se encargo del Bounded Context de IAM, ademas de hacer los parches para SupaBase, como para el despliegue.  
+* **RIBlankRam** desarrolló el Bounded Context de Analytics. Sin embargo, por la configuración del repositorio en ese momento (private) figuró como unknown.
+
+![][image90]
+
+La comunicación fue constante vía Discord, realizando revisiones de código (Code Reviews) antes de cada merge para asegurar la calidad del software.
+
+![][image91]
+
+
+#### 5.2.3. Sprint 3
+En esta sección se presenta el avance alcanzado durante el Sprint 3 del proyecto FlowQueue, desarrollado entre el 27/04/2026 y el 10/05/2026. Durante este período, el equipo se enfocó en la integración de la aplicación web con los servicios backend, el desarrollo de funcionalidades clave para la gestión de colas virtuales y el despliegue de nuevas versiones de los componentes del sistema. Asimismo, se documentan las actividades realizadas, los resultados obtenidos y la colaboración del equipo para cumplir con los objetivos establecidos para el sprint. 
+#### 5.2.3.1 Sprint Planning 3
+
+La reunión de Sprint Planning 3 tuvo como propósito definir las actividades, funcionalidades y objetivos que serían desarrollados durante el sprint. El equipo revisó el estado actual del proyecto, priorizó los elementos del Product Backlog y estableció las tareas necesarias para continuar con la implementación de FlowQueue. En la Tabla se presenta el resumen de los principales acuerdos y aspectos definidos durante la planificación del sprint. 
+
+| Sprint \# | Sprint 3 |
+| ----- | :---- |
+| **Sprint Planning Background** |  |
+| **Date** | **Date** 2026-04-27  |
+| **Time** | 03:00 PM |
+| **Location** | Reunión virtual mediante la aplicación Discord |
+| **Prepared By** | Pillaca Vidal Luis Angel |
+| **Attendees** | Pillaca Vidal, Luis Angel, Mansilla Rivero, Carlos Marcelo,  Uribe Linares Francisco Javier, Alexander Auden Aliaga Ocampo. |
+| **Sprint n-3 Review Summary** | Para el Sprint 3, el equipo revisó el avance alcanzado en la web app de FlowQueue, evaluando las funcionalidades desarrolladas durante el sprint anterior. Se identificó la necesidad de integrar los módulos implementados con servicios backend reales para garantizar la persistencia de datos y el funcionamiento completo de la plataforma. Como resultado, se priorizaron tareas relacionadas con autenticación de usuarios, gestión de colas, administración de tickets virtuales, despliegue de aplicaciones y documentación de servicios.  |
+| **Sprint n-3 Retrospective Summary** | Durante la retrospectiva se concluyó que la organización mediante ramas en GitHub permitió reducir conflictos en el desarrollo y mejorar la colaboración entre los integrantes. Asimismo, se destacó la importancia de mantener una comunicación constante para coordinar la integración entre frontend y backend, así como documentar adecuadamente los servicios implementados para facilitar futuras iteraciones del proyecto.  |
+| **Sprint Goal & User Stories** |  |
+| **Sprint 3 Goal**  | Our focus is on integrating the FlowQueue web application with backend services and deploying a functional version of the platform that supports real-time queue management and user interactions. We believe it delivers a complete digital queue management experience where citizens can generate and track virtual tickets, while institutions can manage queues, monitor operations and access service information through connected modules. This will be confirmed when users can authenticate, generate and monitor virtual tickets, interact with queue management features, and administrators can access operational information through deployed frontend and backend applications. |
+| **Sprint 3 Velocity**  | 24 |
+| **Sum of Story Points**  | 24 |
+#### 5.2.3.2 Aspect Leaders and Collaborators (LACX)
+Para este Sprint se han establecido los aspectos esenciales relacionados con la integración de la plataforma FlowQueue, incluyendo el desarrollo de la Web App, la implementación de los servicios backend, el despliegue de los componentes del sistema y la actualización de la documentación del proyecto. Con el propósito de optimizar la organización y la comunicación del equipo, se diseñó la matriz Leadership and Collaboration Matrix (LACX), en la cual se especifica quién desempeña el rol de Líder (L) y quiénes intervienen como Colaboradores (C) en cada aspecto del Sprint. 
+
+| Team Member (Last Name, First Name) | GitHub Username | Web App | Software Deployment | Project Documentation |
+| :---- | :---- | :---- | :---- | :---- |
+| Pillaca Vidal, Luis Angel | RIBlankRam | C | C | **L** |
+| Mansilla Rivero, Carlos Marcelo | c3sv | C | C | C |
+| Ruiz, Daniel | DanRuizPeru | C | **L** | C |
+| Aliaga Ocampo, Alexander Auden | AlexanderAliaga19 | **L** | C | C |
+| Uribe Linares, Francisco Javier | XFranciscoLinaresX | C | C | C |
+#### 5.2.3.3 Sprint Backlog 3
+| Sprint 3 | User Story ID | User Story Description | Task Assigned |
+| :---- | :---- | :---- | :---- |
+| 3 | **HU-01** | Como visitante, quiero entender el propósito de la plataforma, para conocer sus beneficios.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-02** | Como visitante, quiero ver beneficios, para evaluar el servicio.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-03** | Como visitante, quiero entender cómo funciona, para saber cómo usarlo.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-026** | Como citizen, quiero recuperar mi cuenta, para volver a acceder.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-27** | Como visitante, quiero usar cualquier dispositivo, para acceder fácilmente.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-28** | Como visitantes, quiero botones claros, para registrarme rápido.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-24** | Como dev, quiero tiempo real, para actualizar datos.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-25** | Como dev, quiero alertas push, para avisar turnos.  | Uribe Linares, Francisco Javier |
+| 3 | **HU-41** | Como sistema, quiero proteger datos, para evitar accesos indebidos.  | Uribe Linares, Francisco Javier |
+| 3 | **HU-42** | Como sistema, quiero soportar usuarios, para no fallar.  | Mansilla Rivero, Carlos Marcelo |
+| 3 | **HU-43** | Como sistema, quiero estar activo, para ser accesible.  | Mansilla Rivero, Carlos Marcelo |
+| 3 | **HU-44** | Como sistema, quiero respaldo, para evitar pérdida.  | Mansilla Rivero, Carlos Marcelo |
+| 3 | **HU-45** | Como dev, quiero registrar eventos, para monitorear.  | Aliaga Ocampo, Alexander |
+| 3 | **HU-46** | Como dev, quiero endpoints, para comunicación.  | Mansilla Rivero, Carlos Marcelo |
+| 3 | **HU-47**   | Como usuario, quiero ver datos en tiempo real, para no recargar la página.  | Mansilla Rivero, Carlos Marcelo |
+| 3 | **HU-48** | Como usuario, quiero usar el sistema en distintos dispositivos, para tener flexibilidad de acceso.  | Ruiz Huisa, Daniel Elias |
+| 3 | **HU-49** | Como usuario, quiero una interfaz accesible, para poder usarla sin dificultad.  | Ruiz Huisa, Daniel Elias |
+| 3 | **HU-50** | Como usuario, quiero una guía inicial, para entender cómo usar la plataforma.  | Ruiz Huisa, Daniel Elias |
+#### 5.2.3.4 Development Evidence for Sprint Review
+Durante el Sprint 1, el equipo se enfocó en la implementación de la estructura base y la interfaz responsiva de la Landing Page de **FlowQueue**. Se priorizó la claridad en la propuesta de valor y la accesibilidad desde dispositivos móviles. A continuación, se detallan los commits que evidencian el avance en el repositorio: 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| frontend | feature/iam  | **dac2e0c** | feature(iam): initial commit  | Implementación del sistema de usuarios | 15/05/2026 |
+| frontend | feature/operator | **e64dd82** | feat: create operator boundend context | Adicion del Bounded Context de Operator | 15/05/2026 |
+| frontend | feature/queueAndlocation | **ce4030b** | feat: create location and queue boundend context | Creacion de los Bounded Context de Location y Queue | 15/05/2026 |
+| frontend | feature/analitics | **6dcde23** | feat: add analitics module  | Implementacion del sistema Analitics | 15/05/2026 |
+| frontend | main | **9612d12** | [feat: add notification system components](https://github.com/flowqueue/frontend/commit/eb29ed9a1f34876541ad89b3e2d280abaa6fda4b)  | Adiccion del Sistema de Notificaciones | 15/05/2026 |
+| frontend | main | **f3e9d8b** | [inicial commit](https://github.com/flowqueue/frontend/commit/f3e9d8b363b60195125a793f35c5a8f817915632)  | Desarrollo de la sección de funcionalidades del sistema de colas. | 13/05/2026 |
+#### 5.2.3.5 Execution Evidence
+![][image92]![][image93]
+#### 5.2.3.6 Services Documentation Evidence for Sprint Review
+
+![][image94]
+
+| Endpoint | Acciones | URL de Documentación | Verbo HTTP | Sintaxis / Parámetros | Response (Explicación) |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| /api/v1/analytics/summary  | Obtener resumen de analíticas  |  | GET  | N/A  | Retorna resumen general de analíticas  |
+| /api/v1/branch-offices/\[branchOfficeId\]/summary  | Obtener resumen por sede  |  | GET | Id de sede  | Retorna resumen de analíticas por sede  |
+| /api/v1/institutions/\[institutionId\]/summary  | Obtener resumen por institución  |  | GET | Id de institución  | Retorna resumen de analíticas por institución  |
+| /api/v1/analytics/hourly  | Obtener analíticas por hora  |  | GET  | N/A  | Retorna resumen de analíticas por hora  |
+| /api/v1/auth/sign-up  | Registro de usuarios  |  | POST  | Datos de registro (nombre, email, password, etc.)  | Crea un nuevo usuario en el sistema  |
+| /api/v1/auth/login  | Autenticación de usuarios  |  | POST  | Email, Password  | Retorna sesión y datos del usuario autenticado  |
+| /api/v1/branch-offices  | Crear una sede  |  | POST  | Datos de la sede (nombre, dirección, institución, etc.)  | Crea una nueva sede  |
+| /api/v1/branch-offices  | Listar sedes  |  | GET  | N/A  | Retorna lista de sedes registradas  |
+| /api/v1/branch-offices/\[id\]  | Obtener sede por id  |  | GET  | Id de sede  | Retorna los datos de una sede específica  |
+| /api/v1/institutions  | Crear una institución  |  | POST  | Datos de la institución (nombre, tipo, etc.)  | Crea una nueva institución  |
+| /api/v1/institutions  | Listar instituciones  |  | GET  | N/A  | Retorna lista de instituciones registradas  |
+| /api/v1/institutions/\[id\]  | Obtener institución por id  |  | GET  | Id de institución  | Retorna los datos de una institución específica  |
+| /api/v1/notifications  | Crear una notificación  |  | POST  | Datos de la notificación (mensaje, usuario, tipo, etc.)  | Crea una nueva notificación  |
+| /api/v1/notifications  | Listar notificaciones  |  | GET  | N/A  | Retorna lista de notificaciones  |
+| /api/v1/notifications/\[id\]  | Obtener notificación por id  |  | GET  | Id de notificación  | Retorna los datos de una notificación específica  |
+| /api/v1/users/\[userId\]/notifications/read  | Marcar notificación como leída  |  | PUT  | Id de usuario  | Marca una o varias notificaciones como leídas  |
+| /api/v1/notifications/\[id\]/archive  | Archivar notificación  |  | PUT  | Id de notificación  | Archiva una notificación  |
+| /api/v1/services  | Crear un servicio  |  | POST  | Datos del servicio (nombre, descripción, sede, etc.)  | Crea un nuevo servicio  |
+| /api/v1/services  | Listar servicios  |  | GET  | N/A  | Retorna lista de servicios disponibles  |
+| /api/v1/services/\[id\]  | Obtener servicio por id  |  | GET  | Id de servicio  | Retorna los datos de un servicio específico  |
+| /api/v1/turns  | Crear un turno  |  | POST  | Datos del ciudadano y servicio  | Genera un nuevo turno/ticket  |
+| /api/v1/turns  | Listar turnos  |  | GET  | N/A  | Retorna lista de turnos  |
+| /api/v1/turns/\[id\]  | Obtener turno por id  |  | GET  | Id de turno  | Retorna los datos de un turno específico  |
+| /api/v1/turns/\[id\]/call  | Llamar turno  |  | POST  | Id de turno  | Llama al siguiente turno en cola  |
+| /api/v1/turns/\[id\]/complete  | Finalizar atención  |  | POST  | Id de turno  | Marca el turno como completado  |
+| /api/v1/turns/\[id\]/mark-as-absent  | Marcar turno como ausente  |  | PUT  | Id de turno  | Marca al ciudadano como ausente en su turno  |
+| /api/v1/users  | Crear un usuario  |  | POST  | Datos del usuario (nombre, email, password, rol, etc.)  | Crea un nuevo usuario  |
+| /api/v1/users  | Listar usuarios  |  | GET  | N/A  | Retorna lista de usuarios registrados  |
+| /api/v1/users/\[id\]  | Obtener usuario por id  |  | GET  | Id de usuario  | Retorna los datos de un usuario específico  |
+#### 5.2.3.7 Software Deployment Evidence for Sprint Review
+
+![][image95]  
+![][image96]  
+![][image97]![][image98]
+#### 5.2.3.8 Team Collaboration Insights during Sprint
+La participación del equipo en este sprint se distribuyó de la siguiente manera:
+
+* **Alexander Aliaga** continuó como referente técnico del equipo, encargándose esta vez del desarrollo de los Bounded Context de **Subscription Management** y **Admin Management**, asegurando la correcta gestión de planes/pagos y la configuración administrativa de sedes y operadores.  
+* **c3sv** trabajó en el Bounded Context de **User Management**, enfocándose en los flujos de registro, autenticación y actualización de perfil de los usuarios del sistema.  
+* **Dan Ruiz** se encargó del Bounded Context de **Queue Management**, desarrollando la lógica de generación de tickets, posición en cola y reprogramación de turnos.  
+* **RIBlankRam** desarrolló el Bounded Context de **Counter Management**, implementando la gestión de ventanillas, llamado de turnos y registro de atenciones (finalizadas, ausentes o pausadas).  
+* **Pillaca Vidal, Luis** participó en el Bounded Context de **Notification Management**, trabajando en el envío de notificaciones y la actualización de la cola mediante WebSockets.
+
+![][image99]
+
+#### 5.2.4. Sprint 4
+En esta sección se presenta el avance alcanzado durante el Sprint 4 del proyecto FlowQueue, desarrollado entre el 3/07/2026 y el 7/07/2026. Durante este período, el equipo se enfocó en la integración de la aplicación web con los servicios backend, el desarrollo de funcionalidades clave para la gestión de colas virtuales y el despliegue de nuevas versiones de los componentes del sistema. Asimismo, se documentan las actividades realizadas, los resultados obtenidos y la colaboración del equipo para cumplir con los objetivos establecidos para el sprint. Ademas, se implementan versiones actualizadas de la landing page, web app y backend respectivamente.
+#### 5.2.4.1 Sprint Planning 4
+La reunión de Sprint Planning 3 tuvo como propósito definir las actividades, funcionalidades y objetivos que serían desarrollados durante el sprint. El equipo revisó el estado actual del proyecto, priorizó los elementos del Product Backlog y estableció las tareas necesarias para continuar con la implementación de FlowQueue. En la Tabla se presenta el resumen de los principales acuerdos y aspectos definidos durante la planificación del sprint. 
+
+| Sprint \# | Sprint 4 |
+| ----- | :---- |
+| **Sprint Planning Background** |  |
+| **Date** | **Date** 2026-07-03  |
+| **Time** | 03:00 PM |
+| **Location** | Reunión virtual mediante la aplicación Discord |
+| **Prepared By** | Pillaca Vidal Luis Angel |
+| **Attendees** | Pillaca Vidal, Luis Angel, Mansilla Rivero, Carlos Marcelo,  Uribe Linares Francisco Javier, Alexander Auden Aliaga Ocampo. |
+| **Sprint n-4 Review Summary** | Para el Sprint 4, el equipo revisó el avance alcanzado en la web app de FlowQueue hasta el sprint 3, evaluando fallos y nuevas actualizaciones para esta web app y landing page. Se identificó la necesidad de integrar más endpoints en el servicios backend reales para garantizar la persistencia de datos y el funcionamiento completo de la plataforma. Asimismo, se actualizó la conexión a los nuevos endpoints a la web app y en la landing page se implementó los videos de About the product y About the team. Como resultado, se priorizaron tareas relacionadas con  estos mismos,actualización de aplicaciones y documentación de servicios.  |
+| **Sprint n-4 Retrospective Summary** | Durante la retrospectiva se concluyó que la organización mediante ramas en GitHub permitió reducir conflictos en el desarrollo y mejorar la colaboración entre los integrantes. Asimismo, se destacó la importancia de mantener una comunicación constante para coordinar la integración entre frontend, backend y actualizaciones en la landing page, así como documentar adecuadamente los servicios implementados para facilitar futuras iteraciones del proyecto.  |
+| **Sprint Goal & User Stories** |  |
+| **Sprint 4 Goal**  | Our focus is on enhancing the FlowQueue platform by integrating additional backend endpoints, updating the web application with the new services, and improving the landing page through multimedia content and deployment updates. We believe it delivers a more complete and reliable platform where data persistence is supported by real backend services, the web application communicates with updated endpoints, and the landing page provides a richer presentation of the product and development team through multimedia resources. This will be confirmed when the web application successfully consumes the new backend endpoints, data is stored and retrieved correctly through the implemented services, the landing page displays the "About the Product" and "About the Team" videos correctly, and all services and deployment documentation are completed and validated. Este objetivo mantiene la misma estructura del Sprint 3, pero refleja las metas específicas del Sprint 4: integración de nuevos endpoints, persistencia de datos, actualización de la web app, mejoras en la landing page y documentación del despliegue. |
+| **Sprint 4 Velocity**  | 24 |
+| **Sum of Story Points**  | 24 |
+
+#### 5.2.4.2 Aspect Leaders and Collaborators (LACX)
+Para este Sprint se han establecido los aspectos esenciales relacionados con la integración de la plataforma FlowQueue. Entre estos elementos se incluyen el despliegue del backend nuevo, la integración con el Frontend Web Application. Una nueva versión de la landing page con muchos más elementos visuales. Se diseñó la matriz Leadership and Collaboration Matrix (LACX), en la cual se especifica quién desempeña el rol de Líder (L) y quiénes intervienen como Colaboradores (C) en cada aspecto del Sprint. 
+
+| Team Member (Last Name, First Name) | GitHub Username | Web App | Software Deployment | Project Documentation |
+| :---- | :---- | :---- | :---- | :---- |
+| Pillaca Vidal, Luis Angel | RIBlankRam | C | C | **L** |
+| Mansilla Rivero, Carlos Marcelo | c3sv | C | C | C |
+| Ruiz, Daniel | DanRuizPeru | C | **L** | C |
+| Aliaga Ocampo, Alexander Auden | AlexanderAliaga19 | **L** | C | C |
+| Uribe Linares, Francisco Javier | XFranciscoLinaresX | C | C | C |
+#### 5.2.4.3 Sprint Backlog 4
+| Sprint 4 | User Story ID | User Story Description | Task Assigned |
+| :---- | :---- | :---- | :---- |
+| 4 | **HU-04** | Como citizen, quiero registrarme, para acceder al sistema. | Aliaga Ocampo, Alexander |
+| 4 | **HU-05** | Como citizen, quiero iniciar sesión, para acceder a mis turnos. | Aliaga Ocampo, Alexander |
+| 4 | **HU-06** | Como citizen, quiero filtrar entidades, para encontrar servicios. | Aliaga Ocampo, Alexander |
+| 4 | **HU-07** | Como citizen, quiero elegir sede, para atenderme ahí. | Aliaga Ocampo, Alexander |
+| 4 | **HU-08** | Como citizen, quiero elegir servicio, para obtener el turno correcto. | Aliaga Ocampo, Alexander |
+| 4 | **HU-09** | Como citizen, quiero ticket digital, para evitar filas. | Aliaga Ocampo, Alexander |
+| 4 | **HU-10** | Como citizen, quiero ver mi posición, para estimar espera. | Aliaga Ocampo, Alexander |
+| 4 | **HU-11** | Como citizen, quiero ver tiempo para organizarme. | Uribe Linares, Francisco Javier |
+| 4 | **HU-12** | Como citizen, quiero alertas, para no perder turno. | Uribe Linares, Francisco Javier |
+| 4 | **HU-13** | Como citizen, quiero ver el estado, para saber la situación. | Mansilla Rivero, Carlos Marcelo |
+| 4 | **HU-14** | Como citizen, quiero cancelar turno, para liberar espacio. | Mansilla Rivero, Carlos Marcelo |
+| 4 | **HU-15** | Como citizen, quiero ver historial, para registrar trámites. | Mansilla Rivero, Carlos Marcelo |
+| 4 | **HU-29** | Como citizen, quiero cambiar turno, para otro horario. | Aliaga Ocampo, Alexander |
+| 4 | **HU-30** | Como citizen, quiero ver cuántos hay antes, para estimar mejor. | Mansilla Rivero, Carlos Marcelo |
+| 4 | **HU-31**   | Como citizen, quiero saber los retrasos, para ajustar el tiempo. | Mansilla Rivero, Carlos Marcelo |
+| 4 | **HU-16** | Como operador, quiero elegir ventanilla, para   atender correctamente. | Ruiz Huisa, Daniel Elias |
+| 4 | **HU-17** | Como operador, quiero llamar al siguiente, para   mantener el orden. | Ruiz Huisa, Daniel Elias |
+| 4 | **HU-18** | Como operador, quiero mostrar ticket, para guiar al usuario. | Ruiz Huisa, Daniel Elias |
+| 4 | **HU-19** | Como operador, quiero dar prioridad, para casos especiales. | Ruiz Huisa, Daniel Elias |
+| 4 | **HU-20** | Como operador, quiero cerrar turno, para liberar ventanilla. | Ruiz Huisa, Daniel Elias |
+| 4 | **HU-32** | Como operador, quiero marcar ausencia, para continuar el flujo. | Ruiz Huisa, Daniel Elias |
+| 4 | **HU-33** | Como operador, quiero pausar, para detener flujo. | Pillaca Vidal, Luis |
+| 4 | **HU-34** | Como operador, quiero reanudar, para continuar el flujo. | Aliaga Ocampo, Alexander |
+| 4 | **HU-35** | **Como** operador, **quiero** filtrar, **para** ver específicos. | Aliaga Ocampo, Alexander |
+| 4 | **HU-21** | Cómo admin, quiero   ver métricas, para monitorear. | Uribe Linares, Francisco Javier |
+| 4 | **HU-22** | Cómo admin, quiero   analizar tiempos, para mejorar   servicio. | Uribe Linares, Francisco Javier |
+| 4 | **HU-23** | Cómo admin, quiero   ver productividad, para optimizar   recursos. | Pillaca Vidal, Luis |
+| 4 | **HU-36** | Como admin, quiero   crear sedes, para expandir   servicio. | Pillaca Vidal, Luis |
+| 4 | **HU-37** | Como admin, quiero   definir trámites, para gestionar   atención. | Pillaca Vidal, Luis |
+| 4 | **HU-38** | Como admin, quiero   asignar personal, para operar   sedes. | Pillaca Vidal, Luis |
+| 4 | **HU-39** | Como admin, quiero   reportes, para analizar   datos. | Pillaca Vidal, Luis |
+| 4 | **HU-40**   | Como admin, quiero comparar,   para evaluar rendimiento.   | Pillaca Vidal, Luis |
+#### 5.2.4.4 Development Evidence for Sprint Review
+Durante el Sprint 4, el equipo desarrolló y actualizó los principales componentes de la solución FlowQueue, considerando la Landing Page, la Web Application y los Web Services. El trabajo realizado estuvo enfocado en consolidar la integración entre la aplicación web y el backend, incorporar nuevos endpoints para soportar la persistencia de datos, mejorar las vistas relacionadas con la gestión de colas virtuales y actualizar la Landing Page con contenido multimedia correspondiente a los videos “About the Product” y “About the Team”.
+
+Asimismo, se realizaron commits en los repositorios del proyecto siguiendo el flujo de trabajo definido por el equipo, utilizando ramas de desarrollo para organizar las funcionalidades implementadas durante el sprint. Estas evidencias permiten demostrar el avance técnico alcanzado y su relación con el objetivo del Sprint 4, orientado a entregar una versión más completa, integrada y desplegable de FlowQueue.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| FlowQueue Landing Page | `develop` / `feature/sprint-4-landing-page` | `7eded0ee14facfd565d46b2e5fb97dbc1dca28bf`  | `feat: add about product and team videos` | Se incorporaron los videos “About the Product” y “About the Team” en la Landing Page, permitiendo presentar de manera más clara el valor del producto y al equipo de desarrollo. | 2026-07-07 |
+| FlowQueue Landing Page | `develop` / `feature/sprint-4-landing-page` |  | `fix: improve landing page responsive layout` | Se realizaron ajustes visuales y responsive en la Landing Page para mantener una experiencia consistente en distintos dispositivos. | 2026-07-07 |
+| FlowQueue Web Application | `develop` / `feature/sprint-4-web-app` |  | `feat: integrate web app with backend services` | Se actualizó la aplicación web para consumir endpoints reales del backend, permitiendo registrar, consultar y actualizar información desde la interfaz. | 2026-07-07 |
+| FlowQueue Web Application | `develop` / `feature/sprint-4-queue-management` |  | `feat: update virtual queue management views` | Se mejoraron las vistas relacionadas con la gestión de tickets, visualización de colas y seguimiento del estado de atención. | 2026-07-07 |
+| FlowQueue Web Services | `develop` / `feature/sprint-4-backend-services` |  | `feat: implement additional queue endpoints` | Se implementaron endpoints adicionales para soportar operaciones de tickets, servicios, agencias y gestión de colas virtuales. | 2026-07-07 |
+| FlowQueue Web Services | `develop` / `feature/sprint-4-api-documentation` |  | `docs: update swagger documentation` | Se actualizó la documentación de servicios en Swagger, incluyendo endpoints, parámetros, respuestas esperadas y ejemplos de uso. | 2026-07-07 |
+
+Como evidencia del desarrollo realizado durante el Sprint 4, se incluyen capturas del historial de commits en los repositorios utilizados por el equipo. Estas capturas muestran las ramas trabajadas, los mensajes de commit y las fechas correspondientes a las funcionalidades implementadas.
+
+**Figura 1\. Evidencia de commits realizados en el repositorio de la Landing Page durante el Sprint 4\.**  
+**![][image100]**
+
+**Figura 2\. Evidencia de commits realizados en el repositorio de la Web Application durante el Sprint 4\.**  
+**![][image101]**
+
+**Figura 3\. Evidencia de commits realizados en el repositorio de Web Services durante el Sprint 4\.**
+
+**![][image102]**
+#### 5.2.4.5 Execution Evidence
+Durante el Sprint 4, se validó la ejecución de las funcionalidades implementadas en los principales productos de FlowQueue. La Web Application fue probada con la integración de nuevos servicios backend, verificando que las vistas puedan consumir información real, mostrar datos correctamente y ejecutar acciones relacionadas con la gestión de colas virtuales. Además, se comprobó que los datos registrados desde la aplicación web puedan ser procesados por los servicios backend, fortaleciendo la persistencia de información dentro del sistema.
+
+También se verificó la actualización de la Landing Page, especialmente la incorporación de los videos “About the Product” y “About the Team”. Estos elementos permiten mejorar la presentación del producto, explicar su propuesta de valor y mostrar el trabajo realizado por el equipo. Finalmente, se revisó el funcionamiento general de los componentes actualizados y sus despliegues correspondientes, asegurando que la solución pueda ser presentada como una versión final integrada.
+
+| Producto | Evidencia de ejecución | Resultado obtenido |
+| ----- | ----- | ----- |
+| Landing Page | Visualización de la Landing Page actualizada con el video “About the Product”. | El video se muestra correctamente y permite comunicar el propósito, beneficios y funcionamiento general de FlowQueue. |
+| Landing Page | Visualización del video “About the Team”. | El video se muestra correctamente y presenta a los integrantes responsables del desarrollo del proyecto. |
+| Web Application | Navegación por las vistas principales de la aplicación web. | Las vistas cargan correctamente y mantienen una experiencia consistente para los usuarios. |
+| Web Application | Prueba de funcionalidades relacionadas con tickets y colas virtuales. | El sistema permite visualizar y gestionar información asociada al flujo de atención. |
+| Web Application \+ Backend | Consumo de endpoints desde la aplicación web. | La aplicación web se comunica correctamente con los servicios backend implementados. |
+| Web Services | Ejecución de endpoints desde Swagger. | Los endpoints responden correctamente y muestran la información esperada según los datos de prueba. |
+| Deployment | Verificación de las versiones actualizadas de Landing Page, Web Application y Web Services. | Los componentes se encuentran disponibles y listos para ser utilizados durante la revisión del sprint. |
+
+A continuación, se presentan las principales evidencias visuales correspondientes a la ejecución de las funcionalidades desarrolladas durante el Sprint 4\.
+
+**Figura 1\. Landing Page actualizada con el video “About the Product”.**  
+ \[Insertar captura\]
+
+**Figura 2\. Landing Page actualizada con el video “About the Team”.**  
+ \[Insertar captura\]
+
+**Figura 3\. Vista principal de la Web Application actualizada durante el Sprint 4\.**  
+ ![][image103]
+
+**Figura 4\. Vista de gestión de tickets o colas virtuales en la Web Application.**  
+ 
+
+![][image104]
+
+**Figura 5\. Evidencia de consumo de datos desde la Web Application mediante servicios backend.**  
+ ![][image105]
+
+**Figura X. Ejecución de endpoints en Swagger para validar los Web Services implementados.**  
+ 
+
+**Video de evidencia de ejecución del Sprint 4:**  
+ URL:  
+ Duración: 
+
+En el video de evidencia se muestra la ejecución de las funcionalidades desarrolladas durante el Sprint 4\. Se presenta la navegación por la Landing Page actualizada, la visualización de los videos incorporados, el uso de la Web Application y la interacción con los servicios backend implementados. Esta evidencia permite demostrar que los componentes principales de FlowQueue se encuentran integrados y funcionando de acuerdo con los objetivos definidos para el sprint final.
+#### 5.2.4.6 Services Documentation Evidence for Sprint Review
+
+
+| Endpoint | Acciones | URL de Documentación | Verbo HTTP | Sintaxis / Parámetros | Response (Explicación) |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| /api/v1/auth/sign-up   | Registro de ciudadano   |  | POST   | Datos de registro del usuario, como nombre, correo y contraseña  | Crea un nuevo usuario ciudadano en el sistema  |
+| /api/v1/auth/sign-in  | Inicio de sesión de ciudadano  |  | POST  | Credenciales del usuario, como correo y contraseña  | Retorna la autenticación del usuario y permite acceder al sistema  |
+| Endpoints de tickets  | Gestión de tickets virtuales  |  | Según operación  | Datos asociados al ciudadano, servicio o turno  | Permiten registrar, consultar o actualizar información de tickets  |
+| Endpoints de servicios  | Gestión de servicios disponibles  |  | Según operación  | Datos del servicio y parámetros de consulta  | Permiten administrar los servicios ofrecidos por la institución  |
+| Endpoints de agencias  | Gestión de agencias o sedes   |  | Según operación   | Datos de la agencia, sede o identificador correspondiente  | Permiten consultar o administrar información de sedes  |
+#### 5.2.4.7 Software Deployment Evidence for Sprint Review
+Backend deployment review  
+![][image106]  
+![][image107]
+
+SignUp as a citizen.  
+RequestURL:https://flowqueue-backend-production-f7c9.up.railway.app/api/v1/auth/sign-up
+
+![][image105]
+
+SignIn as a citizen  
+RequestURL:https://flowqueue-backend-production-f7c9.up.railway.app/api/v1/auth/sign-in
+
+![][image108]  
+BranchOffice Get Request  
+URL:https://flowqueue-backend-production-f7c9.up.railway.app/api/v1/branch-offices  
+![][image109]  
+Institution Get Request  
+URL:https://flowqueue-backend-production-f7c9.up.railway.app/api/v1/institutions
+
+![][image110]  
+Notifications Get Request  
+URL:https://flowqueue-backend-production-f7c9.up.railway.app/api/v1/notifications
+
+![][image111]
+
+Services get Request  
+URL: https://flowqueue-backend-production-f7c9.up.railway.app/api/v1/services  
+![][image112]  
+Turn get Request  
+URL:https://flowqueue-backend-production-f7c9.up.railway.app/api/v1/turns
+
+![][image113]
+
+#### 5.2.4.8 Team Collaboration Insights during Sprint
+Durante el Sprint 4, la colaboración del equipo se desarrolló bajo una dinámica organizada y orientada a la integración final de los componentes de FlowQueue. El equipo trabajó de manera coordinada mediante ramas en GitHub, lo que permitió distribuir las responsabilidades por componente y reducir conflictos durante la integración del código. Esta forma de trabajo resultó especialmente importante debido a que el sprint involucró actividades simultáneas en la Landing Page, la Web Application y los Web Services.
+
+La comunicación entre los integrantes se mantuvo principalmente mediante Discord, plataforma utilizada para coordinar avances, revisar incidencias y tomar decisiones relacionadas con la integración entre frontend y backend. A partir de la retrospectiva del sprint anterior, el equipo reforzó la necesidad de mantener una comunicación constante, especialmente para asegurar que los endpoints implementados en el backend coincidieran con las necesidades funcionales de la aplicación web. Esto permitió mejorar la coordinación técnica y reducir errores durante las pruebas de integración.
+
+En términos de responsabilidades, el trabajo se distribuyó considerando las funcionalidades principales del sprint. Un grupo se enfocó en la actualización de la Landing Page, incorporando los videos “About the Product” y “About the Team” y ajustando la presentación visual del producto. Otro grupo se concentró en la Web Application, actualizando las vistas y conectándose con los servicios backend. Finalmente, se trabajó en los Web Services, incorporando endpoints adicionales y actualizando la documentación técnica en Swagger para facilitar la validación de las operaciones implementadas.
+
+La participación colaborativa permitió que el equipo avance hacia una versión más completa de FlowQueue, en la que los componentes principales funcionan de forma integrada. Además, el uso de commits, ramas de desarrollo y documentación de servicios permitió mantener trazabilidad sobre los cambios realizados durante el sprint. En conjunto, estas prácticas fortalecieron la organización del equipo, la asignación de responsabilidades y el cumplimiento del objetivo establecido para el Sprint 4\.
+
+Como conclusión, el Sprint 4 evidenció una mejora en la madurez del trabajo colaborativo del equipo. La planificación de tareas, el uso de herramientas de control de versiones, la comunicación constante y la validación conjunta de los componentes permitieron entregar una versión final más estable e integrada de FlowQueue. Este proceso demuestra la capacidad del equipo para organizarse, asumir responsabilidades técnicas y colaborar de manera efectiva en el cierre del desarrollo del producto.
+
+5.3.	Validation Interviews.  
+5.3.1.	Diseño de entrevistas.
+
+Las entrevistas de validación tienen como objetivo evaluar la usabilidad, claridad y utilidad percibida de la plataforma web FlowQueue, mostrando al entrevistado la interfaz real del producto durante la sesión. Cada entrevista sigue una estructura de demostración guiada (walkthrough), en la que primero se presenta la web app y luego se recogen impresiones, dudas y sugerencias del usuario sobre lo que acaba de visualizar.
+
+Las entrevistas se aplican a los tres segmentos identificados previamente, adaptando las preguntas al rol de cada uno dentro del flujo de atención.
+
+**Segmento 1: Ciudadanos usuarios de servicios públicos**
+
+1. Después de ver la pantalla de inicio, ¿qué tan claro te queda el propósito de FlowQueue?  
+2. Al observar el flujo para sacar un turno virtual, ¿qué pasos te parecen confusos o innecesarios?  
+3. ¿La información sobre tu posición en la cola y el tiempo estimado de espera te resulta suficiente y confiable?  
+4. ¿Qué tan fácil te parece encontrar tu sede o trámite dentro de la plataforma?  
+5. ¿Usarías esta web app desde tu celular para evitar ir a hacer fila? ¿Por qué?  
+6. ¿Qué función agregarías o cambiarías para que te resultara más útil en tu día a día?
+
+**Segmento 2: Personal administrativo de atención**
+
+1. Al ver el panel de ventanilla, ¿qué tan intuitivo te parece el proceso de llamar al siguiente turno?  
+2. ¿La información que se muestra sobre el ciudadano antes de atenderlo es suficiente para tu trabajo diario?  
+3. ¿Qué tan fácil te resulta marcar una atención como finalizada, ausente o en pausa desde la interfaz?  
+4. ¿La opción de dar prioridad a un caso especial es clara y rápida de usar?  
+5. Comparado con tu proceso actual, ¿esta herramienta te ahorraría tiempo o lo complicaría más?  
+6. ¿Qué dificultad o riesgo ves en usar esta plataforma durante un día de alta demanda?
+
+**Segmento 3: Responsables o supervisores de sede**
+
+1. Al revisar el dashboard de métricas, ¿la información mostrada te ayuda a tomar decisiones rápidas?  
+2. ¿Qué tan claros te resultan los indicadores de tiempo de espera y desempeño por ventanilla?  
+3. ¿La función de comparar sedes te parece útil para tu rol? ¿Qué te gustaría ver además?  
+4. Al ver el proceso de creación de sedes, servicios y asignación de operadores, ¿lo consideras sencillo de gestionar?  
+5. ¿Qué tan confiable percibes la información en tiempo real que muestra el sistema?  
+6. ¿Qué reporte o funcionalidad añadirías para facilitar la supervisión de tu sede?
+
+5.3.2.	Registro de Entrevistas.
+
+**Segmento 1: Ciudadanos usuarios de servicios públicos** 
+
+| Mariana Rojas 22 años  |  |  |  |
+| :---- | :---- | :---- | :---- |
+|  |  |  |  |
+| San Juan de Miraflores \- Lima  | Tiempo de inicio  0:00 | Duracion:  3:18   | Link: [https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing](https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing)  |
+| En la entrevista, Mariana menciona que el propósito de FlowQueue le queda claro desde la pantalla de inicio, ya que entiende que la plataforma busca evitar que los ciudadanos pierdan tiempo haciendo filas presenciales. Sin embargo, considera que el flujo para sacar un turno virtual debería tener menos pasos y mostrar desde el inicio qué documentos necesita para cada trámite. También indica que la información sobre su posición en cola y el tiempo estimado le parece útil, pero le gustaría que se actualice constantemente para confiar más en el sistema. Mariana afirma que sí usaría la web app desde su celular, sobre todo para trámites en RENIEC o Banco de la Nación, porque le permitiría organizar mejor su día y llegar solo cuando su turno esté cerca.  |  |  |  |
+
+| Diego Fernández 28 años  |  |  |  |
+| :---- | :---- | :---- | :---- |
+|  |  |  |  |
+| Los Olivos \- Lima  | Tiempo de inicio  0:00 | Duracion:  4:05    | Link: [https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing](https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing)  |
+| En la entrevista, Diego expresa que FlowQueue le parece una solución práctica para reducir la incertidumbre durante los trámites públicos. Señala que lo más importante para él es saber cuántas personas tiene delante y cuánto tiempo falta para ser atendido, ya que normalmente pierde varias horas esperando sin información clara. Considera que encontrar una sede o trámite dentro de la plataforma debería ser sencillo, usando filtros por distrito, institución y tipo de trámite. También menciona que agregaría notificaciones por WhatsApp o correo cuando su turno esté próximo. |  |  |  |
+
+| Valeria Campos 35 años  |  |  |  |
+| :---- | :---- | :---- | :---- |
+|  |  |  |  |
+| Comas \- Lima  | Tiempo de inicio  0:00 | Duracion: 3:42   | Link: [https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing](https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing)  |
+| En la entrevista, Valeria comenta que el objetivo de FlowQueue le parece fácil de entender, especialmente porque está relacionado con un problema cotidiano: las largas colas en servicios públicos. Al revisar el flujo para obtener un turno virtual, considera que sería importante incluir una confirmación clara del ticket y una opción para cancelar o reprogramar el turno si surge algún imprevisto. También menciona que confiaría más en la plataforma si el tiempo estimado de espera se actualiza en tiempo real. Valeria afirma que sí usaría la web app desde su celular, porque suele realizar trámites mientras organiza sus responsabilidades familiares y laborales. Para ella, la función más importante sería recibir alertas antes de que su turno sea llamado. |  |  |  |
+
+## 
+
+**Segmento 2: Personal administrativo de atención**
+
+| Carla Mendoza 30 años |  |  |  |
+| :---- | :---- | :---- | :---- |
+|  |  |  |  |
+| Cercado de Lima \- Lima | Tiempo de inicio  0:00 | Duracion:  5:26   | Link: [https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing](https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing)  |
+| En la entrevista, Carla menciona que el panel de ventanilla de FlowQueue le parece intuitivo porque permite visualizar los turnos pendientes y llamar al siguiente usuario de forma ordenada. Considera que la información previa del ciudadano, como tipo de trámite, prioridad y hora de llegada, sería suficiente para iniciar la atención sin perder tiempo. También señala que marcar una atención como finalizada, ausente o en pausa debe estar disponible con botones visibles para evitar confusiones durante horas de alta demanda.  |  |  |  |
+
+   
+
+| Andrea Salazar 26 años  |  |  |  |
+| :---- | :---- | :---- | :---- |
+|  |  |  |  |
+| Ate \- Lima  | Tiempo de inicio  0:00 | Duracion: 4:48    | Link: [https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing](https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing)  |
+| En la entrevista, Andrea comenta que el panel de ventanilla de FlowQueue se entiende con facilidad, ya que organiza los turnos por estado y permite identificar rápidamente cuál debe ser atendido. Considera útil que el sistema permite marcar turnos como finalizados, ausentes o en pausa, porque en la atención diaria muchos usuarios se retiran o llegan tarde. También menciona que la opción de priorizar casos especiales debe ser rápida, pero con una justificación visible  para mantener la transparencia. Andrea cree que la plataforma reduciría la presión sobre el  personal, ya que los ciudadanos podrían revisar desde su celular el avance de la cola sin acercarse constantemente a preguntar. Como dificultad, menciona que en horas punta podría ser complicado si todos los usuarios necesitan ayuda para usar la plataforma por primera vez.  o Banco de la Nación, porque le permitiría organizar mejor su día y llegar solo cuando su turno esté cerca.  |  |  |  |
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+**Segmento 3: Responsables o supervisores de sede**
+
+| Mariana Rojas 22 años  |  |  |  |
+| :---- | :---- | :---- | :---- |
+|  |  |  |  |
+| San Juan de Miraflores \- Lima  | Tiempo de inicio  0:00 | Duracion:  3:18   | Link: [https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing](https://drive.google.com/drive/folders/14kJyZfaev4oO9FSXEq1b84iBrHNk6GrI?usp=sharing)  |
+| En la entrevista, Mariana menciona que el propósito de FlowQueue le queda claro desde la pantalla de inicio, ya que entiende que la plataforma busca evitar que los ciudadanos pierdan tiempo haciendo filas presenciales. Sin embargo, considera que el flujo para sacar un turno virtual debería tener menos pasos y mostrar desde el inicio qué documentos necesita para cada trámite.  |  |  |  |
+
+## 
+
+5.3.3.	Evaluaciones según heurísticas.  
+**AUDITOR:** Grupo FlowQueue  
+**CLIENTE(S):** Ciudadanos usuarios de servicios públicos en Lima, Personal administrativo de atención, Supervisores o responsables de sede.  
+**SITE o APP A EVALUAR:** FlowQueue (Plataforma Web de Gestión de Colas Virtuales) 
+
+**TAREAS A EVALUAR:** El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas clave dentro del sistema:
+
+1. Registro de un usuario nuevo (Ciudadano o personal de atención)  
+2. Selección de institución, sede y tipo de servicio  
+3. Generación de un ticket virtual / obtención de turno digital  
+4. Monitoreo y visualización de la posición en la cola en tiempo real  
+5. Recepción y lectura de alertas o notificaciones de proximidad de turno  
+6. Llamado y atención de turnos desde el Dashboard Administrativo  
+7. Visualización de métricas de tiempos de espera en el Módulo de Analítica  
+8. Gestión de múltiples ubicaciones geográficas por el Administrador de Sede
+
+No están incluidas en esta versión de la evaluación las siguientes tareas:
+
+1. Integración con sistemas de base de datos internos de RENIEC, EsSalud o Banco de la Nación  
+2. Transferencia automatizada de tickets entre sedes distintas de manera remota  
+3. Configuración avanzada de hardware físico para tótems de impresión presencial
+
+**ESCALA DE SEVERIDAD:**
+
+Los errores hallados han sido puntuados tomando en cuenta la siguiente escala de severidad:
+
+| Nivel | Descripción |
+| :---- | :---- |
+| **1** | **Problema superficial:** Puede ser fácilmente superado por el usuario u ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| **2** | **Problema menor:** Puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja para resolverlo de cara al siguiente release. |
+| **3** | **Problema mayor:** Ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
+| **4** | **Problema muy grave:** Un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+TABLA RESUMEN:
+
+| \# | Problema | Escala de severidad | Heurística/Principio violada(o) |
+| :---- | :---- | :---- | :---- |
+| 1 | No se incluye un control claro para anular o cancelar el ticket virtual generado desde el dashboard del ciudadano. | 3 | Usabilidad: Libertad y control del usuario |
+| 2 | Ante pérdidas breves de conexión a internet, el monitor en tiempo real se congela sin alertar al ciudadano de la falta de sincronización. | 3 | Usabilidad: Visibilidad del estado del sistema |
+| 3 | Los botones de acción principal cambian de color (de azul a verde) entre la Landing Page y el Dashboard Administrativo. | 1 | Usabilidad: Consistencia y estándares |
+| 4 | El formulario de registro del personal administrativo permite contraseñas débiles sin avisar visualmente de los requisitos de seguridad previo al envío. | 2 | Usabilidad: Prevención de errores |
+| 5 | El módulo de analítica muestra gráficos de picos de demanda complejos pero carece de tooltips informativos para explicar las variables métricas. | 2 | Arquitectura de la Información: *Is it usable?* |
+
+**DESCRIPCIÓN DE PROBLEMAS:**
+
+**PROBLEMA \#1: Ausencia de un botón explícito para cancelar el turno digital.**
+
+* **Severidad:** 3  
+* **Heurística violada:** Usabilidad \- Libertad y control del usuario  
+* **Problema:** Una vez que el ciudadano genera exitosamente su ticket virtual para una sede, la interfaz web muestra la posición actual y el código de turno. Sin embargo, si el usuario cometió un error en la selección del servicio o decide no acudir, no encuentra ningún control que le permita anular el turno de manera autónoma. Esto lo obliga a abandonar la aplicación de forma imprevista, dejando un ticket activo innecesario que afecta las métricas operativas y el flujo del personal de atención en ventanilla. *(Se adjuntará captura de pantalla de la vista del ticket virtual del ciudadano)*.  
+* **Recomendación:** Incorporar un botón de texto o enlace claro con la etiqueta "Cancelar Turno" o "Anular Ticket" en la sección inferior de la tarjeta del ticket virtual, seguido de un modal de confirmación rápida para evitar cancelaciones accidentales.
+
+**PROBLEMA \#2: Falta de notificación visual ante la desconexión de red en el monitor de colas.**
+
+* **Severidad:** 3  
+* **Heurística violada:** Usabilidad \- Visibilidad del estado del sistema  
+* **Problema:** El monitor en tiempo real está diseñado para mostrar dinámicamente el avance de la fila. Si el smartphone del ciudadano experimenta intermitencia o pérdida de señal móvil (muy común en los exteriores de entidades públicas), la aplicación deja de recibir actualizaciones del servidor en tiempo real. Al no haber un indicador visual de "Reconectando...", el usuario asume falsamente que la cola sigue en la misma posición, lo que puede provocar que pierda su turno real presencialmente. *(Se adjuntará captura de pantalla simulando la vista estática sin red)*.  
+* **Recomendación:** Implementar un servicio de monitoreo de estado de red en el frontend (*offline detection*). En el momento en que se pierda la comunicación mediante WebSockets o HTTP Polling, superponer un banner sutil pero visible en la parte superior que indique "Sin conexión \- Intentando reconectar..." y deshabilitar temporalmente el contador de tiempo estimado.
+
+**PROBLEMA \#3: Inconsistencia cromática en componentes interactivos globales.**
+
+* **Severidad:** 1  
+* **Heurística violada:** Usabilidad \- Consistencia y estándares  
+* **Problema:** Mientras que las guías de estilo generales estipulan el uso del color azul corporativo para las llamadas a la acción (*CTA*) primarias de los ciudadanos, en las pantallas del Dashboard de los Administradores de Sede algunos botones cruciales como "Llamar Siguiente" utilizan tonalidades verdes brillantes sin un propósito semántico de éxito definido. Esta disparidad rompe la homogeneidad del ecosistema de diseño visual de FlowQueue. *(Se adjuntará captura de comparación entre interfaces)*.  
+* **Recomendación:** Homologar todos los componentes interactivos de acción primaria utilizando los colores principales de la paleta de la guía de estilos oficial de la plataforma web.
+
+**PROBLEMA \#4: Validación tardía en el formulario de creación de cuentas administrativas.**
+
+* **Severidad:** 2  
+* **Heurística violada:** Usabilidad \- Prevención de errores  
+* **Problema:** Al registrar un nuevo operador de ventanilla o supervisor en el sistema, el formulario web no valida en tiempo real si la contraseña escrita cumple con las políticas de seguridad (longitud mínima y caracteres especiales). El sistema solo notifica el incumplimiento mediante un mensaje de error general posterior a que el usuario presione el botón de "Registrar", borrando campos sensibles y obligando al personal administrativo a reescribir la información. *(Se adjuntará captura del error post-envío)*.  
+* **Recomendación:** Agregar validaciones inline automáticas utilizando expresiones regulares en el evento *onBlur* o *onChange* del input, mostrando dinámicamente un check verde o una alerta roja debajo del campo antes de habilitar el botón de envío.
+
+**PROBLEMA \#5: Ausencia de descripciones informativas en métricas avanzadas de analítica.**
+
+* **Severidad:** 2  
+* **Heurística violada:** Arquitectura de la Información \- *Is it usable?* / *Is it findable?*  
+* **Problema:** El módulo de analítica provee gráficos avanzados dirigidos a los supervisores de las sedes. A pesar de que los gráficos muestran datos críticos como "Tiempos de espera históricos" y "Picos de demanda", un usuario nuevo o poco familiarizado con el análisis de colas matemáticas no logra comprender de forma inmediata si las variables consideran la mediana o el promedio simple del tiempo. La interfaz carece de textos auxiliares informativos. *(Se adjuntará captura de los gráficos de analítica)*.  
+* **Recomendación:** Insertar pequeños íconos de ayuda (`?`) al lado de los títulos de cada sección gráfica que, al pasar el cursor (hover), desplieguen un tooltip breve explicando textualmente la procedencia del dato y cómo debe interpretarse para la toma de decisiones operativas.
+
+5.4.	Video About-the-Product.
+
+Como parte del proceso de validación, el equipo de FlowQueue elaboró un video demostrativo del producto, con el objetivo de presentar de forma clara y concisa la propuesta de valor de la plataforma, su funcionamiento principal y los beneficios que ofrece a los distintos tipos de usuarios (ciudadanos, operadores y administradores).
+
+**Enlace del video:**  
+ [https://drive.google.com/file/d/108QIMCvpdK1\_HDrnH7fVWfL0KFMKnU6E/view?usp=sharing](https://drive.google.com/file/d/108QIMCvpdK1_HDrnH7fVWfL0KFMKnU6E/view?usp=sharing)
+
+**Objetivo del video**  
+ Mostrar de manera visual y práctica cómo FlowQueue resuelve el problema de las filas físicas y la falta de transparencia en la atención al ciudadano, a través de un recorrido por las funcionalidades clave de la plataforma web.
+
 
 ### Conclusiones
 
